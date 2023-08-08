@@ -1,0 +1,1 @@
+var a=async(n,p)=>new Map(Array.from(p).filter(([f,s])=>!(n instanceof Array?n:n instanceof Set?Array.from(n):[n]).some(o=>typeof o=="string"&&(f.match(o)||s.match(o))||typeof o=="function"&&(o(f)||o(s)))));export{a as default};
