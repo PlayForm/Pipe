@@ -3,19 +3,21 @@ import type { Plan, Path } from "../../Option/Index.js";
 import Apply from "../Apply.js";
 
 export default async (Path: Path, Paths: Plan["Paths"]) => {
-	Apply(
-		(__URL: URL | string) => (__URL instanceof URL ? _Path(__URL) : __URL),
-		Path
-	).then((Path) =>
-		Apply(
-			(Path: string) => (Path.endsWith("/") ? Path : `${Path}/`),
+	const _Path = await Apply(
+		await Apply(
+			(url: URL | string) => (url instanceof URL ? _Path(url) : url),
 			Path
-		).then((Path) =>
-			Path instanceof Map
-				? Path.forEach(([Input, Output]) => Paths.set(Input, Output))
-				: Paths.set(Path, Path)
-		)
+		),
+		(Path: string) => (Path.endsWith("/") ? Path : `${Path}/`)
 	);
+
+	if (_Path instanceof Map) {
+		for (const [Input, Output] of _Path) {
+			Paths.set(Input, Output);
+		}
+	} else {
+		Paths.set(_Path, _Path);
+	}
 
 	return Paths;
 };
