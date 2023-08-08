@@ -3,18 +3,16 @@ import Glob from "fast-glob";
 import type { Plan } from "../../Option/Index.js";
 
 export default async (
-	_Glob: Pattern | Pattern[],
+	File: Pattern | Pattern[],
 	Paths: Plan["Paths"],
 	Results: Plan["Results"]
 ) => {
 	for (const [Input, Output] of Paths) {
-		const Files = await Glob(_Glob, {
+		for (const _File of await Glob(File, {
 			cwd: Input,
 			onlyFiles: true,
-		});
-
-		for (const File of Files) {
-			Results.set(`${Output}${File}`, `${Input}${File}`);
+		})) {
+			Results.set(`${Output}${_File}`, `${Input}${_File}`);
 		}
 	}
 
