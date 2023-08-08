@@ -2,6 +2,6 @@
   "version": 3,
   "sources": ["../Source/Index.ts"],
   "sourcesContent": ["export { default as Files } from \"./Library/Files.js\";\n"],
-  "mappings": "AAAA,OAAoB,WAAXA,MAAwB",
+  "mappings": "AAAA,SAAoB,WAAXA,gBAAwB;",
   "names": ["default"]
 }

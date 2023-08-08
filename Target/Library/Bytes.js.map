@@ -2,6 +2,6 @@
   "version": 3,
   "sources": ["../../Source/Library/Bytes.ts"],
   "sourcesContent": ["export default async (Bytes: number, Decimals = 2.0) => {\n\tif (Bytes === 0) {\n\t\treturn \"0 Bytes\";\n\t}\n\n\tconst K = 1024;\n\tconst I = Math.floor(Math.log(Bytes) / Math.log(K));\n\n\treturn `${parseFloat(\n\t\t(Bytes / K ** I).toFixed(Decimals < 0 ? 0 : Decimals)\n\t)} ${[\"Bytes\", \"KB\", \"MB\", \"GB\", \"TB\", \"PB\", \"EB\", \"ZB\", \"YB\"][I]}`;\n};\n"],
-  "mappings": "AAAA,IAAOA,EAAQ,MAAOC,EAAeC,EAAW,IAAQ,CACvD,GAAID,IAAU,EACb,MAAO,UAGR,MAAME,EAAI,KACJC,EAAI,KAAK,MAAM,KAAK,IAAIH,CAAK,EAAI,KAAK,IAAIE,CAAC,CAAC,EAElD,MAAO,GAAG,YACRF,EAAQE,GAAKC,GAAG,QAAQF,EAAW,EAAI,EAAIA,CAAQ,CACrD,CAAC,IAAI,CAAC,QAAS,KAAM,KAAM,KAAM,KAAM,KAAM,KAAM,KAAM,IAAI,EAAEE,CAAC,CAAC,EAClE",
-  "names": ["Bytes_default", "Bytes", "Decimals", "K", "I"]
+  "mappings": "AAAA,IAAO,gBAAQ,OAAO,OAAe,WAAW,MAAQ;AACvD,MAAI,UAAU,GAAG;AAChB,WAAO;AAAA,EACR;AAEA,QAAM,IAAI;AACV,QAAM,IAAI,KAAK,MAAM,KAAK,IAAI,KAAK,IAAI,KAAK,IAAI,CAAC,CAAC;AAElD,SAAO,GAAG;AAAA,KACR,QAAQ,KAAK,GAAG,QAAQ,WAAW,IAAI,IAAI,QAAQ;AAAA,EACrD,CAAC,IAAI,CAAC,SAAS,MAAM,MAAM,MAAM,MAAM,MAAM,MAAM,MAAM,IAAI,EAAE,CAAC,CAAC;AAClE;",
+  "names": []
 }
