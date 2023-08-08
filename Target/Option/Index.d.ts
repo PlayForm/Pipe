@@ -49,7 +49,7 @@ declare const _default: {
     Logger: 2;
     Pipe: {
         Wrote: (On: File) => Promise<Buffer>;
-        Read: (On: File) => Promise<string>;
+        Read: (On: File) => Promise<any>;
         Passed: (On: File) => Promise<boolean>;
         Failed: (On: File) => Promise<string>;
         Accomplished: (On: File) => Promise<string>;

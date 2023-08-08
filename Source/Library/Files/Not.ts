@@ -1,6 +1,6 @@
 import type { Options, Plan } from "../../Option/Index.js";
 
-export default async (Pattern: Options["exclude"], Files: Plan["Results"]) =>
+export default async (Pattern: Options["Exclude"], Files: Plan["Results"]) =>
 	new Map(
 		Array.from(Files).filter(
 			([Key, Value]) =>

@@ -1,5 +1,5 @@
 import type { Pattern } from "fast-glob";
-import { readFile } from "fs/promises";
+import { readFile as _File } from "fs/promises";
 import type { Stream } from "stream";
 
 export type Debug = 0 | 1 | 2;
@@ -92,12 +92,12 @@ export default {
 	Logger: 2,
 	Pipe: {
 		Wrote: async (On) => On.Buffer,
-		Read: async (On) => await readFile(On.Input, "utf-8"),
+		Read: async (On) => await _File(On.Input, "utf-8"),
 		Passed: async (On) => On && true,
 		Failed: async (On) => `Error: Cannot process file ${On.Input}!`,
 		Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,
 		Fulfilled: async (Plan) =>
-			Plan.files > 0
+			Plan.Files > 0
 				? `Successfully processed a total of ${Plan.Files} ${
 						Plan.Files === 1 ? "file" : "files"
 				  }.`

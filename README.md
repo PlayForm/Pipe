@@ -98,7 +98,7 @@ await new Files().Not([
 ]);
 ```
 
-Set `logger` to `0` if you do not want to see debug messages. Default is `2`.
+Set `Logger` to `0` if you do not want to see debug messages. Default is `2`.
 
 **`Index.ts`**
 

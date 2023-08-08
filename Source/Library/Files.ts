@@ -1,16 +1,15 @@
 import type { Pattern } from "fast-glob";
 import type { Executions, Plan, Path, Options } from "../Option/Index.js";
-import Defaults from "../Option/Index.js";
+import Default from "../Option/Index.js";
 import By from "./Files/By.js";
 import In from "./Files/In.js";
 import Not from "./Files/Not.js";
 import Pipe from "./Files/Pipe.js";
 
 export default class Files {
-	Pipe = (Callbacks: Executions = Defaults.Pipe) =>
-		Pipe(this.Plan, Callbacks);
+	Pipe = (Callbacks: Executions = Default.Pipe) => Pipe(this.Plan, Callbacks);
 
-	Not = (Pattern: Options["exclude"]) =>
+	Not = (Pattern: Options["Exclude"]) =>
 		Not(Pattern, this.Plan.Results).then((Results) => {
 			this.Plan.Results = Results;
 		}) || this;
