@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../Source/Library/Merge.ts"],
-  "sourcesContent": ["import type { DeepMergeLeafURI as URI } from \"deepmerge-ts\";\nimport { deepmergeCustom as Merge } from \"deepmerge-ts\";\n\nexport default Merge<{\n\tDeepMergeArraysURI: URI;\n}>({\n\tmergeArrays: false,\n});\n"],
-  "mappings": "AACA,SAAS,mBAAmB,aAAa;AAEzC,IAAO,gBAAQ,MAEZ;AAAA,EACF,aAAa;AACd,CAAC;",
-  "names": []
-}

@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.0.3",
+	"version": "2.0.4",
 	"homepage": "https://github.com/baxast/files-pipe#readme",
 	"bugs": {
 		"url": "https://github.com/baxast/files-pipe/issues"
@@ -20,6 +20,6 @@
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"baxast": "0.0.9"
+		"baxast": "0.0.10"
 	}
 }

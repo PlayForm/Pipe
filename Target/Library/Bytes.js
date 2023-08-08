@@ -1,14 +1,1 @@
-var Bytes_default = async (Bytes, Decimals = 2) => {
-  if (Bytes === 0) {
-    return "0 Bytes";
-  }
-  const K = 1024;
-  const I = Math.floor(Math.log(Bytes) / Math.log(K));
-  return `${parseFloat(
-    (Bytes / K ** I).toFixed(Decimals < 0 ? 0 : Decimals)
-  )} ${["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][I]}`;
-};
-export {
-  Bytes_default as default
-};
-//# sourceMappingURL=Bytes.js.map
+var a=async(t,o=2)=>{if(t===0)return"0 Bytes";const r=1024,B=Math.floor(Math.log(t)/Math.log(r));return`${parseFloat((t/r**B).toFixed(o<0?0:o))} ${["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"][B]}`};export{a as default};

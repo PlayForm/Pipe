@@ -1,5 +1,1 @@
-import { default as default2 } from "./Library/Files.js";
-export {
-  default2 as Files
-};
-//# sourceMappingURL=Index.js.map
+import{default as f}from"./Library/Files.js";export{f as Files};
