@@ -10,14 +10,14 @@ export default class Files {
 	Pipe = async (Callbacks: Executions = Default.Pipe) =>
 		await Pipe(this.Plan, Callbacks);
 
-	Not = async (Pattern: Options["Exclude"]) => {
-		this.Plan.Results = await Not(Pattern, this.Plan.Results);
+	Not = async (File: Options["Exclude"]) => {
+		this.Plan.Results = await Not(File, this.Plan.Results);
 
 		return this;
 	};
 
-	By = async (Glob: Pattern | Pattern[] = "**/*") => {
-		this.Plan.Results = await By(Glob, this.Plan.Paths, this.Plan.Results);
+	By = async (File: Pattern | Pattern[] = "**/*") => {
+		this.Plan.Results = await By(File, this.Plan.Paths, this.Plan.Results);
 
 		return this;
 	};
