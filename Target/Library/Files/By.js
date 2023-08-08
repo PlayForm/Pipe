@@ -1,16 +1,2 @@
-import Glob from "fast-glob";
-var By_default = async (File, Paths, Results) => {
-  for (const [Input, Output] of Paths) {
-    for (const _File of await Glob(File, {
-      cwd: Input,
-      onlyFiles: true
-    })) {
-      Results.set(`${Output}${_File}`, `${Input}${_File}`);
-    }
-  }
-  return Results;
-};
-export {
-  By_default as default
-};
+import f from"fast-glob";var p=async(n,e,t)=>{for(const[o,a]of e)for(const r of await f(n,{cwd:o,onlyFiles:!0}))t.set(`${a}${r}`,`${o}${r}`);return t};export{p as default};
 //# sourceMappingURL=By.js.map

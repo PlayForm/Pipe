@@ -1,23 +1,2 @@
-import { fileURLToPath as __Path } from "url";
-import Apply from "../Apply.js";
-var In_default = async (Path, Paths) => {
-  const _Path = await Apply(
-    (Path2) => Path2.endsWith("/") ? Path2 : `${Path2}/`,
-    await Apply(
-      (url) => url instanceof URL ? __Path(url) : url,
-      Path
-    )
-  );
-  if (_Path instanceof Map) {
-    for (const [Input, Output] of _Path) {
-      Paths.set(Input, Output);
-    }
-  } else {
-    Paths.set(_Path, _Path);
-  }
-  return Paths;
-};
-export {
-  In_default as default
-};
+import{fileURLToPath as s}from"url";import a from"../Apply.js";var r=async(e,o)=>{const n=await a(t=>t.endsWith("/")?t:`${t}/`,await a(t=>t instanceof URL?s(t):t,e));if(n instanceof Map)for(const[t,i]of n)o.set(t,i);else o.set(n,n);return o};export{r as default};
 //# sourceMappingURL=In.js.map

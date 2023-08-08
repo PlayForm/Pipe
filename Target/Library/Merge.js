@@ -1,8 +1,2 @@
-import { deepmergeCustom as Merge } from "deepmerge-ts";
-var Merge_default = Merge({
-  mergeArrays: false
-});
-export {
-  Merge_default as default
-};
+import{deepmergeCustom as e}from"deepmerge-ts";var m=e({mergeArrays:!1});export{m as default};
 //# sourceMappingURL=Merge.js.map

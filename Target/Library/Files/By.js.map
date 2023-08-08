@@ -2,6 +2,6 @@
   "version": 3,
   "sources": ["../../../Source/Library/Files/By.ts"],
   "sourcesContent": ["import type { Pattern } from \"fast-glob\";\nimport Glob from \"fast-glob\";\nimport type { Plan } from \"../../Option/Index.js\";\n\nexport default async (\n\tFile: Pattern | Pattern[],\n\tPaths: Plan[\"Paths\"],\n\tResults: Plan[\"Results\"]\n) => {\n\tfor (const [Input, Output] of Paths) {\n\t\tfor (const _File of await Glob(File, {\n\t\t\tcwd: Input,\n\t\t\tonlyFiles: true,\n\t\t})) {\n\t\t\tResults.set(`${Output}${_File}`, `${Input}${_File}`);\n\t\t}\n\t}\n\n\treturn Results;\n};\n"],
-  "mappings": "AACA,OAAO,UAAU;AAGjB,IAAO,aAAQ,OACd,MACA,OACA,YACI;AACJ,aAAW,CAAC,OAAO,MAAM,KAAK,OAAO;AACpC,eAAW,SAAS,MAAM,KAAK,MAAM;AAAA,MACpC,KAAK;AAAA,MACL,WAAW;AAAA,IACZ,CAAC,GAAG;AACH,cAAQ,IAAI,GAAG,MAAM,GAAG,KAAK,IAAI,GAAG,KAAK,GAAG,KAAK,EAAE;AAAA,IACpD;AAAA,EACD;AAEA,SAAO;AACR;",
-  "names": []
+  "mappings": "AACA,OAAOA,MAAU,YAGjB,IAAOC,EAAQ,MACdC,EACAC,EACAC,IACI,CACJ,SAAW,CAACC,EAAOC,CAAM,IAAKH,EAC7B,UAAWI,KAAS,MAAMP,EAAKE,EAAM,CACpC,IAAKG,EACL,UAAW,EACZ,CAAC,EACAD,EAAQ,IAAI,GAAGE,CAAM,GAAGC,CAAK,GAAI,GAAGF,CAAK,GAAGE,CAAK,EAAE,EAIrD,OAAOH,CACR",
+  "names": ["Glob", "By_default", "File", "Paths", "Results", "Input", "Output", "_File"]
 }
