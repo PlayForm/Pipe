@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../Source/Library/Files/In.ts"],
+  "sourcesContent": ["import { fileURLToPath as __Path } from \"url\";\nimport type { Path, Plan } from \"../../Option/Index.js\";\nimport Apply from \"../Apply.js\";\n\nexport default async (Path: Path, Paths: Plan[\"Paths\"]) => {\n\tconst _Path = await Apply(\n\t\t(Path: string) => (Path.endsWith(\"/\") ? Path : `${Path}/`),\n\t\tawait Apply(\n\t\t\t(url: URL | string) => (url instanceof URL ? __Path(url) : url),\n\t\t\tPath\n\t\t)\n\t);\n\n\tif (_Path instanceof Map) {\n\t\tfor (const [Input, Output] of _Path) {\n\t\t\tPaths.set(Input, Output);\n\t\t}\n\t} else {\n\t\tPaths.set(_Path, _Path);\n\t}\n\n\treturn Paths;\n};\n"],
+  "mappings": "AAAA,SAAS,iBAAiB,cAAc;AAExC,OAAO,WAAW;AAElB,IAAO,aAAQ,OAAO,MAAY,UAAyB;AAC1D,QAAM,QAAQ,MAAM;AAAA,IACnB,CAACA,UAAkBA,MAAK,SAAS,GAAG,IAAIA,QAAO,GAAGA,KAAI;AAAA,IACtD,MAAM;AAAA,MACL,CAAC,QAAuB,eAAe,MAAM,OAAO,GAAG,IAAI;AAAA,MAC3D;AAAA,IACD;AAAA,EACD;AAEA,MAAI,iBAAiB,KAAK;AACzB,eAAW,CAAC,OAAO,MAAM,KAAK,OAAO;AACpC,YAAM,IAAI,OAAO,MAAM;AAAA,IACxB;AAAA,EACD,OAAO;AACN,UAAM,IAAI,OAAO,KAAK;AAAA,EACvB;AAEA,SAAO;AACR;",
+  "names": ["Path"]
+}

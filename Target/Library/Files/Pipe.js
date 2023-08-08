@@ -1,1 +1,84 @@
-import{constants as w}from"fs";import{access as m,writeFile as y,mkdir as B,stat as c}from"fs/promises";import{dirname as l}from"path";var E=async(p,{Fulfilled:a,Failed:s,Accomplished:o,Changed:f,Passed:u,Read:r,Wrote:O})=>{let t=p;for(const[e,g]of t.Results)try{if(t.On.Input=g,t.On.Output=e,t.On.Before=(await c(t.On.Input)).size,r&&O){t.On.Buffer=await r(t.On);const i=await O(t.On);if(!i)continue;if(t.On.Buffer=i,u&&await u(t.On)){try{await m(l(t.On.Output),w.W_OK)}catch{await B(l(t.On.Output),{recursive:!0})}if(await y(t.On.Output,t.On.Buffer,"utf-8"),t.On.After=(await c(t.On.Output)).size,t.Debug>0&&(t.Files++,f&&(t=await f(t))),t.Debug>1&&typeof o=="function"){const n=await o(t.On);n&&n.length>0&&console.log(n)}}}}catch(i){if(t.Results.delete(e),typeof s=="function"){const n=await s(t.On,i);n&&n.length>0&&console.log(n)}else t.Debug>1&&console.log(i)}if(t.Debug>0&&t.Results.size>0&&typeof a=="function"){const e=await a(t);e&&e.length>0&&console.log(e)}return t};export{E as default};
+import { constants as Constant } from "fs";
+import {
+  access as Access,
+  writeFile as File,
+  mkdir as Make,
+  stat as Stat
+} from "fs/promises";
+import { dirname as Dir } from "path";
+var Pipe_default = async (Plan, {
+  Fulfilled,
+  Failed,
+  Accomplished,
+  Changed,
+  Passed,
+  Read,
+  Wrote
+}) => {
+  let _Plan = Plan;
+  for (const [Output, Input] of _Plan.Results) {
+    try {
+      _Plan.On.Input = Input;
+      _Plan.On.Output = Output;
+      _Plan.On.Before = (await Stat(_Plan.On.Input)).size;
+      if (Read && Wrote) {
+        _Plan.On.Buffer = await Read(_Plan.On);
+        const Buffer = await Wrote(_Plan.On);
+        if (!Buffer) {
+          continue;
+        }
+        _Plan.On.Buffer = Buffer;
+        if (Passed && await Passed(_Plan.On)) {
+          try {
+            await Access(Dir(_Plan.On.Output), Constant.W_OK);
+          } catch (_Error) {
+            await Make(Dir(_Plan.On.Output), {
+              recursive: true
+            });
+          }
+          await File(_Plan.On.Output, _Plan.On.Buffer, "utf-8");
+          _Plan.On.After = (await Stat(_Plan.On.Output)).size;
+          if (_Plan.Debug > 0) {
+            _Plan.Files++;
+            if (Changed) {
+              _Plan = await Changed(_Plan);
+            }
+          }
+          if (_Plan.Debug > 1) {
+            if (typeof Accomplished === "function") {
+              const Message = await Accomplished(_Plan.On);
+              if (Message && Message.length > 0) {
+                console.log(Message);
+              }
+            }
+          }
+        }
+      }
+    } catch (_Error) {
+      _Plan.Results.delete(Output);
+      if (typeof Failed === "function") {
+        const Message = await Failed(_Plan.On, _Error);
+        if (Message && Message.length > 0) {
+          console.log(Message);
+        }
+      } else {
+        if (_Plan.Debug > 1) {
+          console.log(_Error);
+        }
+      }
+    }
+  }
+  if (_Plan.Debug > 0 && _Plan.Results.size > 0) {
+    if (typeof Fulfilled === "function") {
+      const Message = await Fulfilled(_Plan);
+      if (Message && Message.length > 0) {
+        console.log(Message);
+      }
+    }
+  }
+  return _Plan;
+};
+export {
+  Pipe_default as default
+};
+//# sourceMappingURL=Pipe.js.map
