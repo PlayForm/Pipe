@@ -7,19 +7,16 @@ export default async (
 	Paths: Plan["Paths"],
 	Results: Plan["Results"]
 ) => {
-	Paths.forEach(
-		([Input, Output]) =>
-			Input &&
-			Output &&
-			Glob(_Glob, {
-				cwd: Input,
-				onlyFiles: true,
-			}).then((Files) =>
-				Files.forEach((File) =>
-					Results.set(`${Output}${File}`, `${Input}${File}`)
-				)
-			)
-	);
+	for (const [Input, Output] of Paths) {
+		const Files = await Glob(_Glob, {
+			cwd: Input,
+			onlyFiles: true,
+		});
+
+		for (const File of Files) {
+			Results.set(`${Output}${File}`, `${Input}${File}`);
+		}
+	}
 
 	return Results;
 };

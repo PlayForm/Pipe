@@ -1,1 +1,1 @@
-import l from"fast-glob";var m=async(e,n,r)=>(n.forEach(([t,o])=>t&&o&&l(e,{cwd:t,onlyFiles:!0}).then(f=>f.forEach(a=>r.set(`${o}${a}`,`${t}${a}`)))),r);export{m as default};
+import s from"fast-glob";var p=async(r,e,t)=>{for(const[o,a]of e){const l=await s(r,{cwd:o,onlyFiles:!0});for(const n of l)t.set(`${a}${n}`,`${o}${n}`)}return t};export{p as default};
