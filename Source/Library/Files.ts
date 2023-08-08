@@ -1,5 +1,5 @@
 import type { Pattern } from "fast-glob";
-import type { Executions, Plan, Path, Options } from "../Option/Index.js";
+import type { Executions, Options, Path, Plan } from "../Option/Index.js";
 import Default from "../Option/Index.js";
 import By from "./Files/By.js";
 import In from "./Files/In.js";

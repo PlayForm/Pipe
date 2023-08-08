@@ -1,5 +1,4 @@
-import { fileURLToPath as _Path } from "url";
-import type { Plan, Path } from "../../Option/Index.js";
+import type { Path, Plan } from "../../Option/Index.js";
 import Apply from "../Apply.js";
 
 export default async (Path: Path, Paths: Plan["Paths"]) => {

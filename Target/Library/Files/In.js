@@ -1,1 +1,1 @@
-import"url";import a from"../Apply.js";var r=async(e,o)=>{const n=await a(t=>t.endsWith("/")?t:`${t}/`,await a(t=>t instanceof URL?n(t):t,e));if(n instanceof Map)for(const[t,i]of n)o.set(t,i);else o.set(n,n);return o};export{r as default};
+import o from"../Apply.js";var p=async(a,e)=>{const n=await o(t=>t.endsWith("/")?t:`${t}/`,await o(t=>t instanceof URL?n(t):t,a));if(n instanceof Map)for(const[t,i]of n)e.set(t,i);else e.set(n,n);return e};export{p as default};
