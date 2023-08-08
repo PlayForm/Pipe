@@ -20,6 +20,6 @@
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"baxast": "latest"
+		"baxast": "0.0.8"
 	}
 }
