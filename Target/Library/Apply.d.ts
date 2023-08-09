@@ -1,2 +1,2 @@
-declare const _default: <T = string>(Fn: (args: any) => T, Test: any) => Promise<any[] | T | Map<any, any> | Set<unknown>>;
+declare const _default: (Fn: any, Test: any) => Promise<any>;
 export default _default;
