@@ -11,7 +11,7 @@ export type Buffer =
 	| AsyncIterable<string | NodeJS.ArrayBufferView>
 	| Stream;
 
-export interface Executions {
+export interface Execution {
 	Fulfilled?: boolean | ((Plan: Plan) => Promise<false | string>);
 
 	Failed?:
@@ -45,7 +45,7 @@ export interface Options {
 
 	Type?: string;
 
-	Pipe?: Executions;
+	Pipe?: Execution;
 
 	Logger?: Debug;
 }

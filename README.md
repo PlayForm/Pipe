@@ -15,7 +15,7 @@ Then, create a new pipe from this component:
 ```ts
 import { Files } from "files-pipe";
 
-await new Files().In("./input");
+await new Files().In("./Input");
 ```
 
 ## Getting started

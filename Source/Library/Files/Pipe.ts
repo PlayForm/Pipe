@@ -6,7 +6,7 @@ import {
 	stat as Stat,
 } from "fs/promises";
 import { dirname as Dir } from "path";
-import type { Executions, Plan } from "../../Option/Index.js";
+import type { Execution, Plan } from "../../Option/Index.js";
 
 export default async (
 	Plan: Plan,
@@ -18,7 +18,7 @@ export default async (
 		Passed,
 		Read,
 		Wrote,
-	}: Executions
+	}: Execution
 ) => {
 	let _Plan = Plan;
 

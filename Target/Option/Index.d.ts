@@ -5,7 +5,7 @@ import type { Pattern } from "fast-glob";
 import type { Stream } from "stream";
 export type Debug = 0 | 1 | 2;
 export type Buffer = string | NodeJS.ArrayBufferView | Iterable<string | NodeJS.ArrayBufferView> | AsyncIterable<string | NodeJS.ArrayBufferView> | Stream;
-export interface Executions {
+export interface Execution {
     Fulfilled?: boolean | ((Plan: Plan) => Promise<false | string>);
     Failed?: boolean | ((Input: File, _Error: unknown) => Promise<false | string>);
     Accomplished?: boolean | ((On: File) => Promise<false | string>);
@@ -22,7 +22,7 @@ export interface Options {
     Exclude?: Exclude | Exclude[] | Set<Exclude>;
     Files?: Pattern | Pattern[];
     Type?: string;
-    Pipe?: Executions;
+    Pipe?: Execution;
     Logger?: Debug;
 }
 export interface Plan {
