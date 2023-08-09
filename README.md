@@ -36,7 +36,7 @@ await (
 });
 ```
 
-These are the defaults for each callback.
+#### These are the defaults for each callback.
 
 ```ts
 import { Files } from "files-pipe";
@@ -62,7 +62,8 @@ await new Files().Pipe({
 });
 ```
 
-You can add multiple paths to your pipe by specifying an array as the `path`
+#### You can add multiple paths to your pipe by specifying an array as the `path`
+
 variable.
 
 **`Index.ts`**
@@ -73,7 +74,7 @@ import { Files } from "files-pipe";
 await new Files().In(["./Input", "./Input2"]);
 ```
 
-You can also provide a map of paths for different input output directories.
+#### You can also provide a map of paths for different input output directories.
 
 **`Index.ts`**
 
@@ -83,9 +84,7 @@ import { Files } from "files-pipe";
 await new Files().In(new Map([["./Input", "./Output"]]));
 ```
 
-You can provide a filter to exclude files from your pipe. A filter can be an
-array of regexes or a single match. You can use functions, as well to match on
-file names.
+#### You can provide a filter to exclude files from your pipe. A filter can be an array of regexes or a single match. You can use functions, as well to match on file names.
 
 **`Index.ts`**
 
@@ -98,7 +97,7 @@ await new Files().Not([
 ]);
 ```
 
-Set `Logger` to `0` if you do not want to see debug messages. Default is `2`.
+#### Set `Logger` to `0` if you do not want to see debug messages. Default is `2`.
 
 **`Index.ts`**
 
