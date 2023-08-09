@@ -1,5 +1,5 @@
 // rome-ignore lint/suspicious/noExplicitAny:
-export default async (Fn: any, Test: any) => {
+export default async <T = string>(Fn: (args: any) => T, Test: any) => {
 	switch (true) {
 		case Test instanceof Map: {
 			const Tests = new Map();

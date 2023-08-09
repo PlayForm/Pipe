@@ -6,7 +6,7 @@ export default async (Path: Path, Paths: Plan["Paths"]) => {
 	const _Path = await Apply(
 		(Path: string) => (Path.endsWith("/") ? Path : `${Path}/`),
 		await Apply(
-			(url: URL | string) => (url instanceof URL ? __Path(url) : url),
+			(_URL: URL | string) => (_URL instanceof URL ? __Path(_URL) : _URL),
 			Path
 		)
 	);
