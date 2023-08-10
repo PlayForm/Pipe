@@ -10,15 +10,7 @@ import type { Execution, Plan } from "../../Option/Index.js";
 
 export default async (
 	Plan: Plan,
-	{
-		Fulfilled,
-		Failed,
-		Accomplished,
-		Changed,
-		Passed,
-		Read,
-		Wrote,
-	}: Execution
+	{ Fulfilled, Failed, Accomplished, Changed, Passed, Read, Wrote }: Execution
 ) => {
 	let _Plan = Plan;
 
