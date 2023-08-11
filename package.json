@@ -1,13 +1,13 @@
 {
 	"name": "files-pipe",
 	"version": "2.0.8",
-	"homepage": "https://github.com/baxast/files-pipe#readme",
+	"homepage": "https://github.com/NikolaRHristov/files-pipe#readme",
 	"bugs": {
-		"url": "https://github.com/baxast/files-pipe/issues"
+		"url": "https://github.com/NikolaRHristov/files-pipe/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/baxast/files-pipe.git"
+		"url": "git+https://github.com/NikolaRHristov/files-pipe.git"
 	},
 	"type": "module",
 	"main": "./Target/Index.js",
