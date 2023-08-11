@@ -62,9 +62,7 @@ await new Files().Pipe({
 });
 ```
 
-#### You can add multiple paths to your pipe by specifying an array as the `path`
-
-variable.
+#### You can add multiple paths to your pipe by specifying an array as the `path` variable.
 
 **`Index.ts`**
 
