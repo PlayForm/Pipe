@@ -1,13 +1,13 @@
 {
 	"name": "files-pipe",
 	"version": "2.0.8",
-	"homepage": "https://github.com/NikolaRHristov/files-pipe#readme",
+	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
 	"bugs": {
-		"url": "https://github.com/NikolaRHristov/files-pipe/issues"
+		"url": "https://github.com/NikolaRHristov/FilesPipe/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/NikolaRHristov/files-pipe.git"
+		"url": "git+https://github.com/NikolaRHristov/FilesPipe.git"
 	},
 	"type": "module",
 	"main": "./Target/Index.js",
