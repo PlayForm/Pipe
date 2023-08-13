@@ -2,6 +2,6 @@
 	"compilerOptions": {
 		"outDir": "Target"
 	},
-	"extends": "@nikolarhristov/tsbundle/Target/Configuration/TypeScript",
+	"extends": "syclone/Target/Configuration/TypeScript",
 	"include": ["Source"]
 }

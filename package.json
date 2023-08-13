@@ -13,7 +13,7 @@
 	"main": "./Target/Index.js",
 	"types": "./Target/Index.d.ts",
 	"scripts": {
-		"prepublishOnly": "TSBundle 'Source/**/*.ts'"
+		"prepublishOnly": "Syclone 'Source/**/*.ts'"
 	},
 	"dependencies": {
 		"@types/node": "20.4.10",
@@ -21,6 +21,6 @@
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"@nikolarhristov/tsbundle": "0.1.5"
+		"syclone": "0.1.5"
 	}
 }
