@@ -2,6 +2,6 @@
 	"compilerOptions": {
 		"outDir": "Target"
 	},
-	"extends": "tsbundle/Target/Configuration/TypeScript",
+	"extends": "@nikolarhristov/tsbundle/Target/Configuration/TypeScript",
 	"include": ["Source"]
 }

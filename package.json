@@ -21,6 +21,6 @@
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"tsbundle": "0.1.5"
+		"@nikolarhristov/tsbundle": "0.1.5"
 	}
 }
