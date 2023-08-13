@@ -13,7 +13,7 @@
 	"main": "./Target/Index.js",
 	"types": "./Target/Index.d.ts",
 	"scripts": {
-		"prepublishOnly": "Syclone 'Source/**/*.ts'"
+		"prepublishOnly": "TypeScriptBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
 		"@types/node": "20.4.10",
