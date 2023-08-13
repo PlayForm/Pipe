@@ -21,6 +21,6 @@
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"syclone": "0.1.6"
+		"typescript-build": "0.1.6"
 	}
 }

@@ -2,6 +2,6 @@
 	"compilerOptions": {
 		"outDir": "Target"
 	},
-	"extends": "syclone/Target/Configuration/TypeScript",
+	"extends": "typescript-build/Target/Configuration/TypeScript",
 	"include": ["Source"]
 }
