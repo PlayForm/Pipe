@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.0.12",
+	"version": "2.0.13",
 	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
 	"bugs": {
 		"url": "https://github.com/NikolaRHristov/FilesPipe/issues"
@@ -9,6 +9,7 @@
 		"type": "git",
 		"url": "git+https://github.com/NikolaRHristov/FilesPipe.git"
 	},
+	"license": "MIT",
 	"type": "module",
 	"main": "./Target/Index.js",
 	"types": "./Target/Index.d.ts",
@@ -21,6 +22,6 @@
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.1.11"
+		"typescript-esbuild": "0.1.12"
 	}
 }
