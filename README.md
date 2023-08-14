@@ -1,10 +1,10 @@
-# [files-pipe] 🧪
+# [FilesPipe] 🧪
 
 Allows you to process files in a pipeline.
 
 ## Installation
 
-First, install the `files-pipe` component like so:
+First, install the FilesPipe component like so:
 
 ```
 npm install -D -E files-pipe
@@ -22,8 +22,8 @@ await new Files().In("./Input");
 
 ## Getting started
 
-The `files-pipe` will now provide you with a `pipe` method which you can use to
-execute the callback on each file from the pipe.
+FilesPipe will now provide you with a `Pipe` method, which you can use to execute
+the callback on each file from the pipe.
 
 **`Index.ts`**
 
@@ -107,7 +107,7 @@ import { Files } from "files-pipe";
 new Files(0);
 ```
 
-[files-pipe]: https://npmjs.org/files-pipe
+[FilesPipe]: https://npmjs.org/files-pipe
 
 ## Changelog
 
