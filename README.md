@@ -1,5 +1,7 @@
 # [files-pipe] 🧪
 
+Allows you to process files in a pipeline.
+
 ## Installation
 
 First, install the `files-pipe` component like so:
