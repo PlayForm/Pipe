@@ -33,7 +33,7 @@ export type Exclude = string | RegExp | ((File: string) => boolean);
 
 export type Path = string | URL | Map<string | URL, string | URL> | false;
 
-export interface Options {
+export interface Option {
 	// rome-ignore lint/suspicious/noExplicitAny:
 	[key: string]: any;
 
@@ -104,4 +104,4 @@ export default {
 				: false,
 		Changed: async (Plan) => Plan,
 	},
-} satisfies Options;
+} satisfies Option;

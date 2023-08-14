@@ -1,6 +1,6 @@
-import type { Options, Plan } from "../../Option/Index.js";
+import type { Option, Plan } from "../../Option/Index.js";
 
-export default async (Pattern: Options["Exclude"], Files: Plan["Results"]) => {
+export default async (Pattern: Option["Exclude"], Files: Plan["Results"]) => {
 	const Filters = new Set();
 
 	if (typeof Pattern !== "undefined") {

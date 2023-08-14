@@ -1,5 +1,5 @@
 import type { Pattern } from "fast-glob";
-import type { Execution, Options, Path, Plan } from "../Option/Index.js";
+import type { Execution, Option, Path, Plan } from "../Option/Index.js";
 import Default from "../Option/Index.js";
 import By from "./Files/By.js";
 import In from "./Files/In.js";
@@ -10,7 +10,7 @@ export default class Files {
 	Pipe = async (Execution: Execution = Default.Pipe) =>
 		await Pipe(this.Plan, Execution);
 
-	Not = async (File: Options["Exclude"]) => {
+	Not = async (File: Option["Exclude"]) => {
 		this.Plan.Results = await Not(File, this.Plan.Results);
 
 		return this;
