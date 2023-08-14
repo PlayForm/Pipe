@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.0.13",
+	"version": "2.0.14",
 	"description": "🧪 Allows you to process files in a pipeline",
 	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
 	"bugs": {
