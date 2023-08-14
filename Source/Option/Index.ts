@@ -50,7 +50,6 @@ export interface Option {
 	Logger?: Debug;
 }
 
-// Results.set(`${Output}${File}`, `${Input}${File}`)
 export interface Plan {
 	Debug: Debug;
 
