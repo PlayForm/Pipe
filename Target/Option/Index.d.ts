@@ -16,7 +16,7 @@ export interface Execution {
 }
 export type Exclude = string | RegExp | ((File: string) => boolean);
 export type Path = string | URL | Map<string | URL, string | URL> | false;
-export interface _Options {
+export interface Option {
     [key: string]: any;
     Path?: Path | Path[] | Set<Path>;
     Exclude?: Exclude | Exclude[] | Set<Exclude>;
