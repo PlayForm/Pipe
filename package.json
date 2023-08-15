@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.0.14",
+	"version": "2.0.15",
 	"description": "🧪 Allows you to process files in a pipeline",
 	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
 	"bugs": {
@@ -23,6 +23,6 @@
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.1.12"
+		"typescript-esbuild": "0.1.13"
 	}
 }
