@@ -105,15 +105,29 @@ export interface Option {
 	 */
 	Pipe?: Execution;
 
+	/**
+	 * Debugging level.
+	 */
 	Logger?: Debug;
 }
 
+/**
+ * Represents the execution plan.
+ */
 export interface Plan {
+	/**
+	 * The debugging level for the execution plan.
+	 */
 	Debug: Debug;
 
+	/**
+	 * The number of files in the execution plan.
+	 */
 	Files: number;
 
-	// rome-ignore lint/suspicious/noExplicitAny:
+	/**
+	 * Additional information associated with the execution plan.
+	 */
 	Info: any;
 
 	Paths: Map<Dir["Input"], Dir["Output"]>;
