@@ -2,8 +2,14 @@ import type { Pattern } from "fast-glob";
 import { readFile as _File } from "fs/promises";
 import type { Stream } from "stream";
 
+/**
+ * Represents the possible debugging levels.
+ */
 export type Debug = 0 | 1 | 2;
 
+/**
+ * Represents various types that can be used as buffer data.
+ */
 export type Buffer =
 	| string
 	| NodeJS.ArrayBufferView
@@ -47,9 +53,9 @@ export interface Execution {
 	Changed?: (Plan: Plan) => Promise<Plan>;
 
 	/**
-	 * Attaches a callback for actions that have passed.
-	 * @param On The file on which the action has passed.
-	 * @returns A Promise that resolves to a boolean value.
+	 * Attaches a callback for actions that check if a file can pass through the pipe.
+	 * @param On The file on which the action is being checked.
+	 * @returns A Promise that resolves to a boolean value indicating if the file has passed the checks.
 	 */
 	Passed?: (On: File) => Promise<Boolean>;
 
@@ -128,51 +134,129 @@ export interface Plan {
 	/**
 	 * Additional information associated with the execution plan.
 	 */
+	// rome-ignore lint/suspicious/noExplicitAny: <explanation>
 	Info: any;
 
+	/**
+	 * Mapping of input paths to output paths.
+	 */
 	Paths: Map<Dir["Input"], Dir["Output"]>;
 
+	/**
+	 * Mapping of result paths to corresponding input paths.
+	 */
 	Results: Map<
 		`${Dir["Output"]}${File["Output"]}`,
 		`${Dir["Input"]}${File["Input"]}`
 	>;
 
+	/**
+	 * The file currently being operated on.
+	 */
 	On: File;
 }
 
+/**
+ * Represents a directory specification.
+ */
 export interface Dir {
+	/**
+	 * The input directory.
+	 */
 	Input: string;
 
+	/**
+	 * The output directory.
+	 */
 	Output: string;
 }
 
+/**
+ * Represents a file specification.
+ */
 export interface File {
+	/**
+	 * The input file.
+	 */
 	Input: string;
 
+	/**
+	 * The output file.
+	 */
 	Output: string;
 
+	/**
+	 * The size after the action.
+	 */
 	After: number;
 
+	/**
+	 * The size before the action.
+	 */
 	Before: number;
 
+	/**
+	 * The buffer data.
+	 */
 	Buffer: Buffer;
 }
 
+/**
+ * Default configuration object.
+ */
 export default {
+	/**
+	 * Configuration for the target path(s).
+	 */
 	Path: "./Target",
+
+	/**
+	 * Debugging level.
+	 */
 	Logger: 2,
+
+	/**
+	 * Execution pipeline configuration.
+	 */
 	Pipe: {
+		/**
+		 * Attaches a callback for writing to a file.
+		 */
 		Wrote: async (On) => On.Buffer,
+
+		/**
+		 * Attaches a callback for reading from a file.
+		 */
 		Read: async (On) => await _File(On.Input, "utf-8"),
+
+		/**
+		 * Attaches a callback for actions that check if a file can pass through the pipe.
+		 */
 		Passed: async (On) => On && true,
+
+		/**
+		 * Attaches a callback for handling failures in the Execution.
+		 */
 		Failed: async (On) => `Error: Cannot process file ${On.Input}!`,
+
+		/**
+		 * Attaches a callback for actions that are accomplished.
+		 */
 		Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,
+
+		/**
+		 * Attaches a callback for the fulfillment of the Execution.
+		 */
 		Fulfilled: async (Plan) =>
 			Plan.Files > 0
 				? `Successfully processed a total of ${Plan.Files} ${
 						Plan.Files === 1 ? "file" : "files"
 				  }.`
 				: false,
+
+		/**
+		 * Attaches a callback for actions that result in changes to the plan.
+		 */
 		Changed: async (Plan) => Plan,
 	},
 } satisfies Option;
