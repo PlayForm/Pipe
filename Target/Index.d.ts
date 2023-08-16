@@ -6,4 +6,5 @@ export { default as In } from "./Library/Files/In.js";
 export { default as Not } from "./Library/Files/Not.js";
 export { default as Pipe } from "./Library/Files/Pipe.js";
 export { default as Merge } from "./Library/Merge.js";
-export type { Buffer, Debug, Dir, Exclude, Execution, File, Option, Path, Plan } from "./Option/Index.js";
+export { default as Default } from "./Option/Index.js";
+export type { Buffer, Debug, Dir, Exclude, Execution, File, Option, Path, Plan, } from "./Option/Index.js";
