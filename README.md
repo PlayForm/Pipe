@@ -4,7 +4,7 @@ Allows you to process files in a pipeline.
 
 ## Installation
 
-First, install the FilesPipe component like so:
+First, install the `FilesPipe` component like so:
 
 ```
 npm install -D -E files-pipe
@@ -22,7 +22,7 @@ await new Files().In("./Input");
 
 ## Getting started
 
-FilesPipe will now provide you with a `Pipe` method, which you can use to execute
+`FilesPipe` will now provide you with a `Pipe` method, which you can use to execute
 the callback on each file from the pipe.
 
 **`Index.ts`**
