@@ -107,7 +107,7 @@ export interface Option {
 	Files?: Pattern | Pattern[];
 
 	/**
-	 * Execution pipeline configuration.
+	 * Execution pipe configuration.
 	 */
 	Pipe?: Execution;
 
@@ -216,7 +216,7 @@ export default {
 	Logger: 2,
 
 	/**
-	 * Execution pipeline configuration.
+	 * Execution pipe configuration.
 	 */
 	Pipe: {
 		/**

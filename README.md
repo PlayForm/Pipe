@@ -1,6 +1,6 @@
 # [FilesPipe] 🧪
 
-Allows you to process files in a pipeline.
+Allows you to process files in a pipe.
 
 ## Installation
 

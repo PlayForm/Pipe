@@ -1,7 +1,7 @@
 {
 	"name": "files-pipe",
 	"version": "2.0.15",
-	"description": "🧪 Allows you to process files in a pipeline",
+	"description": "🧪 File processing with JavaScript.",
 	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
 	"bugs": {
 		"url": "https://github.com/NikolaRHristov/FilesPipe/issues"
