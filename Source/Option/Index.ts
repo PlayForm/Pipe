@@ -220,14 +220,14 @@ export default {
 	 */
 	Pipe: {
 		/**
-		 * Attaches a callback for writing to a file.
-		 */
-		Wrote: async (On) => On.Buffer,
-
-		/**
 		 * Attaches a callback for reading from a file.
 		 */
 		Read: async (On) => await _File(On.Input, "utf-8"),
+
+		/**
+		 * Attaches a callback for writing to a file.
+		 */
+		Wrote: async (On) => On.Buffer,
 
 		/**
 		 * Attaches a callback for actions that check if a file can pass through the pipe.

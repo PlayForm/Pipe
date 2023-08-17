@@ -44,11 +44,11 @@ await (
 import { Files } from "files-pipe";
 
 await new Files().Pipe({
-	// Writes the buffer into a file
-	Wrote: async (On) => On.Buffer,
-
 	// Reads the file into a buffer
 	Read: async (On) => await fs.promises.readFile(On.Input, "utf-8"),
+
+	// Writes the buffer into a file
+	Wrote: async (On) => On.Buffer,
 
 	// Checks if the file has passed any checks
 	Passed: async (On) => On && true,
@@ -64,7 +64,7 @@ await new Files().Pipe({
 		`Successfully processed a total of ${Plan.Files} ${
 			Plan.Files === 1 ? "file" : "files"
 		}.`,
-	
+
 	// When the plan has changed
 	Changed: async (Plan) => Plan,
 });
