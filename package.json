@@ -1,7 +1,7 @@
 {
 	"name": "files-pipe",
 	"version": "2.0.15",
-	"private": "false",
+	"private": false,
 	"description": "🧪 File processing with JavaScript.",
 	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
 	"bugs": {
