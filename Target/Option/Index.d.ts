@@ -177,13 +177,13 @@ declare const _default: {
      */
     Pipe: {
         /**
-         * Attaches a callback for writing to a file.
-         */
-        Wrote: (On: File) => Promise<Buffer>;
-        /**
          * Attaches a callback for reading from a file.
          */
         Read: (On: File) => Promise<string>;
+        /**
+         * Attaches a callback for writing to a file.
+         */
+        Wrote: (On: File) => Promise<Buffer>;
         /**
          * Attaches a callback for actions that check if a file can pass through the pipe.
          */
