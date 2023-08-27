@@ -9,11 +9,11 @@ export { default as Merge } from "./Library/Merge.js";
 export { default as Default } from "./Option/Index.js";
 
 export type {
+	Action,
 	Buffer,
 	Debug,
 	Dir,
 	Exclude,
-	Execution,
 	File,
 	Option,
 	Path,

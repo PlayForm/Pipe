@@ -6,19 +6,19 @@ import {
 	stat as Stat,
 } from "fs/promises";
 import { dirname as Dir } from "path";
-import type { Execution, Plan } from "../../Option/Index.js";
+import type { Action, Plan } from "../../Option/Index.js";
 
 /**
- * The function `Pipe` takes a `Plan` and an `Execution` object as input, and performs a series of
+ * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
  * operations based on the plan, handling various callbacks and error handling along the way.
  * @param {Plan} Plan - The `Plan` parameter is an object that represents the execution plan. It
  * contains information about the tasks to be executed and their corresponding inputs and outputs.
- * @param {Execution}  - - `Plan`: The plan object that contains the tasks to be executed.
+ * @param {Action}  - - `Plan`: The plan object that contains the tasks to be executed.
  * @returns The function `Pipe` returns the modified `Plan` object.
  */
 export default async (
 	Plan: Plan,
-	{ Fulfilled, Failed, Accomplished, Changed, Passed, Read, Wrote }: Execution
+	{ Fulfilled, Failed, Accomplished, Changed, Passed, Read, Wrote }: Action
 ) => {
 	let _Plan = Plan;
 

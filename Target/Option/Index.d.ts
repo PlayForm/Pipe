@@ -14,15 +14,15 @@ export type Buffer = string | NodeJS.ArrayBufferView | Iterable<string | NodeJS.
 /**
  * Represents the execution configuration for specific actions on files.
  */
-export interface Execution {
+export interface Action {
     /**
-     * Attaches a callback for the fulfillment of the Execution.
+     * Attaches a callback for the fulfillment of the Action.
      * @param Plan The execution plan to be fulfilled.
      * @returns A Promise that resolves to either a string or false.
      */
     Fulfilled?: boolean | ((Plan: Plan) => Promise<false | string>);
     /**
-     * Attaches a callback for handling failures in the Execution.
+     * Attaches a callback for handling failures in the Action.
      * @param Input The input file being processed.
      * @param _Error The error encountered during execution.
      * @returns A Promise that resolves to either a string or false.
@@ -85,9 +85,9 @@ export interface Option {
      */
     Files?: Pattern | Pattern[];
     /**
-     * Execution pipe configuration.
+     * Action pipe configuration.
      */
-    Pipe?: Execution;
+    Pipe?: Action;
     /**
      * Debugging level.
      */
@@ -173,7 +173,7 @@ declare const _default: {
      */
     Logger: 2;
     /**
-     * Execution pipe configuration.
+     * Action pipe configuration.
      */
     Pipe: {
         /**
@@ -189,7 +189,7 @@ declare const _default: {
          */
         Passed: (On: File) => Promise<boolean>;
         /**
-         * Attaches a callback for handling failures in the Execution.
+         * Attaches a callback for handling failures in the Action.
          */
         Failed: (On: File) => Promise<string>;
         /**
@@ -197,7 +197,7 @@ declare const _default: {
          */
         Accomplished: (On: File) => Promise<string>;
         /**
-         * Attaches a callback for the fulfillment of the Execution.
+         * Attaches a callback for the fulfillment of the Action.
          */
         Fulfilled: (Plan: Plan) => Promise<string | false>;
         /**

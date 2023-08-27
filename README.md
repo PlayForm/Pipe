@@ -23,7 +23,7 @@ await new Files().In("./Input");
 ## Getting started
 
 `FilesPipe` will now provide you with a `Pipe` method, which you can use to
-execute the callback on each file from the pipe.
+execute an action on each file from the pipe.
 
 **`Index.ts`**
 

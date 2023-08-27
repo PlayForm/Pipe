@@ -20,16 +20,16 @@ export type Buffer =
 /**
  * Represents the execution configuration for specific actions on files.
  */
-export interface Execution {
+export interface Action {
 	/**
-	 * Attaches a callback for the fulfillment of the Execution.
+	 * Attaches a callback for the fulfillment of the Action.
 	 * @param Plan The execution plan to be fulfilled.
 	 * @returns A Promise that resolves to either a string or false.
 	 */
 	Fulfilled?: boolean | ((Plan: Plan) => Promise<false | string>);
 
 	/**
-	 * Attaches a callback for handling failures in the Execution.
+	 * Attaches a callback for handling failures in the Action.
 	 * @param Input The input file being processed.
 	 * @param _Error The error encountered during execution.
 	 * @returns A Promise that resolves to either a string or false.
@@ -107,9 +107,9 @@ export interface Option {
 	Files?: Pattern | Pattern[];
 
 	/**
-	 * Execution pipe configuration.
+	 * Action pipe configuration.
 	 */
-	Pipe?: Execution;
+	Pipe?: Action;
 
 	/**
 	 * Debugging level.
@@ -216,7 +216,7 @@ export default {
 	Logger: 2,
 
 	/**
-	 * Execution pipe configuration.
+	 * Action pipe configuration.
 	 */
 	Pipe: {
 		/**
@@ -235,7 +235,7 @@ export default {
 		Passed: async (On) => On && true,
 
 		/**
-		 * Attaches a callback for handling failures in the Execution.
+		 * Attaches a callback for handling failures in the Action.
 		 */
 		Failed: async (On) => `Error: Cannot process file ${On.Input}!`,
 
@@ -245,7 +245,7 @@ export default {
 		Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,
 
 		/**
-		 * Attaches a callback for the fulfillment of the Execution.
+		 * Attaches a callback for the fulfillment of the Action.
 		 */
 		Fulfilled: async (Plan) =>
 			Plan.Files > 0

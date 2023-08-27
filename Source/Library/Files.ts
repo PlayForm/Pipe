@@ -1,5 +1,5 @@
 import type { Pattern } from "fast-glob";
-import type { Execution, Option, Path, Plan } from "../Option/Index.js";
+import type { Action, Option, Path, Plan } from "../Option/Index.js";
 import Default from "../Option/Index.js";
 import By from "./Files/By.js";
 import In from "./Files/In.js";
@@ -8,15 +8,15 @@ import Pipe from "./Files/Pipe.js";
 
 export default class Files {
 	/**
-	 * The function `Pipe` is a TypeScript async function that takes an optional `Execution`
-	 * parameter and returns the result of calling `Pipe` with `this.Plan` and `Execution`.
-	 * @param {Execution} Execution - The Execution parameter is an optional parameter that
+	 * The function `Pipe` is a TypeScript async function that takes an optional `Action`
+	 * parameter and returns the result of calling `Pipe` with `this.Plan` and `Action`.
+	 * @param {Action} Action - The Action parameter is an optional parameter that
 	 * specifies the execution strategy to be used in the Pipe function. It has a default value of
-	 * Default.Pipe, which means that if no Execution parameter is provided when calling the Pipe
+	 * Default.Pipe, which means that if no Action parameter is provided when calling the Pipe
 	 * function, it will use the default execution strategy.
 	 */
-	Pipe = async (Execution: Execution = Default.Pipe) =>
-		await Pipe(this.Plan, Execution);
+	Pipe = async (Action: Action = Default.Pipe) =>
+		await Pipe(this.Plan, Action);
 
 	/**
 	 * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
