@@ -134,7 +134,7 @@ export interface Plan {
 	/**
 	 * Additional information associated with the execution plan.
 	 */
-	// rome-ignore lint/suspicious/noExplicitAny: <explanation>
+	// rome-ignore lint/suspicious/noExplicitAny:
 	Info: any;
 
 	/**
