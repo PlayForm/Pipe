@@ -24,9 +24,6 @@ export default async (Pattern: Option["Exclude"], Files: Plan["Results"]) => {
 	}
 
 	for (const Filter of Filters) {
-
-		if (Fil)
-
 		for (const File of Files) {
 			switch (true) {
 				case typeof Filter === "string": {
