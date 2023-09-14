@@ -30,6 +30,7 @@ export default async (
 			_Plan.On.Before = (await Stat(_Plan.On.Input)).size;
 
 			if (Read && Wrote) {
+				// @TODO: Before Read check cache, only on read file write is always necessary
 				_Plan.On.Buffer = await Read(_Plan.On);
 
 				const Buffer = await Wrote(_Plan.On);

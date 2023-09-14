@@ -16,7 +16,16 @@ export default class Files {
 	 * function, it will use the default execution strategy.
 	 */
 	Pipe = async (Action: Action = Default.Pipe) =>
-		await Pipe(this.Plan, Action);
+	{
+		// @TODO: Prime the cache, create folders, etc. 
+		try {
+			await Access 
+		} catch (error) {
+			
+		}
+
+		return await Pipe(this.Plan, Action);
+	}
 
 	/**
 	 * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
