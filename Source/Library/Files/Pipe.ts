@@ -23,11 +23,11 @@ export default async (
 	let _Plan = Plan;
 
 	// @TODO: Prime the cache, create folders, etc. 
-	try {
-		await Access();
-	} catch (error) {
+	// try {
+	// 	await Access();
+	// } catch (error) {
 		
-	}
+	// }
 
 	for (const [Output, Input] of _Plan.Results) {
 		try {
@@ -41,6 +41,7 @@ export default async (
 				_Plan.On.Buffer = await Read(_Plan.On);
 
 				// @TODO: Check cache 
+				// fingerprint the wrote operation
 				const Buffer = await Wrote(_Plan.On);
 
 				if (!Buffer) {
