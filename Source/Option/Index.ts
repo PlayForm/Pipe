@@ -114,7 +114,7 @@ export interface Option {
 	/**
 	 * Action pipe configuration.
 	 */
-	Pipe?: Action;
+	Action?: Action;
 
 	/**
 	 * Debugging level.
@@ -211,6 +211,11 @@ export interface File {
  */
 export default {
 	/**
+	 * Configuration for the target cache(s).
+	 */
+	Cache: "./Cache",
+	
+	/**
 	 * Configuration for the target path(s).
 	 */
 	Path: "./Target",
@@ -221,9 +226,9 @@ export default {
 	Logger: 2,
 
 	/**
-	 * Action pipe configuration.
+	 * Action configuration.
 	 */
-	Pipe: {
+	Action: {
 		/**
 		 * Attaches a callback for reading from a file.
 		 */
