@@ -98,12 +98,14 @@ export interface Option {
 
 	/**
 	 * Cache folder
+	 * 
 	 * @default "./Cache"
 	 */
-	Cache: Cache;
+	Cache: Cache | Cache[] | Set<Cache>;
 
 	/**
 	 * Configuration for the target path(s).
+	 * 
 	 * @default "./Target"
 	 */
 	Path?: Path | Path[] | Set<Path>;
@@ -125,6 +127,8 @@ export interface Option {
 
 	/**
 	 * Debugging level.
+	 * 
+	 * @default 2
 	 */
 	Logger?: Debug;
 }
