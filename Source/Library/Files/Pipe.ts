@@ -22,6 +22,13 @@ export default async (
 ) => {
 	let _Plan = Plan;
 
+	// @TODO: Prime the cache, create folders, etc. 
+	try {
+		await Access();
+	} catch (error) {
+		
+	}
+
 	for (const [Output, Input] of _Plan.Results) {
 		try {
 			_Plan.On.Input = Input;

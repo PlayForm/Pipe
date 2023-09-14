@@ -92,6 +92,11 @@ export interface Option {
 	[key: string]: any;
 
 	/**
+	 * Cache folder
+	 */
+	Cache: string | URL | false;
+
+	/**
 	 * Configuration for the target path(s).
 	 */
 	Path?: Path | Path[] | Set<Path>;
