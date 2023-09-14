@@ -1,3 +1,4 @@
+import type { Type as Buffer } from "./Buffer.ts";
 import type { Type as File } from "./File.ts";
 import type { Type as Plan } from "./Plan.ts";
 
