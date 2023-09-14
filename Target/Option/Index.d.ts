@@ -73,6 +73,10 @@ export type Path = string | URL | Map<string | URL, string | URL> | false;
 export interface Option {
     [key: string]: any;
     /**
+     * Cache folder
+     */
+    Cache: string | URL | false;
+    /**
      * Configuration for the target path(s).
      */
     Path?: Path | Path[] | Set<Path>;
@@ -87,7 +91,7 @@ export interface Option {
     /**
      * Action pipe configuration.
      */
-    Pipe?: Action;
+    Action?: Action;
     /**
      * Debugging level.
      */
@@ -165,6 +169,10 @@ export interface File {
  */
 declare const _default: {
     /**
+     * Configuration for the target cache(s).
+     */
+    Cache: string;
+    /**
      * Configuration for the target path(s).
      */
     Path: string;
@@ -173,9 +181,9 @@ declare const _default: {
      */
     Logger: 2;
     /**
-     * Action pipe configuration.
+     * Action configuration.
      */
-    Pipe: {
+    Action: {
         /**
          * Attaches a callback for reading from a file.
          */

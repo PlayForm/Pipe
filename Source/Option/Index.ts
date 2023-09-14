@@ -3,6 +3,11 @@ import { readFile as _File } from "fs/promises";
 import type { Stream } from "stream";
 
 /**
+ * Represents the cache path configuration.
+ */
+export type Cache = string | URL | false;
+
+/**
  * Represents the possible debugging levels.
  */
 export type Debug = 0 | 1 | 2;
@@ -93,11 +98,13 @@ export interface Option {
 
 	/**
 	 * Cache folder
+	 * @default "./Cache"
 	 */
-	Cache: string | URL | false;
+	Cache: Cache;
 
 	/**
 	 * Configuration for the target path(s).
+	 * @default "./Target"
 	 */
 	Path?: Path | Path[] | Set<Path>;
 
@@ -123,9 +130,14 @@ export interface Option {
 }
 
 /**
- * Represents the execution plan.
+ * Represents the execution's plan.
  */
 export interface Plan {
+	/**
+	 * The debugging level for the execution plan.
+	 */
+	Cache: Cache;
+
 	/**
 	 * The debugging level for the execution plan.
 	 */

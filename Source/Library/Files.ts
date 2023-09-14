@@ -1,10 +1,12 @@
 import type { Pattern } from "fast-glob";
 import type { Action, Option, Path, Plan } from "../Option/Index.js";
+
 import Default from "../Option/Index.js";
 import By from "./Files/By.js";
 import In from "./Files/In.js";
 import Not from "./Files/Not.js";
 import Pipe from "./Files/Pipe.js";
+import Merge from "./Merge.js";
 
 export default class Files {
 	/**
@@ -15,7 +17,7 @@ export default class Files {
 	 * Default.Pipe, which means that if no Action parameter is provided when calling the Pipe
 	 * function, it will use the default execution strategy.
 	 */
-	Pipe = async (Action: Action = Default.Action) => await Pipe(this.Plan, Action)
+	Pipe = async (Action: Action) => await Pipe(this.Plan, Merge(Default.Action, Action))
 
 	/**
 	 * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
@@ -83,7 +85,8 @@ export default class Files {
 	 * @param [Debug=2] - The "Debug" parameter is a property of the "Plan" object. It is optional and has
 	 * a default value of 2.
 	 */
-	constructor(Debug: Plan["Debug"] = 2) {
+	constructor(Cache: Option['Cache'], Debug: Plan["Debug"] = 2) {
 		this.Plan.Debug = Debug;
+		this.Plan.Cache = Cache;
 	}
 }
