@@ -9,7 +9,7 @@ export default class Files {
      * Default.Pipe, which means that if no Action parameter is provided when calling the Pipe
      * function, it will use the default execution strategy.
      */
-    Pipe: (Action?: Action) => Promise<Plan>;
+    Pipe: (Action: Action) => Promise<Plan>;
     /**
      * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
      * @param File - The parameter "File" is of type "Option['Exclude']".
@@ -30,10 +30,5 @@ export default class Files {
      */
     In: (Path?: Path) => Promise<this>;
     Plan: Plan;
-    /**
-     * The constructor function sets the debug level of a plan object.
-     * @param [Debug=2] - The "Debug" parameter is a property of the "Plan" object. It is optional and has
-     * a default value of 2.
-     */
-    constructor(Debug?: Plan["Debug"]);
+    constructor(Cache?: Option["Cache"], Debug?: Plan["Debug"]);
 }

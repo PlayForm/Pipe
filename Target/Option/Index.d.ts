@@ -4,6 +4,10 @@
 import type { Pattern } from "fast-glob";
 import type { Stream } from "stream";
 /**
+ * Represents the cache path configuration.
+ */
+export type Cache = string | URL | false;
+/**
  * Represents the possible debugging levels.
  */
 export type Debug = 0 | 1 | 2;
@@ -73,11 +77,9 @@ export type Path = string | URL | Map<string | URL, string | URL> | false;
 export interface Option {
     [key: string]: any;
     /**
-     * Cache folder
-     */
-    Cache: string | URL | false;
-    /**
      * Configuration for the target path(s).
+     *
+     * @default "./Target"
      */
     Path?: Path | Path[] | Set<Path>;
     /**
@@ -94,13 +96,19 @@ export interface Option {
     Action?: Action;
     /**
      * Debugging level.
+     *
+     * @default 2
      */
     Logger?: Debug;
 }
 /**
- * Represents the execution plan.
+ * Represents the execution's plan.
  */
 export interface Plan {
+    /**
+     * The folder of the plan cache.
+     */
+    Cache: Cache;
     /**
      * The debugging level for the execution plan.
      */
@@ -168,10 +176,6 @@ export interface File {
  * Default configuration object.
  */
 declare const _default: {
-    /**
-     * Configuration for the target cache(s).
-     */
-    Cache: string;
     /**
      * Configuration for the target path(s).
      */

@@ -1,3 +1,6 @@
+import type { Type as Action } from "../../Option/Files/Action.js";
+import type { Type as Plan } from "../../Option/Files/Plan.js";
+
 import { constants as Constant } from "fs";
 import {
 	access as Access,
@@ -6,7 +9,6 @@ import {
 	stat as Stat,
 } from "fs/promises";
 import { dirname as Dir } from "path";
-import type { Action, Plan } from "../../Option/Index.js";
 
 /**
  * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
@@ -22,11 +24,11 @@ export default async (
 ) => {
 	let _Plan = Plan;
 
-	// @TODO: Prime the cache, create folders, etc. 
+	// @TODO: Prime the cache, create folders, etc.
 	// try {
 	// 	await Access();
 	// } catch (error) {
-		
+
 	// }
 
 	for (const [Output, Input] of _Plan.Results) {
@@ -40,7 +42,7 @@ export default async (
 				// @TODO: Before Read check cache, only on read file write is always necessary
 				_Plan.On.Buffer = await Read(_Plan.On);
 
-				// @TODO: Check cache 
+				// @TODO: Check cache
 				// fingerprint the wrote operation
 				const Buffer = await Wrote(_Plan.On);
 

@@ -1,111 +1,29 @@
 import type { Pattern } from "fast-glob";
-import { readFile as _File } from "fs/promises";
-import type { Stream } from "stream";
+import { readFile as File } from "fs/promises";
 
-/**
- * Represents the cache path configuration.
- */
-export type Cache = string | URL | false;
-
-/**
- * Represents the possible debugging levels.
- */
-export type Debug = 0 | 1 | 2;
-
-/**
- * Represents various types that can be used as buffer data.
- */
-export type Buffer =
-	| string
-	| NodeJS.ArrayBufferView
-	| Iterable<string | NodeJS.ArrayBufferView>
-	| AsyncIterable<string | NodeJS.ArrayBufferView>
-	| Stream;
-
-/**
- * Represents the execution configuration for specific actions on files.
- */
-export interface Action {
-	/**
-	 * Attaches a callback for the fulfillment of the Action.
-	 * @param Plan The execution plan to be fulfilled.
-	 * @returns A Promise that resolves to either a string or false.
-	 */
-	Fulfilled?: boolean | ((Plan: Plan) => Promise<false | string>);
-
-	/**
-	 * Attaches a callback for handling failures in the Action.
-	 * @param Input The input file being processed.
-	 * @param _Error The error encountered during execution.
-	 * @returns A Promise that resolves to either a string or false.
-	 */
-	Failed?:
-		| boolean
-		| ((Input: File, _Error: unknown) => Promise<false | string>);
-
-	/**
-	 * Attaches a callback for actions that are accomplished.
-	 * @param On The file on which an action was accomplished.
-	 * @returns A Promise that resolves to either a string or false.
-	 */
-	Accomplished?: boolean | ((On: File) => Promise<false | string>);
-
-	/**
-	 * Attaches a callback for actions that result in changes to the plan.
-	 * @param Plan The execution plan to be changed.
-	 * @returns A Promise that resolves to the modified execution plan.
-	 */
-	Changed?: (Plan: Plan) => Promise<Plan>;
-
-	/**
-	 * Attaches a callback for actions that check if a file can pass through the pipe.
-	 * @param On The file on which the action is being checked.
-	 * @returns A Promise that resolves to a boolean value indicating if the file has passed the checks.
-	 */
-	Passed?: (On: File) => Promise<Boolean>;
-
-	/**
-	 * Attaches a callback for reading from a file.
-	 * @param On The file to be read.
-	 * @returns A Promise that resolves to the buffer read from the file.
-	 */
-	Read?: (On: File) => Promise<Buffer>;
-
-	/**
-	 * Attaches a callback for writing to a file.
-	 * @param On The file to be written to.
-	 * @returns A Promise that resolves to the buffer written to the file.
-	 */
-	Wrote?: (On: File) => Promise<Buffer>;
-}
-
-/**
- * Represents criteria for excluding files.
- */
-export type Exclude = string | RegExp | ((File: string) => boolean);
-
-/**
- * Represents a path specification.
- */
-export type Path = string | URL | Map<string | URL, string | URL> | false;
+import type { Type as Action } from "./Files/Action.ts";
+import type { Type as Cache } from "./Files/Cache.ts";
+import type { Type as Debug } from "./Files/Debug.ts";
+import type { Type as Exclude } from "./Files/Exclude.ts";
+import type { Type as Path } from "./Files/Path.ts";
 
 /**
  * Represents options for configuring the behavior of the program.
  */
-export interface Option {
+export interface Type {
 	// rome-ignore lint/suspicious/noExplicitAny:
 	[key: string]: any;
 
 	/**
-	 * Cache folder
-	 * 
+	 * Configuration for the target cache.
+	 *
 	 * @default "./Cache"
 	 */
-	Cache: Cache | Cache[] | Set<Cache>;
+	Cache?: Cache;
 
 	/**
 	 * Configuration for the target path(s).
-	 * 
+	 *
 	 * @default "./Target"
 	 */
 	Path?: Path | Path[] | Set<Path>;
@@ -127,110 +45,16 @@ export interface Option {
 
 	/**
 	 * Debugging level.
-	 * 
+	 *
 	 * @default 2
 	 */
 	Logger?: Debug;
 }
 
 /**
- * Represents the execution's plan.
- */
-export interface Plan {
-	/**
-	 * The debugging level for the execution plan.
-	 */
-	Cache: Cache;
-
-	/**
-	 * The debugging level for the execution plan.
-	 */
-	Debug: Debug;
-
-	/**
-	 * The number of files in the execution plan.
-	 */
-	Files: number;
-
-	/**
-	 * Additional information associated with the execution plan.
-	 */
-	// rome-ignore lint/suspicious/noExplicitAny:
-	Info: any;
-
-	/**
-	 * Mapping of input paths to output paths.
-	 */
-	Paths: Map<Dir["Input"], Dir["Output"]>;
-
-	/**
-	 * Mapping of result paths to corresponding input paths.
-	 */
-	Results: Map<
-		`${Dir["Output"]}${File["Output"]}`,
-		`${Dir["Input"]}${File["Input"]}`
-	>;
-
-	/**
-	 * The file currently being operated on.
-	 */
-	On: File;
-}
-
-/**
- * Represents a directory specification.
- */
-export interface Dir {
-	/**
-	 * The input directory.
-	 */
-	Input: string;
-
-	/**
-	 * The output directory.
-	 */
-	Output: string;
-}
-
-/**
- * Represents a file specification.
- */
-export interface File {
-	/**
-	 * The input file.
-	 */
-	Input: string;
-
-	/**
-	 * The output file.
-	 */
-	Output: string;
-
-	/**
-	 * The size after the action.
-	 */
-	After: number;
-
-	/**
-	 * The size before the action.
-	 */
-	Before: number;
-
-	/**
-	 * The buffer data.
-	 */
-	Buffer: Buffer;
-}
-
-/**
  * Default configuration object.
  */
 export default {
-	/**
-	 * Configuration for the target cache(s).
-	 */
-	Cache: "./Cache",
-	
 	/**
 	 * Configuration for the target path(s).
 	 */
@@ -248,7 +72,7 @@ export default {
 		/**
 		 * Attaches a callback for reading from a file.
 		 */
-		Read: async (On) => await _File(On.Input, "utf-8"),
+		Read: async (On) => await File(On.Input, "utf-8"),
 
 		/**
 		 * Attaches a callback for writing to a file.
@@ -285,4 +109,4 @@ export default {
 		 */
 		Changed: async (Plan) => Plan,
 	},
-} satisfies Option;
+} satisfies Type;

@@ -17,7 +17,8 @@ export default class Files {
 	 * Default.Pipe, which means that if no Action parameter is provided when calling the Pipe
 	 * function, it will use the default execution strategy.
 	 */
-	Pipe = async (Action: Action) => await Pipe(this.Plan, Merge(Default.Action, Action))
+	Pipe = async (Action: Action) =>
+		await Pipe(this.Plan, Merge(Default.Action, Action));
 
 	/**
 	 * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
@@ -66,6 +67,7 @@ export default class Files {
 	};
 
 	Plan: Plan = {
+		Cache: "./Cache",
 		Files: 0,
 		Debug: 2,
 		Info: {},
@@ -80,13 +82,8 @@ export default class Files {
 		},
 	};
 
-	/**
-	 * The constructor function sets the debug level of a plan object.
-	 * @param [Debug=2] - The "Debug" parameter is a property of the "Plan" object. It is optional and has
-	 * a default value of 2.
-	 */
-	constructor(Cache: Option['Cache'], Debug: Plan["Debug"] = 2) {
-		this.Plan.Debug = Debug;
-		this.Plan.Cache = Cache;
+	constructor(Cache?: Option["Cache"], Debug?: Option["Logger"]) {
+		this.Plan.Cache = Cache ?? this.Plan.Cache;
+		this.Plan.Debug = Debug ?? this.Plan.Debug;
 	}
 }
