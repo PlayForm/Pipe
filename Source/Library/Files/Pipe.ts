@@ -30,7 +30,6 @@ export default async (
 	// } catch (error) {
 
 	// }
-	console.log("------ NAMES -------");
 
 	// @TODO: Maybe purge results before the whole operation instead of executing the pipe
 	// @TODO: Cache invalidation
@@ -52,7 +51,7 @@ export default async (
 
 				// @TODO: Check cache
 				// Fingerprint the whole operation (get function name or something from prototype)
-				console.log(Wrote.prototype);
+				// console.log(Wrote.prototype);
 
 				const Buffer = await Wrote(_Plan.On);
 
