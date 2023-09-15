@@ -1,6 +1,6 @@
-import type { Type as Buffer } from "./Buffer.ts";
-import type { Type as File } from "./File.ts";
-import type { Type as Plan } from "./Plan.ts";
+import type { Type as Buffer } from "./Buffer.js";
+import type { Type as File } from "./File.js";
+import type { Type as Plan } from "./Plan.js";
 
 /**
  * Represents the execution configuration for specific actions on files.
@@ -56,5 +56,5 @@ export interface Type {
 	 * @param On The file to be written to.
 	 * @returns A Promise that resolves to the buffer written to the file.
 	 */
-	Wrote?: (On: File) => Promise<Buffer>;
+	Wrote?: (On: File, Cache: Cache) => Promise<Buffer>;
 }

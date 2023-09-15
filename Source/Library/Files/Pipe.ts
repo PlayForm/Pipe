@@ -1,5 +1,5 @@
-import type { Type as Action } from "../../Option/Files/Action.js";
-import type { Type as Plan } from "../../Option/Files/Plan.js";
+import type { Type as Action } from "./Action.js";
+import type { Type as Plan } from "./Plan.js";
 
 import { constants as Constant } from "fs";
 import {
@@ -30,6 +30,14 @@ export default async (
 	// } catch (error) {
 
 	// }
+	console.log("------ NAMES -------");
+
+	// @TODO: Maybe purge results before the whole operation instead of executing the pipe
+	// @TODO: Cache invalidation
+	// Compare the currently staged file to the one in the cache
+	// in the cache store the file as stored in git
+	// Map<Output, Latest>
+	// Latest: 'commit sha'
 
 	for (const [Output, Input] of _Plan.Results) {
 		try {
@@ -43,7 +51,9 @@ export default async (
 				_Plan.On.Buffer = await Read(_Plan.On);
 
 				// @TODO: Check cache
-				// fingerprint the wrote operation
+				// Fingerprint the whole operation (get function name or something from prototype)
+				console.log(Wrote.prototype);
+
 				const Buffer = await Wrote(_Plan.On);
 
 				if (!Buffer) {
@@ -65,7 +75,7 @@ export default async (
 
 					_Plan.On.After = (await Stat(_Plan.On.Output)).size;
 
-					if (_Plan.Debug > 0) {
+					if (_Plan.Logger > 0) {
 						_Plan.Files++;
 
 						if (Changed) {
@@ -73,7 +83,7 @@ export default async (
 						}
 					}
 
-					if (_Plan.Debug > 1) {
+					if (_Plan.Logger > 1) {
 						if (typeof Accomplished === "function") {
 							const Message = await Accomplished(_Plan.On);
 
@@ -94,14 +104,14 @@ export default async (
 					console.log(Message);
 				}
 			} else {
-				if (_Plan.Debug > 1) {
+				if (_Plan.Logger > 1) {
 					console.log(_Error);
 				}
 			}
 		}
 	}
 
-	if (_Plan.Debug > 0 && _Plan.Results.size > 0) {
+	if (_Plan.Logger > 0 && _Plan.Results.size > 0) {
 		if (typeof Fulfilled === "function") {
 			const Message = await Fulfilled(_Plan);
 

@@ -1,5 +1,9 @@
+import type { Type as Action } from "../Library/Files/Action.js";
+import type { Type as Path } from "../Library/Files/Path.js";
+import type { Type as Plan } from "../Library/Files/Plan.js";
+import type { Type as Option } from "../Option/Index.js";
+
 import type { Pattern } from "fast-glob";
-import type { Action, Option, Path, Plan } from "../Option/Index.js";
 
 import Default from "../Option/Index.js";
 import By from "./Files/By.js";
@@ -67,9 +71,9 @@ export default class Files {
 	};
 
 	Plan: Plan = {
-		Cache: "./Cache",
+		Cache: Default.Cache,
 		Files: 0,
-		Debug: 2,
+		Logger: Default.Logger,
 		Info: {},
 		Paths: new Map(),
 		Results: new Map(),
@@ -82,8 +86,8 @@ export default class Files {
 		},
 	};
 
-	constructor(Cache?: Option["Cache"], Debug?: Option["Logger"]) {
+	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
-		this.Plan.Debug = Debug ?? this.Plan.Debug;
+		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}
 }

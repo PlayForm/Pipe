@@ -1,11 +1,12 @@
-import type { Pattern } from "fast-glob";
-import { readFile as File } from "fs/promises";
+import type { Type as Action } from "../Library/Files/Action.js";
+import type { Type as Cache } from "../Library/Files/Cache.js";
+import type { Type as Exclude } from "../Library/Files/Exclude.js";
+import type { Type as Logger } from "../Library/Files/Logger.js";
+import type { Type as Path } from "../Library/Files/Path.js";
 
-import type { Type as Action } from "./Files/Action.ts";
-import type { Type as Cache } from "./Files/Cache.ts";
-import type { Type as Debug } from "./Files/Debug.ts";
-import type { Type as Exclude } from "./Files/Exclude.ts";
-import type { Type as Path } from "./Files/Path.ts";
+import type { Pattern } from "fast-glob";
+
+import { readFile as File } from "fs/promises";
 
 /**
  * Represents options for configuring the behavior of the program.
@@ -48,65 +49,28 @@ export interface Type {
 	 *
 	 * @default 2
 	 */
-	Logger?: Debug;
+	Logger?: Logger;
 }
 
 /**
  * Default configuration object.
  */
 export default {
-	/**
-	 * Configuration for the target path(s).
-	 */
+	Cache: "./Cache",
 	Path: "./Target",
-
-	/**
-	 * Debugging level.
-	 */
 	Logger: 2,
-
-	/**
-	 * Action configuration.
-	 */
 	Action: {
-		/**
-		 * Attaches a callback for reading from a file.
-		 */
 		Read: async (On) => await File(On.Input, "utf-8"),
-
-		/**
-		 * Attaches a callback for writing to a file.
-		 */
 		Wrote: async (On) => On.Buffer,
-
-		/**
-		 * Attaches a callback for actions that check if a file can pass through the pipe.
-		 */
 		Passed: async (On) => On && true,
-
-		/**
-		 * Attaches a callback for handling failures in the Action.
-		 */
 		Failed: async (On) => `Error: Cannot process file ${On.Input}!`,
-
-		/**
-		 * Attaches a callback for actions that are accomplished.
-		 */
 		Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,
-
-		/**
-		 * Attaches a callback for the fulfillment of the Action.
-		 */
 		Fulfilled: async (Plan) =>
 			Plan.Files > 0
 				? `Successfully processed a total of ${Plan.Files} ${
 						Plan.Files === 1 ? "file" : "files"
 				  }.`
 				: false,
-
-		/**
-		 * Attaches a callback for actions that result in changes to the plan.
-		 */
 		Changed: async (Plan) => Plan,
 	},
 } satisfies Type;

@@ -1,4 +1,5 @@
-import type { Action, Plan } from "../../Option/Index.js";
+import type { Type as Action } from "./Action.js";
+import type { Type as Plan } from "./Plan.js";
 /**
  * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
  * operations based on the plan, handling various callbacks and error handling along the way.

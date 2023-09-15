@@ -1,4 +1,5 @@
-import type { Option, Plan } from "../../Option/Index.js";
+import type { Type as Plan } from "../../Option/Files/Plan.js";
+import type { Type as Option } from "../../Option/Index.js";
 
 /**
  * The function `Not` filters out files from the `Files` array based on the provided `Pattern`

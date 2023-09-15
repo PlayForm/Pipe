@@ -1,7 +1,7 @@
-import type { Type as Cache } from "./Cache.ts";
-import type { Type as Debug } from "./Debug.ts";
-import type { Type as Dir } from "./Dir.ts";
-import type { Type as File } from "./File.ts";
+import type { Type as Cache } from "./Cache.js";
+import type { Type as Dir } from "./Dir.js";
+import type { Type as File } from "./File.js";
+import type { Type as Logger } from "./Logger.js";
 
 /**
  * Represents the execution's plan.
@@ -15,7 +15,7 @@ export interface Type {
 	/**
 	 * The debugging level for the execution plan.
 	 */
-	Debug: Debug;
+	Logger: Logger;
 
 	/**
 	 * The number of files in the execution plan.

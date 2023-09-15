@@ -103,6 +103,16 @@ await new Files().Not([
 ]);
 ```
 
+#### Set `Cache` to `./CacheDifferent` if your cache path is different from the default. Default is `./Cache`.
+
+**`Index.ts`**
+
+```ts
+import { Files } from "files-pipe";
+
+new Files(0);
+```
+
 #### Set `Logger` to `0` if you do not want to see debug messages. Default is `2`.
 
 **`Index.ts`**

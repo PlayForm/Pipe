@@ -1,5 +1,4 @@
 import type { Pattern } from "fast-glob";
-import type { Plan } from "../../Option/Index.js";
 /**
  * The function `By` takes in a file pattern or an array of file patterns, a set of
  * input and output paths, and a map of results, and returns the updated map of results
@@ -14,5 +13,5 @@ import type { Plan } from "../../Option/Index.js";
  * keep track of the files that have been processed and their respective destinations.
  * @returns the `Results` object.
  */
-declare const _default: (File: Pattern | Pattern[], Paths: Plan["Paths"], Results: Plan["Results"]) => Promise<Map<string, string>>;
+declare const _default: (File: Pattern | Pattern[], Paths: Plan, Results: Plan) => Promise<Plan>;
 export default _default;

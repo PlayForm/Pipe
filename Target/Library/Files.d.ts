@@ -1,5 +1,8 @@
+import type { Type as Action } from "../Library/Files/Action.js";
+import type { Type as Path } from "../Library/Files/Path.js";
+import type { Type as Plan } from "../Library/Files/Plan.js";
+import type { Type as Option } from "../Option/Index.js";
 import type { Pattern } from "fast-glob";
-import type { Action, Option, Path, Plan } from "../Option/Index.js";
 export default class Files {
     /**
      * The function `Pipe` is a TypeScript async function that takes an optional `Action`
@@ -30,5 +33,5 @@ export default class Files {
      */
     In: (Path?: Path) => Promise<this>;
     Plan: Plan;
-    constructor(Cache?: Option["Cache"], Debug?: Plan["Debug"]);
+    constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
