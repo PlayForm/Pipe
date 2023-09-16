@@ -1,5 +1,5 @@
-import type { Type as Action } from "./Action.js";
-import type { Type as Plan } from "./Plan.js";
+import type { Type as Action } from "../Interface/Action.ts";
+import type { Type as Plan } from "../Interface/Plan.ts";
 
 import { constants as Constant } from "fs";
 import {

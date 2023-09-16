@@ -1,6 +1,9 @@
+import type { Type as Path } from "../Interface/Path.js";
+import type { Type as Plan } from "../Interface/Plan.js";
+
+import Apply from "./Apply.js";
+
 import { fileURLToPath as __Path } from "url";
-import type { Path, Plan } from "../../Option/Index.js";
-import Apply from "../Apply.js";
 
 /**
  * The function `In` takes a `Path` and a `Paths` object, and adds the `Path` to the `Paths` object.

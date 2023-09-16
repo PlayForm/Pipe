@@ -1,16 +1,16 @@
-import type { Type as Action } from "../Library/Files/Action.js";
-import type { Type as Path } from "../Library/Files/Path.js";
-import type { Type as Plan } from "../Library/Files/Plan.js";
-import type { Type as Option } from "../Option/Index.js";
+import type { Type as Action } from "../Interface/Action.js";
+import type { Type as Option } from "../Interface/Option.js";
+import type { Type as Path } from "../Interface/Path.js";
+import type { Type as Plan } from "../Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 
-import Default from "../Option/Index.js";
-import By from "./Files/By.js";
-import In from "./Files/In.js";
-import Not from "./Files/Not.js";
-import Pipe from "./Files/Pipe.js";
-import Merge from "./Merge.js";
+import By from "../Fn/By.js";
+import In from "../Fn/In.js";
+import Merge from "../Fn/Merge.js";
+import Not from "../Fn/Not.js";
+import Pipe from "../Fn/Pipe.js";
+import Default from "../Object/Option.js";
 
 export default class Files {
 	/**
