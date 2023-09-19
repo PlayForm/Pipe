@@ -36,8 +36,8 @@ export default class Files {
 	};
 
 	/**
-	 * The function `By` takes a file pattern or an array of file patterns and returns a promise that
-	 * resolves to the results of executing the patterns on the specified paths.
+	 * The function `By` takes in a file pattern or an array of file patterns and returns the promise that
+	 * resolves to the results after executing the patterns to the specified paths.
 	 * @param {Pattern | Pattern[]} [File=**/ /*] - The `File` parameter is of type `Pattern` or
 	 * `Pattern[]`. It represents the file or files that you want to search for. The `Pattern` type is a
 	 * string pattern that can include wildcards to match multiple files. The default value for `File` is
