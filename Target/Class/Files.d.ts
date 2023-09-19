@@ -1,7 +1,7 @@
-import type { Type as Action } from "../Library/Files/Action.js";
-import type { Type as Path } from "../Library/Files/Path.js";
-import type { Type as Plan } from "../Library/Files/Plan.js";
-import type { Type as Option } from "../Option/Index.js";
+import type { Type as Action } from "../Interface/Action.js";
+import type { Type as Option } from "../Interface/Option.js";
+import type { Type as Path } from "../Interface/Path.js";
+import type { Type as Plan } from "../Interface/Plan.js";
 import type { Pattern } from "fast-glob";
 export default class Files {
     /**

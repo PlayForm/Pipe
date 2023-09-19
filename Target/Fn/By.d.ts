@@ -1,3 +1,4 @@
+import type { Type as Plan } from "../Interface/Plan.ts";
 import type { Pattern } from "fast-glob";
 /**
  * The function `By` takes in a file pattern or an array of file patterns, a set of
@@ -13,5 +14,5 @@ import type { Pattern } from "fast-glob";
  * keep track of the files that have been processed and their respective destinations.
  * @returns the `Results` object.
  */
-declare const _default: (File: Pattern | Pattern[], Paths: Plan, Results: Plan) => Promise<Plan>;
+declare const _default: (File: Pattern | Pattern[], Paths: Plan["Paths"], Results: Plan["Results"]) => Promise<Map<string, string>>;
 export default _default;
