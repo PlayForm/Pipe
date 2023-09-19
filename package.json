@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.0.18",
+	"version": "2.0.19",
 	"private": false,
 	"description": "🧪 Files processing with JavaScript.",
 	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
@@ -24,12 +24,12 @@
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "20.6.0",
+		"@types/node": "20.6.2",
 		"deepmerge-ts": "5.1.0",
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.1.15"
+		"typescript-esbuild": "0.1.16"
 	},
 	"publishConfig": {
 		"access": "public"
