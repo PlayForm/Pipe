@@ -1,7 +1,7 @@
 import type { Type as Action } from "../Interface/Action.js";
 import type { Type as Plan } from "../Interface/Plan.js";
 
-import { constants as Constant, writeFile } from "fs";
+import { constants as Constant } from "fs";
 import {
 	access as Access,
 	writeFile as File,
@@ -9,8 +9,6 @@ import {
 	stat as Stat,
 } from "fs/promises";
 import { dirname as Dir } from "path";
-import WalkUntilGit from "./WalkUntilGit.js";
-import { fileURLToPath } from "url";
 
 /**
  * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
@@ -27,21 +25,18 @@ export default async (
 	let _Plan = Plan;
 
 	// @TODO: Prime the cache, create folders, etc.
-	try {
-		console.log(Plan.Cache);
-		console.log(
-			await WalkUntilGit(
-				fileURLToPath(Plan.Cache.toString() ?? "./Cache")
-			)
-		);
+	// try {
+	// 	console.log(Plan.Cache);
+	// 	console.log(import.meta.url);
+	// 	// console.log(await WalkUntilGit(fileURLToPath(Plan.Cache)));
 
-		File(`${await WalkUntilGit("./Cache")}/.test`, "test");
-		// console.log(Plan.Results);
-		// console.log(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
-		// console.log(
-		// 	resolve(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
-		// );
-	} catch (error) {}
+	// 	// File(`${await WalkUntilGit("./Cache")}/.test`, "test");
+	// 	// console.log(Plan.Results);
+	// 	// console.log(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
+	// 	// console.log(
+	// 	// 	resolve(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
+	// 	// );
+	// } catch (error) {}
 
 	// @TODO: Maybe purge results before the whole operation instead of executing the pipe
 	// @TODO: Cache invalidation
