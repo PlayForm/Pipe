@@ -25,11 +25,12 @@ export default async (
 	let _Plan = Plan;
 
 	// @TODO: Prime the cache, create folders, etc.
-	// try {
-	// 	await Access();
-	// } catch (error) {
+	try {
+		console.log(Plan.Cache)
+		console.log(import.meta.url);
+	} catch (error) {
 
-	// }
+	}
 
 	// @TODO: Maybe purge results before the whole operation instead of executing the pipe
 	// @TODO: Cache invalidation
@@ -53,7 +54,7 @@ export default async (
 				// Fingerprint the whole operation (get function name or something from prototype)
 				// console.log(Wrote.prototype);
 
-				const Buffer = await Wrote(_Plan.On);
+				const Buffer = await Wrote("./Cache", _Plan.On);
 
 				if (!Buffer) {
 					continue;

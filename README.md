@@ -15,7 +15,7 @@ Then, create a new pipe from this component:
 **`Index.ts`**
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 await new Files().In("./Input");
 ```
@@ -28,7 +28,7 @@ execute an action on each file from the pipe.
 **`Index.ts`**
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 await (
 	await (await new Files().In("./Input")).By("**/*.md")
@@ -41,7 +41,7 @@ await (
 #### These are the defaults for each callback.
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 await new Files().Pipe({
 	// Reads the file into a buffer
@@ -75,7 +75,7 @@ await new Files().Pipe({
 **`Index.ts`**
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 await new Files().In(["./Input", "./Input2"]);
 ```
@@ -85,7 +85,7 @@ await new Files().In(["./Input", "./Input2"]);
 **`Index.ts`**
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 await new Files().In(new Map([["./Input", "./Output"]]));
 ```
@@ -95,7 +95,7 @@ await new Files().In(new Map([["./Input", "./Output"]]));
 **`Index.ts`**
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 await new Files().Not([
 	"File.txt",
@@ -108,7 +108,7 @@ await new Files().Not([
 **`Index.ts`**
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 new Files(0);
 ```
@@ -118,7 +118,7 @@ new Files(0);
 **`Index.ts`**
 
 ```ts
-import { Files } from "files-pipe";
+import Files from "files-pipe";
 
 new Files(0);
 ```
