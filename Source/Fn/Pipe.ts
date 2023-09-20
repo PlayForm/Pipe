@@ -60,7 +60,7 @@ export default async (
 				// Fingerprint the whole operation (get function name or something from prototype)
 				// console.log(Wrote.prototype);
 
-				const Buffer = await Wrote("./Cache", _Plan.On);
+				const Buffer = await Wrote(Plan.Cache, _Plan.On);
 
 				if (!Buffer) {
 					continue;

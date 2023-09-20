@@ -57,5 +57,5 @@ export interface Type {
 	 * @param On The file to be written to.
 	 * @returns A Promise that resolves to the buffer written to the file.
 	 */
-	Wrote?: (Cache: Cache, On: File) => Promise<Buffer>;
+	Wrote?: (On: File) => Promise<Buffer>;
 }
