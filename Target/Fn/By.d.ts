@@ -1,4 +1,4 @@
-import type { Type as Plan } from "../Interface/Plan.ts";
+import type { Type as Plan } from "../Interface/Plan.js";
 import type { Pattern } from "fast-glob";
 /**
  * The function `By` takes in a file pattern or an array of file patterns, a set of

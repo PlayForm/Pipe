@@ -9,6 +9,8 @@ export type { Type as Path } from "./Interface/Path.js";
 
 export const By = (await import("./Fn/By.js")).default;
 export const Bytes = (await import("./Fn/Bytes.js")).default;
+export const Apply = (await import("./Fn/Apply.js")).default;
+export const WalkUntilGit = (await import("./Fn/WalkUntilGit.js")).default;
 export const Default = (await import("./Object/Option.js")).default;
 export const In = (await import("./Fn/In.js")).default;
 export const Merge = (await import("./Fn/Merge.js")).default;

@@ -1,4 +1,4 @@
-import type { Type as Plan } from "../Interface/Plan.ts";
+import type { Type as Plan } from "../Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 

@@ -11,7 +11,7 @@ export default {
 	Logger: 2,
 	Action: {
 		Read: async (On) => await File(On.Input, "utf-8"),
-		Wrote: async (Cache, On) => On.Buffer,
+		Wrote: async (_Cache, On) => On.Buffer,
 		Passed: async (On) => On && true,
 		Failed: async (On) => `Error: Cannot process file ${On.Input}!`,
 		Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,

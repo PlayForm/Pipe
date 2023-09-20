@@ -8,13 +8,15 @@ export type { Type as Option } from "./Interface/Option.js";
 export type { Type as Path } from "./Interface/Path.js";
 export declare const By: (File: string | string[], Paths: Map<string, string>, Results: Map<string, string>) => Promise<Map<string, string>>;
 export declare const Bytes: (Bytes: number, Decimals?: number) => Promise<string>;
+export declare const Apply: (Fn: unknown, Test: unknown) => Promise<any>;
+export declare const WalkUntilGit: (Search: string, From?: string | undefined) => Promise<string>;
 export declare const Default: {
     Cache: string;
     Path: string;
     Logger: 2;
     Action: {
         Read: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Wrote: (Cache: import("./Interface/Cache.ts").Type, On: import("./Interface/File.js").Type) => Promise<import("./Interface/Buffer.js").Type>;
+        Wrote: (_Cache: import("./Interface/Cache.ts").Type, On: import("./Interface/File.js").Type) => Promise<import("./Interface/Buffer.js").Type>;
         Passed: (On: import("./Interface/File.js").Type) => Promise<boolean>;
         Failed: (On: import("./Interface/File.js").Type) => Promise<string>;
         Accomplished: (On: import("./Interface/File.js").Type) => Promise<string>;
