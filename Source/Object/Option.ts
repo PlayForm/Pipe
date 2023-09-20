@@ -6,7 +6,10 @@ import { readFile as File } from "fs/promises";
  * Default configuration object.
  */
 export default {
-	Cache: "./Cache",
+	Cache: {
+		Folder: "./Cache",
+		Base: ".",
+	},
 	Path: "./Target",
 	Logger: 2,
 	Action: {

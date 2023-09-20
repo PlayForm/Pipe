@@ -92,6 +92,10 @@ export default class {
 	};
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
+		console.log('---- FILES PIPE ----');
+		console.log(Cache);
+		console.log('---- END FILES PIPE ----');
+		
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
 		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}

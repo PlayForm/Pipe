@@ -2,7 +2,10 @@
  * Default configuration object.
  */
 declare const _default: {
-    Cache: string;
+    Cache: {
+        Folder: string;
+        Base: string;
+    };
     Path: string;
     Logger: 2;
     Action: {

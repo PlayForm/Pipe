@@ -7,7 +7,7 @@ import type { Type as Logger } from "./Logger.js";
  */
 export interface Type {
     /**
-     * The folder of the plan cache.
+     * Represents the cache configuration.
      */
     Cache: Cache;
     /**

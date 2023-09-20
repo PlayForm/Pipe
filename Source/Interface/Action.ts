@@ -1,5 +1,4 @@
 import type { Type as Buffer } from "./Buffer.js";
-import type { Type as Cache } from "./Cache.js";
 import type { Type as File } from "./File.js";
 import type { Type as Plan } from "./Plan.js";
 
