@@ -16,7 +16,7 @@ export declare const Default: {
     Logger: 2;
     Action: {
         Read: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Wrote: (_Cache: import("./Interface/Cache.ts").Type, On: import("./Interface/File.js").Type) => Promise<import("./Interface/Buffer.js").Type>;
+        Wrote: (On: import("./Interface/File.js").Type) => Promise<import("./Interface/Buffer.js").Type>;
         Passed: (On: import("./Interface/File.js").Type) => Promise<boolean>;
         Failed: (On: import("./Interface/File.js").Type) => Promise<string>;
         Accomplished: (On: import("./Interface/File.js").Type) => Promise<string>;

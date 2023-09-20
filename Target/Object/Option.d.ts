@@ -7,7 +7,7 @@ declare const _default: {
     Logger: 2;
     Action: {
         Read: (On: import("../Export.ts").File) => Promise<string>;
-        Wrote: (_Cache: import("../Interface/Cache.ts").Type, On: import("../Export.ts").File) => Promise<import("../Export.ts").Buffer>;
+        Wrote: (On: import("../Export.ts").File) => Promise<import("../Export.ts").Buffer>;
         Passed: (On: import("../Export.ts").File) => Promise<boolean>;
         Failed: (On: import("../Export.ts").File) => Promise<string>;
         Accomplished: (On: import("../Export.ts").File) => Promise<string>;

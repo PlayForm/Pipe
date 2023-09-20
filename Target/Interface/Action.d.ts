@@ -1,5 +1,4 @@
 import type { Type as Buffer } from "./Buffer.js";
-import type { Type as Cache } from "./Cache.js";
 import type { Type as File } from "./File.js";
 import type { Type as Plan } from "./Plan.js";
 /**
@@ -48,5 +47,5 @@ export interface Type {
      * @param On The file to be written to.
      * @returns A Promise that resolves to the buffer written to the file.
      */
-    Wrote?: (Cache: Cache, On: File) => Promise<Buffer>;
+    Wrote?: (On: File) => Promise<Buffer>;
 }
