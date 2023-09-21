@@ -1,6 +1,9 @@
 import type { Type as Action } from "../Interface/Action.js";
 import type { Type as Plan } from "../Interface/Plan.js";
 
+import Exec from "./Exec.js";
+import WalkUntilGit from "./WalkUntilGit.js";
+
 import { constants as Constant } from "fs";
 import {
 	access as Access,
@@ -9,6 +12,7 @@ import {
 	stat as Stat,
 } from "fs/promises";
 import { dirname as Dir } from "path";
+import { fileURLToPath } from "url";
 
 /**
  * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
@@ -24,19 +28,43 @@ export default async (
 ) => {
 	let _Plan = Plan;
 
-	// @TODO: Prime the cache, create folders, etc.
-	// try {
-	// 	console.log(Plan.Cache);
-	// 	console.log(import.meta.url);
-	// 	// console.log(await WalkUntilGit(fileURLToPath(Plan.Cache)));
+	if (Plan.Cache) {
+		try {
+			await Make(Plan.Cache, {
+				recursive: true,
+			});
 
-	// 	// File(`${await WalkUntilGit("./Cache")}/.test`, "test");
-	// 	// console.log(Plan.Results);
-	// 	// console.log(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
-	// 	// console.log(
-	// 	// 	resolve(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
-	// 	// );
-	// } catch (error) {}
+			await File(`${Plan.Cache}/.gitkeep`, "");
+		} catch (_Error) {}
+
+		Exec(
+			`cd ${await WalkUntilGit(
+				Plan.Cache instanceof URL
+					? fileURLToPath(Plan.Cache)
+					: Plan.Cache
+			)}`,
+			false
+		);
+
+		Exec(
+			`git --no-pager log --format="H%" --max-count=1 --oneline --name-only -- ${Plan.Cache}`
+		);
+
+		Exec("cd -");
+
+		// await File(`${Plan.Cache}/.test`, "{}");
+		// exec("git status", (_Error, Out) => {
+		// 	console.log(Out);
+		// });
+
+		// Exec('git statu')
+		// // File(`${await WalkUntilGit("./Cache")}/.test`, "test");
+		// console.log(Plan.Results);
+		// console.log(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
+		// console.log(
+		// 	resolve(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
+		// );
+	}
 
 	// @TODO: Maybe purge results before the whole operation instead of executing the pipe
 	// @TODO: Cache invalidation
@@ -53,6 +81,10 @@ export default async (
 			_Plan.On.Before = (await Stat(_Plan.On.Input)).size;
 
 			if (Read && Wrote) {
+				// await Exec(
+				// 	`git --no-pager log --format="H%" --max-count=1 --oneline -- ${Input}`
+				// );
+
 				// @TODO: Before Read check cache, only on read file write is always necessary
 				_Plan.On.Buffer = await Read(_Plan.On);
 

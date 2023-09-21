@@ -16,7 +16,7 @@ export interface Type {
 	/**
 	 * Configuration for the target cache.
 	 *
-	 * @default "{ Folder: ./Cache, Base: }"
+	 * @default "./Cache"
 	 */
 	Cache?: Cache;
 
