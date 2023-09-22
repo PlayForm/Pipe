@@ -14,8 +14,8 @@ export default async (
 ) => {
 	try {
 		const Exec = exec(Command);
-		
-		typeof Echo === "function"
+
+		Echo && typeof Echo === "function"
 			? Exec.stdout?.on("data", (Data) => Echo(Data))
 			: {};
 	} catch (_Error) {}

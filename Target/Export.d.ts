@@ -11,7 +11,10 @@ export declare const Bytes: (Bytes: number, Decimals?: number) => Promise<string
 export declare const Apply: (Fn: unknown, Test: unknown) => Promise<any>;
 export declare const WalkUntilGit: (Search: string, From?: string | undefined) => Promise<string>;
 export declare const Default: {
-    Cache: string;
+    Cache: {
+        Search: string;
+        Folder: string;
+    };
     Path: string;
     Logger: 2;
     Action: {

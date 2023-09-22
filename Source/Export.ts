@@ -92,6 +92,7 @@ export default class {
 	};
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
+		console.log(Cache);
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
 		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}

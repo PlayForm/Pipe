@@ -2,4 +2,7 @@
 /**
  * Represents the cache path configuration.
  */
-export type Type = string | URL | false;
+export type Type = false | {
+    Search: string | URL;
+    Folder: string | URL;
+};

@@ -29,26 +29,26 @@ export default async (
 	let _Plan = Plan;
 
 	if (Plan.Cache) {
+		Exec(
+			`cd ${await WalkUntilGit(
+				Plan.Cache.Search instanceof URL
+					? fileURLToPath(Plan.Cache.Search)
+					: Plan.Cache.Search
+			)}`,
+			false
+		);
+
 		try {
-			await Make(Plan.Cache, {
+			await Make(Plan.Cache.Folder, {
 				recursive: true,
 			});
 
 			await File(`${Plan.Cache}/.gitkeep`, "");
 		} catch (_Error) {}
 
-		Exec(
-			`cd ${await WalkUntilGit(
-				Plan.Cache instanceof URL
-					? fileURLToPath(Plan.Cache)
-					: Plan.Cache
-			)}`,
-			false
-		);
-
-		Exec(
-			`git --no-pager log --format="H%" --max-count=1 --oneline --name-only -- ${Plan.Cache}`
-		);
+		// Exec(
+		// 	`git --no-pager log --format="H%" --max-count=1 --oneline --name-only -- ${Plan.Cache}`
+		// );
 
 		Exec("cd -");
 
