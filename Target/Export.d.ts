@@ -10,23 +10,7 @@ export declare const By: (File: string | string[], Paths: Map<string, string>, R
 export declare const Bytes: (Bytes: number, Decimals?: number) => Promise<string>;
 export declare const Apply: (Fn: unknown, Test: unknown) => Promise<any>;
 export declare const WalkUntilGit: (Search: string, From?: string | undefined) => Promise<string>;
-export declare const Default: {
-    Cache: {
-        Search: string;
-        Folder: string;
-    };
-    Path: string;
-    Logger: 2;
-    Action: {
-        Read: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Wrote: (On: import("./Interface/File.js").Type) => Promise<import("./Interface/Buffer.js").Type>;
-        Passed: (On: import("./Interface/File.js").Type) => Promise<boolean>;
-        Failed: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Accomplished: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Fulfilled: (Plan: Plan) => Promise<string | false>;
-        Changed: (Plan: Plan) => Promise<Plan>;
-    };
-};
+export declare const Default: Option;
 export declare const In: (Path: Path, Paths: Map<string, string>) => Promise<Map<string, string>>;
 export declare const Merge: <Ts extends readonly unknown[]>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, Readonly<{
     DeepMergeRecordsURI: "DeepMergeRecordsDefaultURI";
