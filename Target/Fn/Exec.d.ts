@@ -1,6 +1,6 @@
 /**
- * The above function is an asynchronous function that executes a command and logs the
- * stdout, stderr, and exit code of the child process.
+ * The function 'Exec' is an asynchronous function that executes a command and logs the
+ * stdout of the child process.
  * @param {string} Command - The `Command` parameter is a string that represents the
  * command you want to execute. It can be any valid command that can be executed in a
  * terminal or command prompt.
