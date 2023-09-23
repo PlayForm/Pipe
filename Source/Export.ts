@@ -5,7 +5,7 @@ import type Plan from "./Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 
-export const Default = (await import("./Object/Option.js")).default;
+export const { default: Default } = await import("./Object/Option.js");
 
 export default class {
 	/**
