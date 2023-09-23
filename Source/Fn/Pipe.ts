@@ -1,8 +1,8 @@
 import type { Type as Action } from "../Interface/Action.js";
 import type { Type as Plan } from "../Interface/Plan.js";
 
-import Exec from "./Exec.js";
-import WalkUntilGit from "./WalkUntilGit.js";
+// import Exec from "./Exec.js";
+// import WalkUntilGit from "./WalkUntilGit.js";
 
 import { constants as Constant } from "fs";
 import {
@@ -12,7 +12,7 @@ import {
 	stat as Stat,
 } from "fs/promises";
 import { dirname as Dir } from "path";
-import { fileURLToPath } from "url";
+// import { fileURLToPath } from "url";
 
 /**
  * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
@@ -28,43 +28,43 @@ export default async (
 ) => {
 	let _Plan = Plan;
 
-	if (Plan.Cache) {
-		Exec(
-			`cd ${await WalkUntilGit(
-				Plan.Cache.Search instanceof URL
-					? fileURLToPath(Plan.Cache.Search)
-					: Plan.Cache.Search
-			)}`,
-			false
-		);
+	// if (Plan.Cache) {
+	// 	Exec(
+	// 		`cd ${await WalkUntilGit(
+	// 			Plan.Cache.Search instanceof URL
+	// 				? fileURLToPath(Plan.Cache.Search)
+	// 				: Plan.Cache.Search
+	// 		)}`,
+	// 		false
+	// 	);
 
-		try {
-			await Make(Plan.Cache.Folder, {
-				recursive: true,
-			});
+	// 	try {
+	// 		await Make(Plan.Cache.Folder, {
+	// 			recursive: true,
+	// 		});
 
-			await File(`${Plan.Cache}/.gitkeep`, "");
-		} catch (_Error) {}
+	// 		await File(`${Plan.Cache}/.gitkeep`, "");
+	// 	} catch (_Error) {}
 
-		// Exec(
-		// 	`git --no-pager log --format="H%" --max-count=1 --oneline --name-only -- ${Plan.Cache}`
-		// );
+	// 	// Exec(
+	// 	// 	`git --no-pager log --format="H%" --max-count=1 --oneline --name-only -- ${Plan.Cache}`
+	// 	// );
 
-		Exec("cd -");
+	// 	Exec("cd -");
 
-		// await File(`${Plan.Cache}/.test`, "{}");
-		// exec("git status", (_Error, Out) => {
-		// 	console.log(Out);
-		// });
+	// 	// await File(`${Plan.Cache}/.test`, "{}");
+	// 	// exec("git status", (_Error, Out) => {
+	// 	// 	console.log(Out);
+	// 	// });
 
-		// Exec('git statu')
-		// // File(`${await WalkUntilGit("./Cache")}/.test`, "test");
-		// console.log(Plan.Results);
-		// console.log(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
-		// console.log(
-		// 	resolve(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
-		// );
-	}
+	// 	// Exec('git statu')
+	// 	// // File(`${await WalkUntilGit("./Cache")}/.test`, "test");
+	// 	// console.log(Plan.Results);
+	// 	// console.log(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
+	// 	// console.log(
+	// 	// 	resolve(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
+	// 	// );
+	// }
 
 	// @TODO: Maybe purge results before the whole operation instead of executing the pipe
 	// @TODO: Cache invalidation

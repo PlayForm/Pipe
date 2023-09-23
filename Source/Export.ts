@@ -6,7 +6,7 @@ import type { Type as Plan } from "./Interface/Plan.js";
 import type { Pattern } from "fast-glob";
 
 export const By = (await import("./Fn/By.js")).default;
-export const Bytes = (await import("./Fn/Bytes.js")).default;
+// export const Bytes = (await import("./Fn/Bytes.js")).default;
 export const Apply = (await import("./Fn/Apply.js")).default;
 export const WalkUntilGit = (await import("./Fn/WalkUntilGit.js")).default;
 export const Default = (await import("./Object/Option.js")).default;
@@ -41,7 +41,7 @@ export default class {
 	/**
 	 * The function `By` takes a file pattern or an array of file patterns and returns a promise that
 	 * resolves to the results of executing the patterns on the specified paths.
-	 * @param {Pattern | Pattern[]} - The `File` parameter is of type `Pattern` or
+	 * @param {Pattern | Pattern[]} File parameter is of type `Pattern` or
 	 * `Pattern[]`. It represents the file or files that you want to search for. The `Pattern` type is a
 	 * string pattern that can include wildcards to match multiple files. The default value for `File` is
 	 * `"**/ /*"
@@ -56,7 +56,7 @@ export default class {
 	/**
 	 * The function `In` takes a path and updates the `Plan.Paths` property with the input and output
 	 * paths.
-	 * @param {Path} - The `Path` parameter is a string that represents the path to a file or
+	 * @param {Path} Path parameter is a string that represents the path to a file or
 	 * directory. It has a default value of "./", which means it will use the current directory if no path
 	 * is provided.
 	 * @returns the value of `this`, which refers to the current object.
@@ -90,7 +90,6 @@ export default class {
 	};
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
-		console.log(Cache);
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
 		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}
