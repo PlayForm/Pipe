@@ -26,4 +26,4 @@ export default {
 				: false,
 		Changed: async (Plan) => Plan,
 	},
-} satisfies Option as Option;
+} satisfies Option;

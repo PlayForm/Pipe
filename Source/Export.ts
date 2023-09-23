@@ -5,15 +5,6 @@ import type { Type as Plan } from "./Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 
-export type { Type as Action } from "./Interface/Action.js";
-export type { Type as Buffer } from "./Interface/Buffer.js";
-export type { Type as Dir } from "./Interface/Dir.js";
-export type { Type as Exclude } from "./Interface/Exclude.js";
-export type { Type as File } from "./Interface/File.js";
-export type { Type as Logger } from "./Interface/Logger.js";
-export type { Type as Option } from "./Interface/Option.js";
-export type { Type as Path } from "./Interface/Path.js";
-
 export const By = (await import("./Fn/By.js")).default;
 export const Bytes = (await import("./Fn/Bytes.js")).default;
 export const Apply = (await import("./Fn/Apply.js")).default;
@@ -104,3 +95,12 @@ export default class {
 		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}
 }
+
+export type { Type as Action } from "./Interface/Action.js";
+export type { Type as Buffer } from "./Interface/Buffer.js";
+export type { Type as Dir } from "./Interface/Dir.js";
+export type { Type as Exclude } from "./Interface/Exclude.js";
+export type { Type as File } from "./Interface/File.js";
+export type { Type as Logger } from "./Interface/Logger.js";
+export type { Type as Option } from "./Interface/Option.js";
+export type { Type as Path } from "./Interface/Path.js";
