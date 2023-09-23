@@ -1,3 +1,4 @@
+export declare const R_OK: number, W_OK: number;
 /**
  * The function recursively walks through directories until it finds a ".git" folder or reaches the
  * root directory.
@@ -9,5 +10,5 @@
  * by the "Search" parameter.
  * @returns The function `WalkUntilGit` returns a promise that resolves to a string.
  */
-declare const WalkUntilGit: (Search: string, From?: string) => Promise<string>;
-export default WalkUntilGit;
+declare const Fn: (Search: string, From?: string) => Promise<string>;
+export default Fn;

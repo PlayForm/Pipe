@@ -1,1 +1,1 @@
-import f from"fast-glob";var p=async(a,e,t)=>{for(const[o,n]of e)for(const r of await f(a,{cwd:o,onlyFiles:!0}))t.set(`${n}${r}`,`${o}${r}`);return t};export{p as default};
+var f=async(r,e,t)=>{for(const[a,o]of e)for(const n of await(await import("fast-glob")).async(r,{cwd:a,onlyFiles:!0}))t.set(`${o}${n}`,`${a}${n}`);return t};export{f as default};

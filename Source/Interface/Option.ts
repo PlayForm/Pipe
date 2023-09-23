@@ -1,8 +1,8 @@
-import type { Type as Action } from "./Action.js";
-import type { Type as Cache } from "./Cache.js";
-import type { Type as Exclude } from "./Exclude.js";
-import type { Type as Logger } from "./Logger.js";
-import type { Type as Path } from "./Path.js";
+import type Action from "./Action.js";
+import type Cache from "./Cache.js";
+import type Exclude from "./Exclude.js";
+import type Logger from "./Logger.js";
+import type Path from "./Path.js";
 
 import type { Pattern } from "fast-glob";
 
@@ -16,7 +16,8 @@ export default interface Type {
 	/**
 	 * Configuration for the target cache.
 	 *
-	 * @default "./Cache"
+	 * @default { Search: "./", Folder: "./Cache" }
+	 *
 	 */
 	Cache?: Cache;
 

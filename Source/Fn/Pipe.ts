@@ -1,18 +1,9 @@
-import type { Type as Action } from "../Interface/Action.js";
-import type { Type as Plan } from "../Interface/Plan.js";
+import type Action from "../Interface/Action.js";
+import type Plan from "../Interface/Plan.js";
 
-// import Exec from "./Exec.js";
-// import WalkUntilGit from "./WalkUntilGit.js";
+export const { stat } = await import("fs/promises");
 
-import { constants as Constant } from "fs";
-import {
-	access as Access,
-	writeFile as File,
-	mkdir as Make,
-	stat as Stat,
-} from "fs/promises";
-import { dirname as Dir } from "path";
-// import { fileURLToPath } from "url";
+export const { dirname } = await import("path");
 
 /**
  * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
@@ -60,9 +51,9 @@ export default async (
 	// 	// Exec('git statu')
 	// 	// // File(`${await WalkUntilGit("./Cache")}/.test`, "test");
 	// 	// console.log(Plan.Results);
-	// 	// console.log(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
+	// 	// console.log(dirname(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
 	// 	// console.log(
-	// 	// 	resolve(Dir(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
+	// 	// 	resolve(dirname(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
 	// 	// );
 	// }
 
@@ -78,7 +69,7 @@ export default async (
 			_Plan.On.Input = Input;
 			_Plan.On.Output = Output;
 
-			_Plan.On.Before = (await Stat(_Plan.On.Input)).size;
+			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
 
 			if (Read && Wrote) {
 				// await Exec(
@@ -100,16 +91,25 @@ export default async (
 
 				if (Passed && (await Passed(_Plan.On))) {
 					try {
-						await Access(Dir(_Plan.On.Output), Constant.W_OK);
+						await (
+							await import("fs/promises")
+						).access(
+							dirname(_Plan.On.Output),
+							(await import("fs")).constants.W_OK
+						);
 					} catch (_Error) {
-						await Make(Dir(_Plan.On.Output), {
+						await (
+							await import("fs/promises")
+						).mkdir(dirname(_Plan.On.Output), {
 							recursive: true,
 						});
 					}
 
-					await File(_Plan.On.Output, _Plan.On.Buffer, "utf-8");
+					await (
+						await import("fs/promises")
+					).writeFile(_Plan.On.Output, _Plan.On.Buffer, "utf-8");
 
-					_Plan.On.After = (await Stat(_Plan.On.Output)).size;
+					_Plan.On.After = (await stat(_Plan.On.Output)).size;
 
 					if (_Plan.Logger > 0) {
 						_Plan.Files++;

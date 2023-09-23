@@ -5,7 +5,9 @@ import type Plan from "./Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 
-export const { default: Default } = await import("./Object/Option.js");
+export const {
+	default: { Action: _Action, Cache, Logger },
+} = await import("./Object/Option.js");
 
 export default class {
 	/**
@@ -21,7 +23,7 @@ export default class {
 			await import("./Fn/Pipe.js")
 		).default(
 			this.Plan,
-			(await import("./Fn/Merge.js")).default(Default.Action, Action)
+			(await import("./Fn/Merge.js")).default(_Action, Action)
 		);
 
 	/**
@@ -76,10 +78,10 @@ export default class {
 		return this;
 	};
 
-	Plan: Plan = {
-		Cache: Default.Cache,
+	Plan = {
+		Cache: Cache,
 		Files: 0,
-		Logger: Default.Logger,
+		Logger: Logger,
 		Info: {},
 		Paths: new Map(),
 		Results: new Map(),
@@ -90,7 +92,7 @@ export default class {
 			Input: "",
 			Output: "",
 		},
-	};
+	} satisfies Plan as Plan;
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
 		this.Plan.Cache = Cache ?? this.Plan.Cache;

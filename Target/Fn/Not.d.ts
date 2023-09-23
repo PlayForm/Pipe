@@ -10,5 +10,5 @@ import type Plan from "../Interface/Plan.js";
  * name, and the second element represents the file content.
  * @returns the modified `Files` set after applying the filters.
  */
-declare const _default: (Pattern: Option["Exclude"], Files: Plan["Results"]) => Promise<Map<`${Dir}${File}`, `${Dir}${File}`>>;
+declare const _default: (Pattern: Option["Exclude"], Files: Plan["Results"]) => Promise<Map<string, string>>;
 export default _default;

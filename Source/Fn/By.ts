@@ -1,8 +1,6 @@
-import type { Type as Plan } from "../Interface/Plan.js";
+import type Plan from "../Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
-
-import Glob from "fast-glob";
 
 /**
  * The function `By` takes in a file pattern or an array of file patterns, a set of
@@ -24,7 +22,9 @@ export default async (
 	Results: Plan["Results"]
 ) => {
 	for (const [Input, Output] of Paths) {
-		for (const _File of await Glob(File, {
+		for (const _File of await (
+			await import("fast-glob")
+		).async(File, {
 			cwd: Input,
 			onlyFiles: true,
 		})) {

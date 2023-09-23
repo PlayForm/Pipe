@@ -1,5 +1,3 @@
-import { exec } from "child_process";
-
 /**
  * The function 'Exec' is an asynchronous function that executes a command and logs the
  * stdout of the child process.
@@ -13,7 +11,7 @@ export default async (
 	Echo: false | ((Return: any) => void) = (Return) => console.log(Return)
 ) => {
 	try {
-		const Exec = exec(Command);
+		const Exec = (await import("child_process")).exec(Command);
 
 		Echo && typeof Echo === "function"
 			? Exec.stdout?.on("data", (Data) => Echo(Data))

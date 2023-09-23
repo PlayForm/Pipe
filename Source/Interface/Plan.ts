@@ -1,7 +1,7 @@
-import type { Type as Cache } from "./Cache.js";
-import type { Type as Dir } from "./Dir.js";
-import type { Type as File } from "./File.js";
-import type { Type as Logger } from "./Logger.js";
+import type Cache from "./Cache.js";
+import type Dir from "./Dir.js";
+import type File from "./File.js";
+import type Logger from "./Logger.js";
 
 /**
  * Represents the execution's plan.

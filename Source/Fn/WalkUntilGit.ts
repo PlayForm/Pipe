@@ -1,6 +1,4 @@
-import { constants as Constant } from "fs";
-import { access as Access } from "fs/promises";
-import { dirname as Dir } from "path";
+export const { R_OK, W_OK } = (await import("fs")).constants;
 
 /**
  * The function recursively walks through directories until it finds a ".git" folder or reaches the
@@ -13,8 +11,8 @@ import { dirname as Dir } from "path";
  * by the "Search" parameter.
  * @returns The function `WalkUntilGit` returns a promise that resolves to a string.
  */
-const WalkUntilGit = async (Search: string, From?: string): Promise<string> => {
-	const Path = Dir(Search);
+const Fn = async (Search: string, From?: string): Promise<string> => {
+	const Path = (await import("path")).dirname(Search);
 	const Original = From ? From : Path;
 
 	if (Path === Search) {
@@ -22,11 +20,11 @@ const WalkUntilGit = async (Search: string, From?: string): Promise<string> => {
 	}
 
 	try {
-		await Access(`${Path}/.git`, Constant.R_OK | Constant.W_OK);
+		await (await import("fs/promises")).access(`${Path}/.git`, R_OK | W_OK);
 		return Path;
 	} catch (_Error) {
-		return await WalkUntilGit(Path, Original);
+		return await Fn(Path, Original);
 	}
 };
 
-export default WalkUntilGit;
+export default Fn;

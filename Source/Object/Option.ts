@@ -1,6 +1,4 @@
-import type { Type as Option } from "../Interface/Option.js";
-
-import { readFile as File } from "fs/promises";
+import type Type from "../Interface/Option.js";
 
 /**
  * Default configuration object.
@@ -13,7 +11,8 @@ export default {
 	Path: "./Target",
 	Logger: 2,
 	Action: {
-		Read: async (On) => await File(On.Input, "utf-8"),
+		Read: async (On) =>
+			await (await import("fs/promises")).readFile(On.Input, "utf-8"),
 		Wrote: async (On) => On.Buffer,
 		Passed: async (On) => On && true,
 		Failed: async (On) => `Error: Cannot process file ${On.Input}!`,
@@ -26,4 +25,4 @@ export default {
 				: false,
 		Changed: async (Plan) => Plan,
 	},
-} satisfies Option;
+} satisfies Type;

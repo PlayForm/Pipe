@@ -1,9 +1,7 @@
-import type { Type as Path } from "../Interface/Path.js";
-import type { Type as Plan } from "../Interface/Plan.js";
+import type Path from "../Interface/Path.js";
+import type Plan from "../Interface/Plan.js";
 
 import Apply from "./Apply.js";
-
-import { fileURLToPath as __Path } from "url";
 
 /**
  * The function `In` takes a `Path` and a `Paths` object, and adds the `Path` to the `Paths` object.
@@ -17,7 +15,10 @@ export default async (Path: Path, Paths: Plan["Paths"]) => {
 	const _Path = await Apply(
 		(Path: string) => (Path.endsWith("/") ? Path : `${Path}/`),
 		await Apply(
-			(_URL: URL | string) => (_URL instanceof URL ? __Path(_URL) : _URL),
+			async (_URL: URL | string) =>
+				_URL instanceof URL
+					? (await import("url")).fileURLToPath(_URL)
+					: _URL,
 			Path
 		)
 	);
