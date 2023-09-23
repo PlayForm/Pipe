@@ -4,7 +4,6 @@ import type { Type as Path } from "./Interface/Path.js";
 import type { Type as Plan } from "./Interface/Plan.js";
 import type { Pattern } from "fast-glob";
 export declare const By: (File: string | string[], Paths: Map<string, string>, Results: Map<string, string>) => Promise<Map<string, string>>;
-export declare const Bytes: (Bytes: number, Decimals?: number) => Promise<string>;
 export declare const Apply: (Fn: unknown, Test: unknown) => Promise<any>;
 export declare const WalkUntilGit: (Search: string, From?: string | undefined) => Promise<string>;
 export declare const Default: {
