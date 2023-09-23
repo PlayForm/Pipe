@@ -1,3 +1,8 @@
+import type { Type as Action } from "./Interface/Action.js";
+import type { Type as Option } from "./Interface/Option.js";
+import type { Type as Path } from "./Interface/Path.js";
+import type { Type as Plan } from "./Interface/Plan.js";
+import type { Pattern } from "fast-glob";
 export type { Type as Action } from "./Interface/Action.js";
 export type { Type as Buffer } from "./Interface/Buffer.js";
 export type { Type as Dir } from "./Interface/Dir.js";
@@ -59,8 +64,3 @@ export default class {
     Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
-import type { Type as Action } from "./Interface/Action.js";
-import type { Type as Option } from "./Interface/Option.js";
-import type { Type as Path } from "./Interface/Path.js";
-import type { Type as Plan } from "./Interface/Plan.js";
-import type { Pattern } from "fast-glob";
