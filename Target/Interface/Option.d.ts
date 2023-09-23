@@ -7,7 +7,7 @@ import type { Pattern } from "fast-glob";
 /**
  * Represents options for configuring the behavior of the program.
  */
-export interface Type {
+export default interface Type {
     [key: string]: any;
     /**
      * Configuration for the target cache.

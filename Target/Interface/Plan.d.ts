@@ -5,7 +5,7 @@ import type { Type as Logger } from "./Logger.js";
 /**
  * Represents the execution's plan.
  */
-export interface Type {
+export default interface Type {
     /**
      * Represents the cache configuration.
      */

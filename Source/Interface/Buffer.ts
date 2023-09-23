@@ -9,3 +9,5 @@ export type Type =
 	| Iterable<string | NodeJS.ArrayBufferView>
 	| AsyncIterable<string | NodeJS.ArrayBufferView>
 	| Stream;
+
+export type { Type as default };

@@ -9,7 +9,7 @@ import type { Pattern } from "fast-glob";
 /**
  * Represents options for configuring the behavior of the program.
  */
-export interface Type {
+export default interface Type {
 	// rome-ignore lint/suspicious/noExplicitAny:
 	[key: string]: any;
 

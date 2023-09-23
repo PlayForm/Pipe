@@ -1,11 +1,11 @@
-import type { Type as Buffer } from "./Buffer.js";
-import type { Type as File } from "./File.js";
-import type { Type as Plan } from "./Plan.js";
+import type Buffer from "./Buffer.js";
+import type File from "./File.js";
+import type Plan from "./Plan.js";
 
 /**
  * Represents the execution configuration for specific actions on files.
  */
-export interface Type {
+export default interface Type {
 	/**
 	 * Attaches a callback for the fulfillment of the Action.
 	 * @param Plan The execution plan to be fulfilled.

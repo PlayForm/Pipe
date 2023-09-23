@@ -1,19 +1,11 @@
-import type { Type as Action } from "./Interface/Action.js";
-import type { Type as Option } from "./Interface/Option.js";
-import type { Type as Path } from "./Interface/Path.js";
-import type { Type as Plan } from "./Interface/Plan.js";
+import type Action from "./Interface/Action.js";
+import type Option from "./Interface/Option.js";
+import type Path from "./Interface/Path.js";
+import type Plan from "./Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 
-export const By = (await import("./Fn/By.js")).default;
-// export const Bytes = (await import("./Fn/Bytes.js")).default;
-export const Apply = (await import("./Fn/Apply.js")).default;
-export const WalkUntilGit = (await import("./Fn/WalkUntilGit.js")).default;
 export const Default = (await import("./Object/Option.js")).default;
-export const In = (await import("./Fn/In.js")).default;
-export const Merge = (await import("./Fn/Merge.js")).default;
-export const Not = (await import("./Fn/Not.js")).default;
-export const Pipe = (await import("./Fn/Pipe.js")).default;
 
 export default class {
 	/**
@@ -25,7 +17,12 @@ export default class {
 	 * function, it will use the default execution strategy.
 	 */
 	Pipe = async (Action: Action) =>
-		await Pipe(this.Plan, Merge(Default.Action, Action));
+		await (
+			await import("./Fn/Pipe.js")
+		).default(
+			this.Plan,
+			(await import("./Fn/Merge.js")).default(Default.Action, Action)
+		);
 
 	/**
 	 * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
@@ -33,7 +30,9 @@ export default class {
 	 * @returns the current object (`this`) after performing some operations.
 	 */
 	Not = async (File: Option["Exclude"]) => {
-		this.Plan.Results = await Not(File, this.Plan.Results);
+		this.Plan.Results = await (
+			await import("./Fn/Not.js")
+		).default(File, this.Plan.Results);
 
 		return this;
 	};
@@ -48,7 +47,9 @@ export default class {
 	 * @returns the current object (`this`) after the `By` function has been executed.
 	 */
 	By = async (File: Pattern | Pattern[] = "**/*") => {
-		this.Plan.Results = await By(File, this.Plan.Paths, this.Plan.Results);
+		this.Plan.Results = await (
+			await import("./Fn/By.js")
+		).default(File, this.Plan.Paths, this.Plan.Results);
 
 		return this;
 	};
@@ -62,7 +63,9 @@ export default class {
 	 * @returns the value of `this`, which refers to the current object.
 	 */
 	In = async (Path: Path = "./") => {
-		const Paths = await In(Path, this.Plan.Paths);
+		const Paths = await (
+			await import("./Fn/In.js")
+		).default(Path, this.Plan.Paths);
 
 		if (Paths instanceof Map) {
 			for (const [Input, Output] of Paths) {
@@ -94,12 +97,3 @@ export default class {
 		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}
 }
-
-export type { Type as Action } from "./Interface/Action.js";
-export type { Type as Buffer } from "./Interface/Buffer.js";
-export type { Type as Dir } from "./Interface/Dir.js";
-export type { Type as Exclude } from "./Interface/Exclude.js";
-export type { Type as File } from "./Interface/File.js";
-export type { Type as Logger } from "./Interface/Logger.js";
-export type { Type as Option } from "./Interface/Option.js";
-export type { Type as Path } from "./Interface/Path.js";

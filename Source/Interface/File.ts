@@ -1,9 +1,9 @@
-import type { Type as Buffer } from "./Buffer.js";
+import type Buffer from "./Buffer.js";
 
 /**
  * Represents a file specification.
  */
-export interface Type {
+export default interface Type {
 	/**
 	 * The input file.
 	 */

@@ -1,5 +1,5 @@
-import type { Type as Option } from "../Interface/Option.js";
-import type { Type as Plan } from "../Interface/Plan.js";
+import type Option from "../Interface/Option.js";
+import type Plan from "../Interface/Plan.js";
 /**
  * The function `Not` filters out files from the `Files` array based on the provided `Pattern`
  * parameter.
@@ -10,5 +10,5 @@ import type { Type as Plan } from "../Interface/Plan.js";
  * name, and the second element represents the file content.
  * @returns the modified `Files` set after applying the filters.
  */
-declare const _default: (Pattern: Option["Exclude"], Files: Plan["Results"]) => Promise<Map<string, string>>;
+declare const _default: (Pattern: Option["Exclude"], Files: Plan["Results"]) => Promise<Map<`${Dir}${File}`, `${Dir}${File}`>>;
 export default _default;

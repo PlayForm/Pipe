@@ -1,41 +1,9 @@
-import type { Type as Action } from "./Interface/Action.js";
-import type { Type as Option } from "./Interface/Option.js";
-import type { Type as Path } from "./Interface/Path.js";
-import type { Type as Plan } from "./Interface/Plan.js";
+import type Action from "./Interface/Action.js";
+import type Option from "./Interface/Option.js";
+import type Path from "./Interface/Path.js";
+import type Plan from "./Interface/Plan.js";
 import type { Pattern } from "fast-glob";
-export declare const By: (File: string | string[], Paths: Map<string, string>, Results: Map<string, string>) => Promise<Map<string, string>>;
-export declare const Apply: (Fn: unknown, Test: unknown) => Promise<any>;
-export declare const WalkUntilGit: (Search: string, From?: string | undefined) => Promise<string>;
-export declare const Default: {
-    Cache: {
-        Search: string;
-        Folder: string;
-    };
-    Path: string;
-    Logger: 2;
-    Action: {
-        Read: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Wrote: (On: import("./Interface/File.js").Type) => Promise<import("./Interface/Buffer.js").Type>;
-        Passed: (On: import("./Interface/File.js").Type) => Promise<boolean>;
-        Failed: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Accomplished: (On: import("./Interface/File.js").Type) => Promise<string>;
-        Fulfilled: (Plan: Plan) => Promise<string | false>;
-        Changed: (Plan: Plan) => Promise<Plan>;
-    };
-};
-export declare const In: (Path: Path, Paths: Map<string, string>) => Promise<Map<string, string>>;
-export declare const Merge: <Ts extends readonly unknown[]>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, Readonly<{
-    DeepMergeRecordsURI: "DeepMergeRecordsDefaultURI";
-    DeepMergeArraysURI: "DeepMergeLeafURI";
-    DeepMergeSetsURI: "DeepMergeSetsDefaultURI";
-    DeepMergeMapsURI: "DeepMergeMapsDefaultURI";
-    DeepMergeOthersURI: "DeepMergeLeafURI";
-}>, Readonly<{
-    key: PropertyKey;
-    parents: readonly Readonly<Record<PropertyKey, unknown>>[];
-}>>;
-export declare const Not: (Pattern: import("./Interface/Exclude.js").Type | import("./Interface/Exclude.js").Type[] | Set<import("./Interface/Exclude.js").Type> | undefined, Files: Map<string, string>) => Promise<Map<string, string>>;
-export declare const Pipe: (Plan: Plan, { Fulfilled, Failed, Accomplished, Changed, Passed, Read, Wrote }: Action) => Promise<Plan>;
+export declare const Default: Option;
 export default class {
     /**
      * The function `Pipe` is a TypeScript async function that takes an optional `Action`
@@ -71,11 +39,3 @@ export default class {
     Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
-export type { Type as Action } from "./Interface/Action.js";
-export type { Type as Buffer } from "./Interface/Buffer.js";
-export type { Type as Dir } from "./Interface/Dir.js";
-export type { Type as Exclude } from "./Interface/Exclude.js";
-export type { Type as File } from "./Interface/File.js";
-export type { Type as Logger } from "./Interface/Logger.js";
-export type { Type as Option } from "./Interface/Option.js";
-export type { Type as Path } from "./Interface/Path.js";
