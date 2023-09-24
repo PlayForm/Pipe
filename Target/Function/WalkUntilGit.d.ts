@@ -9,5 +9,5 @@
  * by the "Search" parameter.
  * @returns The function `WalkUntilGit` returns a promise that resolves to a string.
  */
-declare const Fn: (Search: string, From?: string) => Promise<string>;
-export default Fn;
+export declare const _Function: (Search: string, From?: string) => Promise<string>;
+export default _Function;

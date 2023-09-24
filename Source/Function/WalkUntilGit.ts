@@ -9,7 +9,10 @@
  * by the "Search" parameter.
  * @returns The function `WalkUntilGit` returns a promise that resolves to a string.
  */
-const Fn = async (Search: string, From?: string): Promise<string> => {
+export const _Function = async (
+	Search: string,
+	From?: string
+): Promise<string> => {
 	const Path = (await import("path")).dirname(Search);
 	const Original = From ? From : Path;
 
@@ -23,8 +26,8 @@ const Fn = async (Search: string, From?: string): Promise<string> => {
 		).access(`${Path}/.git`, (await import("fs")).constants.R_OK);
 		return Path;
 	} catch (_Error) {
-		return await Fn(Path, Original);
+		return await _Function(Path, Original);
 	}
 };
 
-export default Fn;
+export default _Function;
