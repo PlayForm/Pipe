@@ -1,5 +1,3 @@
-export const { R_OK, W_OK } = (await import("fs")).constants;
-
 /**
  * The function recursively walks through directories until it finds a ".git" folder or reaches the
  * root directory.
@@ -20,7 +18,9 @@ const Fn = async (Search: string, From?: string): Promise<string> => {
 	}
 
 	try {
-		await (await import("fs/promises")).access(`${Path}/.git`, R_OK | W_OK);
+		await (
+			await import("fs/promises")
+		).access(`${Path}/.git`, (await import("fs")).constants.R_OK);
 		return Path;
 	} catch (_Error) {
 		return await Fn(Path, Original);
