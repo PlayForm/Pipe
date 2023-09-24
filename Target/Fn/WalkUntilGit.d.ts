@@ -1,4 +1,3 @@
-export declare const R_OK: number, W_OK: number;
 /**
  * The function recursively walks through directories until it finds a ".git" folder or reaches the
  * root directory.

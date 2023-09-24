@@ -1,13 +1,13 @@
-import type Action from "./Interface/Action.js";
-import type Option from "./Interface/Option.js";
-import type Path from "./Interface/Path.js";
-import type Plan from "./Interface/Plan.js";
+import type Action from "../Interface/Action.js";
+import type Option from "../Interface/Option.js";
+import type Path from "../Interface/Path.js";
+import type Plan from "../Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 
 export const {
 	default: { Action: _Action, Cache, Logger },
-} = await import("./Object/Option.js");
+} = await import("../Object/Option.js");
 
 export default class {
 	/**
@@ -20,10 +20,10 @@ export default class {
 	 */
 	Pipe = async (Action: Action) =>
 		await (
-			await import("./Fn/Pipe.js")
+			await import("../Function/Pipe.js")
 		).default(
 			this.Plan,
-			(await import("./Fn/Merge.js")).default(_Action, Action)
+			(await import("../Function/Merge.js")).default(_Action, Action)
 		);
 
 	/**
@@ -33,7 +33,7 @@ export default class {
 	 */
 	Not = async (File: Option["Exclude"]) => {
 		this.Plan.Results = await (
-			await import("./Fn/Not.js")
+			await import("../Function/Not.js")
 		).default(File, this.Plan.Results);
 
 		return this;
@@ -50,7 +50,7 @@ export default class {
 	 */
 	By = async (File: Pattern | Pattern[] = "**/*") => {
 		this.Plan.Results = await (
-			await import("./Fn/By.js")
+			await import("../Function/By.js")
 		).default(File, this.Plan.Paths, this.Plan.Results);
 
 		return this;
@@ -66,7 +66,7 @@ export default class {
 	 */
 	In = async (Path: Path = "./") => {
 		const Paths = await (
-			await import("./Fn/In.js")
+			await import("../Function/In.js")
 		).default(Path, this.Plan.Paths);
 
 		if (Paths instanceof Map) {
