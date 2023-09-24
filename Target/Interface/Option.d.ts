@@ -12,15 +12,16 @@ export default interface Type {
     /**
      * Configuration for the target cache.
      *
-     * @default "./Cache"
+     * @default { Search: "./", Folder: "./Cache" }
+     *
      */
-    Cache: Cache;
+    Cache?: Cache;
     /**
      * Configuration for the target path(s).
      *
      * @default "./Target"
      */
-    Path: Path | Path[] | Set<Path>;
+    Path?: Path | Path[] | Set<Path>;
     /**
      * Criteria for excluding files.
      */
@@ -38,5 +39,5 @@ export default interface Type {
      *
      * @default 2
      */
-    Logger: Logger;
+    Logger?: Logger;
 }
