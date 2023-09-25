@@ -1,3 +1,7 @@
+/**
+ * @module Files
+ */
+
 import type Action from "../Interface/Action.js";
 import type Option from "../Interface/Option.js";
 import type Path from "../Interface/Path.js";
@@ -12,7 +16,7 @@ export const {
 export default class {
 	/**
 	 * The function `Pipe` is a TypeScript async function that takes an optional `Action`
-	 * parameter and returns the result of calling `Pipe` with `this.Plan` and `Action`.
+	 * parameter and returns the result of calling {@link "Pipe"} `this.Plan` and `Action`.
 	 * @param {Action} Action - The Action parameter is an optional parameter that
 	 * specifies the execution strategy to be used in the Pipe function. It has a default value of
 	 * Default.Pipe, which means that if no Action parameter is provided when calling the Pipe
@@ -79,9 +83,9 @@ export default class {
 	};
 
 	Plan = {
-		Cache: Cache,
+		Cache,
 		Files: 0,
-		Logger: Logger,
+		Logger,
 		Info: {},
 		Paths: new Map(),
 		Results: new Map(),

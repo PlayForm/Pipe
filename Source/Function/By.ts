@@ -24,7 +24,7 @@ export default async (
 	for (const [Input, Output] of Paths) {
 		for (const _File of await (
 			await import("fast-glob")
-		).async(File, {
+		).default(File, {
 			cwd: Input,
 			onlyFiles: true,
 		})) {
