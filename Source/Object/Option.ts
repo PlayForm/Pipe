@@ -1,7 +1,9 @@
 import type Type from "../Interface/Option.js";
 
 /**
- * Default configuration object.
+ * Represents options for configuring the behavior of the program.
+ *
+ * @module Option
  */
 export default {
 	Cache: {

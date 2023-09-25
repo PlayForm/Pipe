@@ -6,6 +6,8 @@ import type Path from "./Path.js";
 import type { Pattern } from "fast-glob";
 /**
  * Represents options for configuring the behavior of the program.
+ *
+ * @module Option
  */
 export default interface Type {
     [key: string]: any;

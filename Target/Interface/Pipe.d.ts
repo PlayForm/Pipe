@@ -1,5 +1,8 @@
 /**
  * @module Pipe
+ * @param {Action} Plan
+ * @param {Action} Action
+ * @returns {Plan} Plan
  */
 export default interface Type {
     (Plan: Plan, Action: Action): Promise<Plan>;

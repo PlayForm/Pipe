@@ -1,17 +1,11 @@
 /**
- * The function `Pipe` takes a `Plan` and an `Action` object as input, and performs a series of
+ * The function {@link "Pipe"} takes a {@link "Plan"} and an {@link "Action"} object as input, and performs a series of
  * operations based on the plan, handling various callbacks and error handling along the way.
  *
  * @module Pipe
  *
- * @param {Plan} Plan
- * @param {Action}  - - `Plan`: The plan object that contains the tasks to be executed.
- * @returns The function `Pipe` returns the modified `Plan` object.
  */
-export default (async (
-	Plan,
-	{ Fulfilled, Failed, Accomplished, Changed, Passed, Read, Wrote }
-) => {
+export default (async (Plan, Action) => {
 	let _Plan = Plan;
 
 	// if (Plan.Cache) {
@@ -59,32 +53,30 @@ export default (async (
 	// Map<Output, Latest>
 	// Latest: 'commit sha'
 
-	for (const [Output, Input] of _Plan.Results) {
-		try {
-			_Plan.On.Input = Input;
-			_Plan.On.Output = Output;
+	for (const [_Output, _Input] of _Plan.Results) {
+		_Plan.On.Input = _Input;
+		_Plan.On.Output = _Output;
 
+		try {
 			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
 
-			if (Read && Wrote) {
+			if (Action.Read && Action.Wrote) {
 				// await Exec(
 				// 	`git --no-pager log --format="H%" --max-count=1 --oneline -- ${Input}`
 				// );
 
 				// @TODO: Before Read check cache, only on read file write is always necessary
-				_Plan.On.Buffer = await Read(_Plan.On);
+				_Plan.On.Buffer = await Action.Read(_Plan.On);
 
 				// @TODO: Check cache
 				// Fingerprint the whole operation (get function name or something from prototype)
-				const Buffer = await Wrote(_Plan.On);
+				_Plan.On.Buffer = await Action.Wrote(_Plan.On);
 
-				if (!Buffer) {
+				if (!_Plan.On.Buffer) {
 					continue;
 				}
 
-				_Plan.On.Buffer = Buffer;
-
-				if (Passed && (await Passed(_Plan.On))) {
+				if (Action.Passed && (await Action.Passed(_Plan.On))) {
 					try {
 						await (
 							await import("fs/promises")
@@ -109,14 +101,14 @@ export default (async (
 					if (_Plan.Logger > 0) {
 						_Plan.Files++;
 
-						if (Changed) {
-							_Plan = await Changed(_Plan);
+						if (Action.Changed) {
+							_Plan = await Action.Changed(_Plan);
 						}
 					}
 
 					if (_Plan.Logger > 1) {
-						if (typeof Accomplished === "function") {
-							const Message = await Accomplished(_Plan.On);
+						if (typeof Action.Accomplished === "function") {
+							const Message = await Action.Accomplished(_Plan.On);
 
 							if (Message && Message.length > 0) {
 								console.log(Message);
@@ -126,10 +118,10 @@ export default (async (
 				}
 			}
 		} catch (_Error) {
-			_Plan.Results.delete(Output);
+			_Plan.Results.delete(_Plan.On.Output);
 
-			if (typeof Failed === "function") {
-				const Message = await Failed(_Plan.On, _Error);
+			if (typeof Action.Failed === "function") {
+				const Message = await Action.Failed(_Plan.On, _Error);
 
 				if (Message && Message.length > 0) {
 					console.log(Message);
@@ -143,8 +135,8 @@ export default (async (
 	}
 
 	if (_Plan.Logger > 0 && _Plan.Results.size > 0) {
-		if (typeof Fulfilled === "function") {
-			const Message = await Fulfilled(_Plan);
+		if (typeof Action.Fulfilled === "function") {
+			const Message = await Action.Fulfilled(_Plan);
 
 			if (Message && Message.length > 0) {
 				console.log(Message);

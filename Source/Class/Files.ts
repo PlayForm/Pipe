@@ -1,41 +1,19 @@
 /**
  * @module Files
  */
-
-import type Action from "../Interface/Action.js";
-import type Option from "../Interface/Option.js";
-import type Path from "../Interface/Path.js";
-import type Plan from "../Interface/Plan.js";
-
-import type { Pattern } from "fast-glob";
-
-export const {
-	default: { Action: _Action, Cache, Logger },
-} = await import("../Object/Option.js");
-
-export default class {
-	/**
-	 * The function `Pipe` is a TypeScript async function that takes an optional {@link "Action"}
-	 * parameter and returns the result of calling {@link "Pipe"} with `this.Plan` and {@link "Action"}.
-	 *
-	 * @param {Action} Action - The Action parameter is an optional parameter that
-	 * specifies the execution strategy to be used in the Pipe function. It has a default value of
-	 * Default.Pipe, which means that if no Action parameter is provided when calling the Pipe
-	 * function, it will use the default execution strategy.
-	 */
-	Pipe = async (Action: Action) =>
+export default class Files implements Type {
+	Pipe = async (Action?: Action) =>
 		await (
 			await import("../Function/Pipe.js")
 		).default(
 			this.Plan,
-			(await import("../Function/Merge.js")).default(_Action, Action)
+
+			(await import("../Function/Merge.js")).default(
+				(await import("../Object/Option.js")).default.Action,
+				Action ?? {}
+			)
 		);
 
-	/**
-	 * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
-	 * @param File - The parameter "File" is of type "Option['Exclude']".
-	 * @returns the current object (`this`) after performing some operations.
-	 */
 	Not = async (File: Option["Exclude"]) => {
 		this.Plan.Results = await (
 			await import("../Function/Not.js")
@@ -44,15 +22,6 @@ export default class {
 		return this;
 	};
 
-	/**
-	 * The function `By` takes a file pattern or an array of file patterns and returns a promise that
-	 * resolves to the results of executing the patterns on the specified paths.
-	 * @param {Pattern | Pattern[]} File parameter is of type `Pattern` or
-	 * `Pattern[]`. It represents the file or files that you want to search for. The `Pattern` type is a
-	 * string pattern that can include wildcards to match multiple files. The default value for `File` is
-	 * `"**/ /*"
-	 * @returns the current object (`this`) after the `By` function has been executed.
-	 */
 	By = async (File: Pattern | Pattern[] = "**/*") => {
 		this.Plan.Results = await (
 			await import("../Function/By.js")
@@ -97,10 +66,23 @@ export default class {
 			Input: "",
 			Output: "",
 		},
-	};
+	} satisfies Plan as Plan;
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
 		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}
 }
+
+import type Type from "../Interface/Files.js";
+
+import type Action from "../Interface/Action.js";
+import type Option from "../Interface/Option.js";
+import type Path from "../Interface/Path.js";
+import type Plan from "../Interface/Plan.js";
+
+import type { Pattern } from "fast-glob";
+
+export const {
+	default: { Cache, Logger },
+} = await import("../Object/Option.js");
