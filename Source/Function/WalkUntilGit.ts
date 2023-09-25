@@ -24,6 +24,7 @@ export const _Function = async (
 		await (
 			await import("fs/promises")
 		).access(`${Path}/.git`, (await import("fs")).constants.R_OK);
+
 		return Path;
 	} catch (_Error) {
 		return await _Function(Path, Original);

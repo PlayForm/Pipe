@@ -5,7 +5,10 @@
  * @module Pipe
  *
  */
-export default (async (Plan, Action) => {
+export default (async (
+	Plan,
+	{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote }
+) => {
 	let _Plan = Plan;
 
 	// if (Plan.Cache) {
@@ -60,23 +63,23 @@ export default (async (Plan, Action) => {
 		try {
 			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
 
-			if (Action.Read && Action.Wrote) {
+			if (Read && Wrote) {
 				// await Exec(
 				// 	`git --no-pager log --format="H%" --max-count=1 --oneline -- ${Input}`
 				// );
 
 				// @TODO: Before Read check cache, only on read file write is always necessary
-				_Plan.On.Buffer = await Action.Read(_Plan.On);
+				_Plan.On.Buffer = await Read(_Plan.On);
 
 				// @TODO: Check cache
 				// Fingerprint the whole operation (get function name or something from prototype)
-				_Plan.On.Buffer = await Action.Wrote(_Plan.On);
+				_Plan.On.Buffer = await Wrote(_Plan.On);
 
 				if (!_Plan.On.Buffer) {
 					continue;
 				}
 
-				if (Action.Passed && (await Action.Passed(_Plan.On))) {
+				if (Passed && (await Passed(_Plan.On))) {
 					try {
 						await (
 							await import("fs/promises")
@@ -101,14 +104,14 @@ export default (async (Plan, Action) => {
 					if (_Plan.Logger > 0) {
 						_Plan.Files++;
 
-						if (Action.Changed) {
-							_Plan = await Action.Changed(_Plan);
+						if (Changed) {
+							_Plan = await Changed(_Plan);
 						}
 					}
 
 					if (_Plan.Logger > 1) {
-						if (typeof Action.Accomplished === "function") {
-							const Message = await Action.Accomplished(_Plan.On);
+						if (typeof Accomplished === "function") {
+							const Message = await Accomplished(_Plan.On);
 
 							if (Message && Message.length > 0) {
 								console.log(Message);
@@ -120,8 +123,8 @@ export default (async (Plan, Action) => {
 		} catch (_Error) {
 			_Plan.Results.delete(_Plan.On.Output);
 
-			if (typeof Action.Failed === "function") {
-				const Message = await Action.Failed(_Plan.On, _Error);
+			if (typeof Failed === "function") {
+				const Message = await Failed(_Plan.On, _Error);
 
 				if (Message && Message.length > 0) {
 					console.log(Message);
@@ -135,8 +138,8 @@ export default (async (Plan, Action) => {
 	}
 
 	if (_Plan.Logger > 0 && _Plan.Results.size > 0) {
-		if (typeof Action.Fulfilled === "function") {
-			const Message = await Action.Fulfilled(_Plan);
+		if (typeof Fulfilled === "function") {
+			const Message = await Fulfilled(_Plan);
 
 			if (Message && Message.length > 0) {
 				console.log(Message);
