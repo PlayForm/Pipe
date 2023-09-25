@@ -1,3 +1,6 @@
+/**
+ * @module Pipe
+ */
 export default (async (
 	Plan,
 	{ Fulfilled, Failed, Accomplished, Changed, Passed, Read, Wrote }
