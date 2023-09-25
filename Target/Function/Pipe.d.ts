@@ -5,10 +5,9 @@
  *
  * @module Pipe
  *
- * @param {import('../Interface/Plan.js')} Plan - The `Plan` parameter is an object that represents the execution plan. It
- * contains information about the tasks to be executed and their corresponding inputs and outputs.
- * @param {Action}  - - `Plan`: The plan object that contains the tasks to be executed.
- * @returns The function `Pipe` returns the modified `Plan` object.
+ * @param {Plan} Plan
+ * @param {Action} Action - The plan object that contains the tasks to be executed.
+ * @returns {Plan}
  */
 declare const _default: Type;
 export default _default;

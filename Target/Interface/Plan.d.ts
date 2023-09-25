@@ -3,7 +3,7 @@ import type Dir from "./Dir.js";
 import type File from "./File.js";
 import type Logger from "./Logger.js";
 /**
- * Represents the execution's plan.
+ * Represents the execution's plan. It contains information about the tasks to be executed and their corresponding inputs and outputs.
  */
 export default interface Type {
     /**

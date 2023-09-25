@@ -15,8 +15,9 @@ export const {
 
 export default class {
 	/**
-	 * The function `Pipe` is a TypeScript async function that takes an optional `Action`
-	 * parameter and returns the result of calling {@link "Pipe"} `this.Plan` and `Action`.
+	 * The function `Pipe` is a TypeScript async function that takes an optional {@link "Action"}
+	 * parameter and returns the result of calling {@link "Pipe"} with `this.Plan` and {@link "Action"}.
+	 *
 	 * @param {Action} Action - The Action parameter is an optional parameter that
 	 * specifies the execution strategy to be used in the Pipe function. It has a default value of
 	 * Default.Pipe, which means that if no Action parameter is provided when calling the Pipe
@@ -96,7 +97,7 @@ export default class {
 			Input: "",
 			Output: "",
 		},
-	} satisfies Plan as Plan;
+	};
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
