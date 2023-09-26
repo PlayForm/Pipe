@@ -8,7 +8,7 @@ import type { Pattern } from "fast-glob";
 
 /**
  * Represents options for configuring the behavior of the program.
- * 
+ *
  * @module Option
  */
 export default interface Type {
@@ -21,19 +21,19 @@ export default interface Type {
 	 * @default { Search: "./", Folder: "./Cache" }
 	 *
 	 */
-	Cache?: Cache;
+	Cache?: false | Cache;
 
 	/**
 	 * Configuration for the target path(s).
 	 *
 	 * @default "./Target"
 	 */
-	Path?: Path | Path[] | Set<Path>;
+	Path?: false | (Path | Path[] | Set<Path>);
 
 	/**
 	 * Criteria for excluding files.
 	 */
-	Exclude?: Exclude | Exclude[] | Set<Exclude>;
+	Exclude?: false | (Exclude | Exclude[] | Set<Exclude>);
 
 	/**
 	 * File patterns to be matched.

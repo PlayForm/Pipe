@@ -30,14 +30,6 @@ export default class Files implements Type {
 		return this;
 	};
 
-	/**
-	 * The function `In` takes a path and updates the `Plan.Paths` property with the input and output
-	 * paths.
-	 * @param {Path} Path parameter is a string that represents the path to a file or
-	 * directory. It has a default value of "./", which means it will use the current directory if no path
-	 * is provided.
-	 * @returns the value of `this`, which refers to the current object.
-	 */
 	In = async (Path: Path = "./") => {
 		const Paths = await (
 			await import("../Function/In.js")
@@ -66,7 +58,7 @@ export default class Files implements Type {
 			Input: "",
 			Output: "",
 		},
-	} satisfies Plan as Plan;
+	};
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
@@ -79,7 +71,6 @@ import type Type from "../Interface/Files.js";
 import type Action from "../Interface/Action.js";
 import type Option from "../Interface/Option.js";
 import type Path from "../Interface/Path.js";
-import type Plan from "../Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";
 
