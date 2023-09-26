@@ -7,19 +7,17 @@ export default interface Type {
     /**
      * Attaches a callback for the fulfillment of the Action.
      *
-     * @param Plan The execution plan to be fulfilled.
+     * @param {Plan} Plan
      *
-     * @returns A Promise that resolves to either a string or false.
      */
     Fulfilled?: boolean | ((Plan: Plan) => Promise<false | string>);
     /**
      * Attaches a callback for handling failures in the Action.
      *
-     * @param Input The input file being processed.
+     * @param {File} Input The input file being processed.
      *
-     * @param _Error The error encountered during execution.
+     * @param {unknown} _Error The error encountered during execution.
      *
-     * @returns A Promise that resolves to either a string or false.
      */
     Failed?: boolean | ((Input: File, _Error: unknown) => Promise<false | string>);
     /**
@@ -27,15 +25,15 @@ export default interface Type {
      *
      * @param On The file on which an action was accomplished.
      *
-     * @returns A Promise that resolves to either a string or false.
      */
     Accomplished?: boolean | ((On: File) => Promise<false | string>);
     /**
      * Attaches a callback for actions that result in changes to the plan.
      *
-     * @param Plan The execution plan to be changed.
+     * @param {Plan} Plan The execution plan to be changed.
      *
      * @returns A Promise that resolves to the modified execution plan.
+     *
      */
     Changed?: (Plan: Plan) => Promise<Plan>;
     /**
@@ -44,6 +42,7 @@ export default interface Type {
      * @param On The file on which the action is being checked.
      *
      * @returns A Promise that resolves to a boolean value indicating if the file has passed the checks.
+     *
      */
     Passed?: (On: File) => Promise<Boolean>;
     /**
@@ -52,6 +51,7 @@ export default interface Type {
      * @param On The file to be read.
      *
      * @returns A Promise that resolves to the buffer read from the file.
+     *
      */
     Read?: (On: File) => Promise<Buffer>;
     /**
@@ -60,6 +60,7 @@ export default interface Type {
      * @param On The file to be written to.
      *
      * @returns A Promise that resolves to the buffer written to the file.
+     *
      */
     Wrote?: (On: File) => Promise<Buffer>;
 }
