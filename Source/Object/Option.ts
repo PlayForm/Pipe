@@ -27,4 +27,6 @@ export default {
 				: false,
 		Changed: async (Plan) => Plan,
 	},
+	Files: "**/*",
+	Exclude: false,
 } satisfies Type;

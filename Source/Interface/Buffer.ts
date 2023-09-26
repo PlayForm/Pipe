@@ -1,7 +1,7 @@
-import type { Stream } from "stream";
-
 /**
  * Represents various types that can be used as buffer data.
+ *
+ * @module Buffer
  */
 export type Type =
 	| string
@@ -11,3 +11,5 @@ export type Type =
 	| Stream;
 
 export type { Type as default };
+
+import type { Stream } from "stream";

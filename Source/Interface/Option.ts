@@ -38,12 +38,12 @@ export default interface Type {
 	/**
 	 * File patterns to be matched.
 	 */
-	Files?: Pattern | Pattern[];
+	Files?: false | (Pattern | Pattern[]);
 
 	/**
 	 * Action pipe configuration.
 	 */
-	Action?: Action;
+	Action?: false | Action;
 
 	/**
 	 * Debugging level.

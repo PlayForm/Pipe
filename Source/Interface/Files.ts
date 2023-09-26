@@ -1,10 +1,3 @@
-import type Action from "./Action.js";
-import type Option from "./Option.js";
-import type Path from "./Path.js";
-import type Plan from "./Plan.js";
-
-import type { Pattern } from "fast-glob";
-
 /**
  * @module Files
  */
@@ -50,5 +43,11 @@ export default interface Type {
 	In: (Path: Path) => Promise<ThisType<Type>>;
 
 	Plan: Plan;
-
 }
+
+import type Action from "./Action.js";
+import type Option from "./Option.js";
+import type Path from "./Path.js";
+import type Plan from "./Plan.js";
+
+import type { Pattern } from "fast-glob";
