@@ -4,14 +4,20 @@ import type Plan from "../Interface/Plan.js";
 /**
  * The function `Not` filters out files from the `Files` array based on the provided `Pattern`
  * parameter.
+ *
+ * @module Not
+ *
  * @param Pattern - The `Pattern` parameter is of type `Option["Exclude"]`. It represents the patterns
- * or filters that will be used to exclude certain files from the `Files` array.
- * @param Files - The `Files` parameter is expected to be an array of results from a plan. Each element
+ * or filters that will be used to exclude certain files from the `Results` array.
+ *
+ * @param Results - The `Results` parameter is expected to be an array of results from a plan. Each element
  * in the array should be an array itself, with two elements. The first element represents the file
  * name, and the second element represents the file content.
- * @returns the modified `Files` set after applying the filters.
+ *
+ * @returns Results
+ *
  */
-export default async (Pattern: Option["Exclude"], Files: Plan["Results"]) => {
+export default async (Pattern: Option["Exclude"], Results: Plan["Results"]) => {
 	const Filters = new Set();
 
 	if (typeof Pattern !== "undefined") {
@@ -25,14 +31,14 @@ export default async (Pattern: Option["Exclude"], Files: Plan["Results"]) => {
 	}
 
 	for (const Filter of Filters) {
-		for (const File of Files) {
+		for (const Result of Results) {
 			switch (true) {
 				case typeof Filter === "string": {
 					if (
-						File[0].match(Filter as string) ||
-						File[1].match(Filter as string)
+						Result[0].match(Filter as string) ||
+						Result[1].match(Filter as string)
 					) {
-						Files.delete(File[0]);
+						Results.delete(Result[0]);
 					}
 
 					break;
@@ -40,15 +46,15 @@ export default async (Pattern: Option["Exclude"], Files: Plan["Results"]) => {
 
 				case typeof Filter === "function": {
 					if (
-						(Filter as Function)(File[0]) ||
-						(Filter as Function)(File[1])
+						(Filter as Function)(Result[0]) ||
+						(Filter as Function)(Result[1])
 					) {
-						Files.delete(File[0]);
+						Results.delete(Result[0]);
 					}
 				}
 			}
 		}
 	}
 
-	return Files;
+	return Results;
 };

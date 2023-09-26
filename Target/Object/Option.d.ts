@@ -19,5 +19,7 @@ declare const _default: {
         Fulfilled: (Plan: import("../Interface/Plan.js").default) => Promise<string | false>;
         Changed: (Plan: import("../Interface/Plan.js").default) => Promise<import("../Interface/Plan.js").default>;
     };
+    Files: string;
+    Exclude: false;
 };
 export default _default;

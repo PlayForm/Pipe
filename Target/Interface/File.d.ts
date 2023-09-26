@@ -1,6 +1,7 @@
-import type Buffer from "./Buffer.js";
 /**
  * Represents a file specification.
+ *
+ * @module File
  */
 export default interface Type {
     /**
@@ -24,3 +25,4 @@ export default interface Type {
      */
     Buffer: Buffer;
 }
+import type Buffer from "./Buffer.js";

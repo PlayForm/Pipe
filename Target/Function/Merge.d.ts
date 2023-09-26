@@ -1,3 +1,7 @@
+/**
+ * @module Merge
+ *
+ */
 declare const _default: <Ts extends readonly unknown[]>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, Readonly<{
     DeepMergeRecordsURI: "DeepMergeRecordsDefaultURI";
     DeepMergeArraysURI: "DeepMergeLeafURI";
