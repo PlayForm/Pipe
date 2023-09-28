@@ -7,13 +7,13 @@ projects.
 
 To get started with the `FilesPipe` component, follow these steps:
 
-### Install the `FilesPipe` package using npm:
+#### Install the `FilesPipe` package using npm:
 
 ```
 npm install -D -E files-pipe
 ```
 
-### Create a new pipe instance using the following code in your Index.ts file:
+#### Create a new pipe instance using the following code in your Index.ts file:
 
 **`Index.ts`**
 
