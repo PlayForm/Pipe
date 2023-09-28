@@ -1,16 +1,19 @@
 # [FilesPipe] 🧪
 
-Allows you to process files in a pipe.
+Allows you to process files in a pipe, simplifying file operations in your
+projects.
 
 ## Installation
 
-First, install the `FilesPipe` component like so:
+To get started with the `FilesPipe` component, follow these steps:
+
+### Install the `FilesPipe` package using npm:
 
 ```
 npm install -D -E files-pipe
 ```
 
-Then, create a new pipe from this component:
+### Create a new pipe instance using the following code in your Index.ts file:
 
 **`Index.ts`**
 
