@@ -25,10 +25,7 @@ await new Files().In("./Input");
 
 ## Getting started
 
-#### With `FilesPipe`, you gain access to the Pipe method, enabling you to perform
-
-various actions on files within the pipe. Here's an example of how to use it in
-your Index.ts:
+#### With `FilesPipe`, you gain access to the Pipe method, enabling you to perform various actions on files within the pipe. Here's an example of how to use it in your Index.ts:
 
 **`Index.ts`**
 
