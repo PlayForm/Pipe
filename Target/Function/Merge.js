@@ -1,9 +1,1 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @module Merge
- *
- */
-exports.default = (await Promise.resolve().then(function () { return require("deepmerge-ts"); })).deepmergeCustom({
-    mergeArrays: false,
-});
+var e=(await import("deepmerge-ts")).deepmergeCustom({mergeArrays:!1});export{e as default};
