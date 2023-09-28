@@ -116,7 +116,10 @@ await new Files().Not([
 ]);
 ```
 
-#### Set `Cache` to `./CacheDifferent` if your cache path is different from the default. Default is `./Cache`.
+#### Customizing Cache Path
+
+Set the Cache to a different path if your cache path is different from the
+default (./Cache). Here's an example:
 
 **`Index.ts`**
 
@@ -126,7 +129,10 @@ import Files from "files-pipe";
 new Files(0);
 ```
 
-#### Set `Logger` to `0` if you do not want to see debug messages. Default is `2`.
+#### Controlling Logging
+
+You can control the logging level by setting the `Logger` parameter. The default
+value is `2`, but you can set it to `0` if you don't want to see debug messages:
 
 **`Index.ts`**
 
