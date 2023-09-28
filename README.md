@@ -87,7 +87,9 @@ import Files from "files-pipe";
 await new Files().In(["./Input", "./Input2"]);
 ```
 
-#### You can also provide a map of paths for different input output directories.
+#### Input-Output Mapping
+
+Provide a map of paths for different input and output directories:
 
 **`Index.ts`**
 
