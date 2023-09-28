@@ -99,7 +99,11 @@ import Files from "files-pipe";
 await new Files().In(new Map([["./Input", "./Output"]]));
 ```
 
-#### You can provide a filter to exclude files from your pipe. A filter can be an array of regexes or a single match. You can use functions, as well to match on file names.
+#### File Filtering
+
+You can filter files to exclude specific ones from your pipe. A filter can be an
+array of regular expressions or a single match. You can also use functions to
+match on file names:
 
 **`Index.ts`**
 
