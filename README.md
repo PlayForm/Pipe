@@ -3,7 +3,7 @@
 Allows you to process files in a pipe, simplifying file operations in your
 projects.
 
-## Installation
+### Installation
 
 To get started with the `FilesPipe` component, follow these steps:
 
@@ -23,7 +23,7 @@ import Files from "files-pipe";
 await new Files().In("./Input");
 ```
 
-#### Getting started
+### Getting started
 
 With `FilesPipe`, you gain access to the `Pipe` method, enabling you to perform
 various actions on files within the pipe. Here's an example of how to use it in
@@ -42,7 +42,7 @@ await (
 });
 ```
 
-#### Default Callbacks
+### Default Callbacks
 
 Here are the default callbacks provided by FilesPipe for file processing:
 
@@ -76,7 +76,7 @@ await new Files().Pipe({
 });
 ```
 
-#### Adding Multiple Paths
+### Adding Multiple Paths
 
 You can add multiple paths to your pipe by specifying an array as the `Path`
 variable:
@@ -89,7 +89,7 @@ import Files from "files-pipe";
 await new Files().In(["./Input", "./Input2"]);
 ```
 
-#### Input-Output Mapping
+### Input-Output Mapping
 
 Provide a map of paths for different input and output directories:
 
@@ -101,7 +101,7 @@ import Files from "files-pipe";
 await new Files().In(new Map([["./Input", "./Output"]]));
 ```
 
-#### File Filtering
+### File Filtering
 
 You can filter files to exclude specific ones from your pipe. A filter can be an
 array of regular expressions or a single match. You can also use functions to
@@ -118,7 +118,7 @@ await new Files().Not([
 ]);
 ```
 
-#### Customizing Cache Path
+### Customizing Cache Path
 
 Set the Cache to a different path if your cache path is different from the
 default (./Cache). Here's an example:
@@ -131,7 +131,7 @@ import Files from "files-pipe";
 new Files(0);
 ```
 
-#### Controlling Logging
+### Controlling Logging
 
 You can control the logging level by setting the `Logger` parameter. The default
 value is `2`, but you can set it to `0` if you don't want to see debug messages:
