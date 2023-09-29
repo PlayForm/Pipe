@@ -14,7 +14,7 @@ export const _Function = async (
 	From?: string
 ): Promise<string> => {
 	const Path = (await import("path")).dirname(Search);
-	const Original = From ? From : Path;
+	const Original = From ?? Path;
 
 	if (Path === Search) {
 		return Original;
