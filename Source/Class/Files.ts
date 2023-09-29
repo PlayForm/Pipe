@@ -1,6 +1,6 @@
 /**
  * @module Files
- * 
+ *
  */
 export class _Class implements Type {
 	Pipe = async (Action?: Option["Action"]) =>
