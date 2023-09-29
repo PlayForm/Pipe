@@ -44,7 +44,7 @@ await (
 
 ### Default Callbacks
 
-Here are the default callbacks provided by FilesPipe for file processing:
+Here are the default callbacks provided by `FilesPipe` for file processing:
 
 ```ts
 import Files from "files-pipe";
