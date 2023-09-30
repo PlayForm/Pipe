@@ -58,17 +58,20 @@ export class _Class implements Type {
 			Input: "",
 			Output: "",
 		},
-	};
+	} satisfies Plan as Plan;
 
-	constructor(...[Cache, Logger]: ConstructorParameters<Type>) {
-		this.Plan.Cache = Cache ?? this.Plan.Cache;
-		this.Plan.Logger = Logger ?? this.Plan.Logger;
+	constructor({ Cache, Logger }: Pick<Option, "Cache" | "Logger">) {
+		this.Plan.Cache = typeof Cache === "object" ? Cache : this.Plan.Cache;
+		this.Plan.Logger =
+			typeof Logger === "number" ? Logger : this.Plan.Logger;
 	}
 }
 
 export default _Class;
 
 import type Type from "../Interface/Files.js";
+import type Option from "../Interface/Option.js";
+import type Plan from "../Interface/Plan.js";
 
 export const {
 	default: { Cache, Logger },

@@ -2,6 +2,7 @@
  * Represents the execution configuration for specific actions on files.
  *
  * @module Action
+ * 
  */
 export default interface Type {
 	/**

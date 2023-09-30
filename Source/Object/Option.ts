@@ -4,6 +4,7 @@ import type Type from "../Interface/Option.js";
  * Represents options for configuring the behavior of the program.
  *
  * @module Option
+ * 
  */
 export default {
 	Cache: {
