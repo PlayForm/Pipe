@@ -1,5 +1,6 @@
 /**
  * @module Files
+ *
  */
 export default interface Type {
     /**

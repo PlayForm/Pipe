@@ -2,7 +2,7 @@
  * Represents options for configuring the behavior of the program.
  *
  * @module Option
- * 
+ *
  */
 export default interface Type {
 	// rome-ignore lint/suspicious/noExplicitAny:

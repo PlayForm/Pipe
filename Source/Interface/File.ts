@@ -2,7 +2,7 @@
  * Represents a file specification.
  *
  * @module File
- * 
+ *
  */
 export default interface Type {
 	/**

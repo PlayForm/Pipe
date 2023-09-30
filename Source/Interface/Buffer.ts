@@ -2,7 +2,7 @@
  * Represents various types that can be used as buffer data.
  *
  * @module Buffer
- * 
+ *
  */
 export type Type =
 	| string
