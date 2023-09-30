@@ -1,7 +1,7 @@
 # [FilesPipe] 🧪
 
 Allows you to process files in a pipe, simplifying the file operations in your
-projects.
+project.
 
 ### Installation
 
