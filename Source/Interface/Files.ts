@@ -43,6 +43,8 @@ export default interface Type {
 	In: (Path: Path) => Promise<ThisType<Type>>;
 
 	Plan: Plan;
+
+	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]): Type;
 }
 
 import type Action from "./Action.js";

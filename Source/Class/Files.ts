@@ -3,7 +3,7 @@
  *
  */
 export class _Class implements Type {
-	Pipe = async (Action?: Option["Action"]) =>
+	Pipe = async (...[Action]: Parameters<Type["Pipe"]>) =>
 		await (
 			await import("../Function/Pipe.js")
 		).default(
@@ -14,7 +14,7 @@ export class _Class implements Type {
 			)
 		);
 
-	Not = async (Exclude?: Option["Exclude"]) => {
+	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
 		this.Plan.Results = await (
 			await import("../Function/Not.js")
 		).default(Exclude, this.Plan.Results);
@@ -22,7 +22,7 @@ export class _Class implements Type {
 		return this;
 	};
 
-	By = async (Files?: Option["Files"]) => {
+	By = async (...[Files]: Parameters<Type["By"]>) => {
 		this.Plan.Results = await (
 			await import("../Function/By.js")
 		).default(Files, this.Plan.Paths, this.Plan.Results);
@@ -30,7 +30,7 @@ export class _Class implements Type {
 		return this;
 	};
 
-	In = async (Path?: Option["Path"]) => {
+	In = async (...[Path]: Parameters<Type["In"]>) => {
 		const Paths = await (
 			await import("../Function/In.js")
 		).default(Path, this.Plan.Paths);
@@ -60,7 +60,7 @@ export class _Class implements Type {
 		},
 	};
 
-	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
+	constructor(...[Cache, Logger]: ConstructorParameters<Type>) {
 		this.Plan.Cache = Cache ?? this.Plan.Cache;
 		this.Plan.Logger = Logger ?? this.Plan.Logger;
 	}
@@ -69,7 +69,6 @@ export class _Class implements Type {
 export default _Class;
 
 import type Type from "../Interface/Files.js";
-import type Option from "../Interface/Option.js";
 
 export const {
 	default: { Cache, Logger },
