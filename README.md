@@ -1,6 +1,6 @@
 # [FilesPipe] 🧪
 
-Allows you to process files in a pipe, simplifying file operations in your
+Allows you to process files in a pipe, simplifying the file operations in your
 projects.
 
 ### Installation
