@@ -33,7 +33,7 @@ export default async (Path: Path, Paths: Plan["Paths"]) => {
 		for (const [Input, Output] of _Path) {
 			Paths.set(Input, Output);
 		}
-	} else {
+	} else if (typeof _Path === "string") {
 		Paths.set(_Path, _Path);
 	}
 

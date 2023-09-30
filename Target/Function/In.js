@@ -1,1 +1,1 @@
-import e from"./Apply.js";var s=async(o,n)=>{const a=await e(t=>t.endsWith("/")?t:`${t}/`,await e(async t=>t instanceof URL?(await import("url")).fileURLToPath(t):t,o));if(a instanceof Map)for(const[t,r]of a)n.set(t,r);else n.set(a,a);return n};export{s as default};
+import e from"./Apply.js";var f=async(i,n)=>{const a=await e(t=>t.endsWith("/")?t:`${t}/`,await e(async t=>t instanceof URL?(await import("url")).fileURLToPath(t):t,i));if(a instanceof Map)for(const[t,o]of a)n.set(t,o);else typeof a=="string"&&n.set(a,a);return n};export{f as default};
