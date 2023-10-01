@@ -3,12 +3,23 @@
 	--color-background-secondary: #000;
 }
 
-.tsd-navigation.settings {
+body .tsd-navigation.settings {
 	display: none !important;
 }
 
-#tsd-search .field label {
+body #tsd-search .field label {
 	left: 50%;
 	margin-left: -20px;
 	z-index: 1;
+	text-align: center;
+}
+
+body #tsd-search .field input {
+	z-index: 2;
+}
+
+body pre,
+body .tsd-page-toolbar,
+body .tsd-generator {
+	border: none;
 }
