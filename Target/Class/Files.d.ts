@@ -8,7 +8,7 @@ export declare class _Class implements Type {
     By: (File: string | string[]) => Promise<this>;
     In: (Path: import("../Interface/Path.js").Type) => Promise<this>;
     Plan: Plan;
-    constructor({ Cache, Logger }: Pick<Option, "Cache" | "Logger">);
+    constructor(Cache: Option["Cache"], Logger: Option["Logger"]);
 }
 export default _Class;
 import type Type from "../Interface/Files.js";

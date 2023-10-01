@@ -60,7 +60,7 @@ export class _Class implements Type {
 		},
 	} satisfies Plan as Plan;
 
-	constructor({ Cache, Logger }: Pick<Option, "Cache" | "Logger">) {
+	constructor(Cache: Option["Cache"], Logger: Option["Logger"]) {
 		this.Plan.Cache = typeof Cache === "object" ? Cache : this.Plan.Cache;
 		this.Plan.Logger =
 			typeof Logger === "number" ? Logger : this.Plan.Logger;
