@@ -2,7 +2,7 @@
  * @module Files
  *
  */
-export class _Class implements Type {
+export default class implements Type {
 	Pipe = async (...[Action]: Parameters<Type["Pipe"]>) =>
 		await (
 			await import("../Function/Pipe.js")
@@ -66,8 +66,6 @@ export class _Class implements Type {
 			typeof Logger === "number" ? Logger : this.Plan.Logger;
 	}
 }
-
-export default _Class;
 
 import type Type from "../Interface/Files.js";
 import type Option from "../Interface/Option.js";
