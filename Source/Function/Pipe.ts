@@ -6,10 +6,9 @@
  *
  */
 export default (async (
-	Plan,
+	{ Cache, Files, Info, Logger, On, Paths, Results },
 	{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote }
 ) => {
-	let _Plan = Plan;
 
 	// if (Plan.Cache) {
 	// 	Exec(
@@ -56,9 +55,9 @@ export default (async (
 	// Map<Output, Latest>
 	// Latest: 'commit sha'
 
-	for (const [_Output, _Input] of _Plan.Results) {
-		_Plan.On.Input = _Input;
-		_Plan.On.Output = _Output;
+	for (const [_Output, _Input] of Results) {
+		On.Input = _Input;
+		On.Output = _Output;
 
 		try {
 			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
