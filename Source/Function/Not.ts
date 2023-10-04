@@ -34,10 +34,7 @@ export default async (Pattern: Option["Exclude"], Results: Plan["Results"]) => {
 		for (const Result of Results) {
 			switch (true) {
 				case typeof Filter === "string": {
-					if (
-						Result[0].match(Filter as string) ||
-						Result[1].match(Filter as string)
-					) {
+					if (Result[0].match(Filter) || Result[1].match(Filter)) {
 						Results.delete(Result[0]);
 					}
 
@@ -45,10 +42,7 @@ export default async (Pattern: Option["Exclude"], Results: Plan["Results"]) => {
 				}
 
 				case typeof Filter === "function": {
-					if (
-						(Filter as Function)(Result[0]) ||
-						(Filter as Function)(Result[1])
-					) {
+					if (Filter(Result[0]) || Filter(Result[1])) {
 						Results.delete(Result[0]);
 					}
 				}
