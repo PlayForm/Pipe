@@ -2,7 +2,7 @@
  * @module Files
  *
  */
-export declare class _Class implements Type {
+export default class implements Type {
     Pipe: (Action?: import("../Interface/Action.js").default | undefined) => Promise<Plan>;
     Not: (File: boolean | import("../Interface/Exclude.js").Type | import("../Interface/Exclude.js").Type[] | Set<import("../Interface/Exclude.js").Type> | undefined) => Promise<this>;
     By: (File: string | string[]) => Promise<this>;
@@ -10,7 +10,6 @@ export declare class _Class implements Type {
     Plan: Plan;
     constructor(Cache: Option["Cache"], Logger: Option["Logger"]);
 }
-export default _Class;
 import type Type from "../Interface/Files.js";
 import type Option from "../Interface/Option.js";
 import type Plan from "../Interface/Plan.js";
