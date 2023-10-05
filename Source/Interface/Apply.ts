@@ -14,5 +14,5 @@ export default interface Type {
 	 * @returns The function `Apply` returns the result of applying the function `_Function` to the input `Test`. The specific return value depends on the type of `Test`:
 	 *
 	 */
-	(_Function: unknown, Test: unknown): Promise<typeof Test>;
+	<T>(_Function: (Test: T) => unknown, Test: unknown): Promise<typeof Test>;
 }
