@@ -11,51 +11,6 @@ export default (async (
 ) => {
 	let _Plan = Plan;
 
-	// if (Plan.Cache) {
-	// 	Exec(
-	// 		`cd ${await WalkUntilGit(
-	// 			Plan.Cache.Search instanceof URL
-	// 				? fileURLToPath(Plan.Cache.Search)
-	// 				: Plan.Cache.Search
-	// 		)}`,
-	// 		false
-	// 	);
-
-	// 	try {
-	// 		await Make(Plan.Cache.Folder, {
-	// 			recursive: true,
-	// 		});
-
-	// 		await File(`${Plan.Cache}/.gitkeep`, "");
-	// 	} catch (_Error) {}
-
-	// 	// Exec(
-	// 	// 	`git --no-pager log --format="H%" --max-count=1 --oneline --name-only -- ${Plan.Cache}`
-	// 	// );
-
-	// 	Exec("cd -");
-
-	// 	// await File(`${Plan.Cache}/.test`, "{}");
-	// 	// exec("git status", (_Error, Out) => {
-	// 	// 	console.log(Out);
-	// 	// });
-
-	// 	// Exec('git statu')
-	// 	// // File(`${await WalkUntilGit("./Cache")}/.test`, "test");
-	// 	// console.log(Plan.Results);
-	// 	// console.log(dirname(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"));
-	// 	// console.log(
-	// 	// 	resolve(dirname(Plan.Cache ? fileURLToPath(Plan.Cache) : "./Cache"))
-	// 	// );
-	// }
-
-	// @TODO: Maybe purge results before the whole operation instead of executing the pipe
-	// @TODO: Cache invalidation
-	// Compare the currently staged file to the one in the cache
-	// in the cache store the file as stored in git
-	// Map<Output, Latest>
-	// Latest: 'commit sha'
-
 	for (const [_Output, _Input] of _Plan.Results) {
 		_Plan.On.Input = _Input;
 		_Plan.On.Output = _Output;
