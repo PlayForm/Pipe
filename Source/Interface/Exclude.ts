@@ -1,4 +1,4 @@
-/**
+w; /**
  * Represents criteria for excluding files.
  *
  * @module Exclude

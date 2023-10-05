@@ -3,9 +3,9 @@
  *
  */
 export default (async (...[Path, Paths]: Parameters<Type>) => {
-	const _Path = await Apply<string>(
+	const _Path = await Apply(
 		(Path) => (Path.endsWith("/") ? Path : `${Path}/`),
-		await Apply<URL | string>(
+		await Apply(
 			async (_URL) =>
 				_URL instanceof URL
 					? (await import("url")).fileURLToPath(_URL)

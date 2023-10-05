@@ -1,18 +1,8 @@
-import type Path from "../Interface/Path.js";
-import type Plan from "../Interface/Plan.js";
 /**
- * The function `In` takes a `Path` and a `Paths` object, and adds the `Path` to the `Paths` object.
- *
  * @module In
  *
- * @param {Path} Path - The `Path` parameter is a string or URL that represents the path to a file or
- * directory.
- *
- * @param Paths - Paths is a variable of type Plan["Paths"]. It is likely an object or a map that
- * stores key-value pairs.
- *
- * @returns The function `In` returns the `Paths` object.
- *
  */
-declare const _default: (Path: Path, Paths: Plan["Paths"]) => Promise<Map<string, string>>;
+declare const _default: Type;
 export default _default;
+import type Type from "../Interface/In.js";
+export declare const Apply: import("../Interface/Apply.js").default;
