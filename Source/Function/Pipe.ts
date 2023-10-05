@@ -19,15 +19,7 @@ export default (async (
 			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
 
 			if (Read && Wrote) {
-				// await Exec(
-				// 	`git --no-pager log --format="H%" --max-count=1 --oneline -- ${Input}`
-				// );
-
-				// @TODO: Before Read check cache, only on read file write is always necessary
 				_Plan.On.Buffer = await Read(_Plan.On);
-
-				// @TODO: Check cache
-				// Fingerprint the whole operation (get function name or something from prototype)
 				_Plan.On.Buffer = await Wrote(_Plan.On);
 
 				if (!_Plan.On.Buffer) {
