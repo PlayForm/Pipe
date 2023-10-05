@@ -6,9 +6,10 @@
  *
  */
 export default (async (
-	{ Cache, Files, Info, Logger, On, Paths, Results },
+	Plan,
 	{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote }
 ) => {
+	let _Plan = Plan;
 
 	// if (Plan.Cache) {
 	// 	Exec(
@@ -55,9 +56,9 @@ export default (async (
 	// Map<Output, Latest>
 	// Latest: 'commit sha'
 
-	for (const [_Output, _Input] of Results) {
-		On.Input = _Input;
-		On.Output = _Output;
+	for (const [_Output, _Input] of _Plan.Results) {
+		_Plan.On.Input = _Input;
+		_Plan.On.Output = _Output;
 
 		try {
 			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
@@ -110,11 +111,7 @@ export default (async (
 
 					if (_Plan.Logger > 1) {
 						if (typeof Accomplished === "function") {
-							const Message = await Accomplished(_Plan.On);
-
-							if (Message && Message.length > 0) {
-								console.log(Message);
-							}
+							console.log(await Accomplished(_Plan.On));
 						}
 					}
 				}
@@ -123,11 +120,7 @@ export default (async (
 			_Plan.Results.delete(_Plan.On.Output);
 
 			if (typeof Failed === "function") {
-				const Message = await Failed(_Plan.On, _Error);
-
-				if (Message && Message.length > 0) {
-					console.log(Message);
-				}
+				console.log(await Failed(_Plan.On, _Error));
 			} else {
 				if (_Plan.Logger > 1) {
 					console.log(_Error);
