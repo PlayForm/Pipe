@@ -5,9 +5,7 @@
 export default (async (...[File, Paths, Results]: Parameters<Type>) => {
 	Paths.forEach(async ([Input, Output]) => {
 		(
-			await (
-				await import("fast-glob")
-			).default(File, {
+			await async(File, {
 				cwd: Input ?? (await import("process")).cwd(),
 				onlyFiles: true,
 			})
@@ -18,3 +16,5 @@ export default (async (...[File, Paths, Results]: Parameters<Type>) => {
 }) satisfies Type as Type;
 
 import type Type from "../Interface/By.js";
+
+export const { async } = await import("fast-glob");

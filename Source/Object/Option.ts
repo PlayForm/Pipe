@@ -1,8 +1,4 @@
-import type Type from "../Interface/Option.js";
-
 /**
- * Represents options for configuring the behavior of the program.
- *
  * @module Option
  *
  */
@@ -31,3 +27,5 @@ export default {
 	Files: "**/*",
 	Exclude: false,
 } satisfies Type;
+
+import type Type from "../Interface/Option.js";

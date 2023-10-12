@@ -1,6 +1,4 @@
 /**
- * Represents options for configuring the behavior of the program.
- *
  * @module Option
  *
  */

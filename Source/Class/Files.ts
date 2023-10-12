@@ -3,18 +3,25 @@
  *
  */
 export default class implements Type {
-	Pipe = async (...[Action]: Parameters<Type["Pipe"]>) =>
-		await (
+	Pipe = async (...[Action]: Parameters<Type["Pipe"]>) => {
+		console.log("----	Pipe	----");
+
+		return await (
 			await import("../Function/Pipe.js")
 		).default(
 			this.Plan,
-			(await import("../Function/Merge.js")).default(
+			(
+				await import("typescript-esbuild/Target/Function/Merge.js")
+			).default(
 				(await import("../Object/Option.js")).default.Action,
 				Action ?? {}
 			)
 		);
+	};
 
 	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
+		console.log("----	Not	----");
+
 		this.Plan.Results = await (
 			await import("../Function/Not.js")
 		).default(Exclude, this.Plan.Results);
@@ -23,6 +30,8 @@ export default class implements Type {
 	};
 
 	By = async (...[Files]: Parameters<Type["By"]>) => {
+		console.log("----	By	----");
+
 		this.Plan.Results = await (
 			await import("../Function/By.js")
 		).default(Files, this.Plan.Paths, this.Plan.Results);
@@ -31,6 +40,8 @@ export default class implements Type {
 	};
 
 	In = async (...[Path]: Parameters<Type["In"]>) => {
+		console.log("----	In	----");
+
 		const Paths = await (
 			await import("../Function/In.js")
 		).default(Path, this.Plan.Paths);
@@ -60,8 +71,14 @@ export default class implements Type {
 		},
 	} satisfies Plan as Plan;
 
-	constructor(Cache: Option["Cache"], Logger: Option["Logger"]) {
-		this.Plan.Cache = typeof Cache === "object" ? Cache : this.Plan.Cache;
+	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
+		console.log("----	constructor	----");
+
+		this.Plan.Cache =
+			typeof Cache === "object"
+				? Merge(Cache, this.Plan.Cache)
+				: this.Plan.Cache;
+
 		this.Plan.Logger =
 			typeof Logger === "number" ? Logger : this.Plan.Logger;
 	}
@@ -74,3 +91,7 @@ import type Plan from "../Interface/Plan.js";
 export const {
 	default: { Cache, Logger },
 } = await import("../Object/Option.js");
+
+export const { default: Merge } = await import(
+	"typescript-esbuild/Target/Function/Merge.js"
+);

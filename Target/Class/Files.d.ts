@@ -8,7 +8,7 @@ export default class implements Type {
     By: (File: string | string[]) => Promise<this>;
     In: (Path: import("../Interface/Path.js").Type) => Promise<this>;
     Plan: Plan;
-    constructor(Cache: Option["Cache"], Logger: Option["Logger"]);
+    constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
 import type Type from "../Interface/Files.js";
 import type Option from "../Interface/Option.js";
@@ -17,3 +17,4 @@ export declare const Cache: {
     Search: string;
     Folder: string;
 }, Logger: 2;
+export declare const Merge: import("typescript-esbuild/Target/Interface/Merge.js").default<import("typescript-esbuild/Target/Interface/Merge.js").Generic>;

@@ -18,5 +18,5 @@ export default interface Type {
      * the input.
      *
      */
-    (Bytes: number, Decimals: number): Promise<string>;
+    (Bytes: number, Decimals?: number): Promise<string>;
 }
