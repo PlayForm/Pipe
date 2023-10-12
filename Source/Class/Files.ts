@@ -3,45 +3,7 @@
  *
  */
 export default class implements Type {
-	Pipe = async (...[Action]: Parameters<Type["Pipe"]>) => {
-		console.log("----	Pipe	----");
-
-		return await (
-			await import("../Function/Pipe.js")
-		).default(
-			this.Plan,
-			(
-				await import("typescript-esbuild/Target/Function/Merge.js")
-			).default(
-				(await import("../Object/Option.js")).default.Action,
-				Action ?? {}
-			)
-		);
-	};
-
-	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
-		console.log("----	Not	----");
-
-		this.Plan.Results = await (
-			await import("../Function/Not.js")
-		).default(Exclude, this.Plan.Results);
-
-		return this;
-	};
-
-	By = async (...[Files]: Parameters<Type["By"]>) => {
-		console.log("----	By	----");
-
-		this.Plan.Results = await (
-			await import("../Function/By.js")
-		).default(Files, this.Plan.Paths, this.Plan.Results);
-
-		return this;
-	};
-
 	In = async (...[Path]: Parameters<Type["In"]>) => {
-		console.log("----	In	----");
-
 		const Paths = await (
 			await import("../Function/In.js")
 		).default(Path, this.Plan.Paths);
@@ -52,7 +14,40 @@ export default class implements Type {
 			}
 		}
 
+		console.log("--- In ---");
 		return this;
+	};
+
+	By = async (...[Files]: Parameters<Type["By"]>) => {
+		this.Plan.Results = await (
+			await import("../Function/By.js")
+		).default(Files, this.Plan.Paths, this.Plan.Results);
+
+		console.log("--- By ---");
+		return this;
+	};
+
+	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
+		this.Plan.Results = await (
+			await import("../Function/Not.js")
+		).default(Exclude, this.Plan.Results);
+
+		console.log("--- Not ---");
+		return this;
+	};
+
+	Pipe = async (...[Action]: Parameters<Type["Pipe"]>) => {
+		console.log("--- Pipe ---");
+
+		return await (
+			await import("../Function/Pipe.js")
+		).default(
+			this.Plan,
+			Merge(
+				(await import("../Object/Option.js")).default.Action,
+				Action ?? {}
+			)
+		);
 	};
 
 	Plan = {
@@ -72,15 +67,15 @@ export default class implements Type {
 	} satisfies Plan as Plan;
 
 	constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]) {
-		console.log("----	constructor	----");
-
 		this.Plan.Cache =
 			typeof Cache === "object"
-				? Merge(Cache, this.Plan.Cache)
+				? Merge(this.Plan.Cache, Cache)
 				: this.Plan.Cache;
 
 		this.Plan.Logger =
 			typeof Logger === "number" ? Logger : this.Plan.Logger;
+
+		console.log("--- CONSTRUCTOR ---");
 	}
 }
 

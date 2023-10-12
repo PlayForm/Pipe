@@ -3,18 +3,20 @@
  *
  */
 export default (async (...[File, Paths, Results]: Parameters<Type>) => {
-	Paths.forEach(async ([Input, Output]) => {
-		(
-			await async(File, {
-				cwd: Input ?? (await import("process")).cwd(),
-				onlyFiles: true,
-			})
-		).forEach((File) => Results.set(`${Output}${File}`, `${Input}${File}`));
-	});
+	console.log(File);
+
+	for (const [Input, Output] of Paths) {
+		for (const Result of await (
+			await import("fast-glob")
+		).default(File, {
+			cwd: Input ?? (await import("process")).cwd(),
+			onlyFiles: true,
+		})) {
+			Results.set(`${Output}${Result}`, `${Input}${Result}`);
+		}
+	}
 
 	return Results;
 }) satisfies Type as Type;
 
 import type Type from "../Interface/By.js";
-
-export const { async } = await import("fast-glob");

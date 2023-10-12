@@ -1,1 +1,1 @@
-var c=async(...[r,o,a])=>(o.forEach(async([e,s])=>{(await y(r,{cwd:e??(await import("process")).cwd(),onlyFiles:!0})).forEach(t=>a.set(`${s}${t}`,`${e}${t}`))}),a);const{async:y}=await import("fast-glob");export{y as async,c as default};
+var s=async(...[t,r,e])=>{console.log(t);for(const[o,p]of r)for(const a of await(await import("fast-glob")).default(t,{cwd:o??(await import("process")).cwd(),onlyFiles:!0}))e.set(`${p}${a}`,`${o}${a}`);return e};export{s as default};

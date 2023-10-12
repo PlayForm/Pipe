@@ -1,1 +1,1 @@
-var a=async(...[t,e])=>(console.log(5555555555),e);const{default:p}=await import("./Apply.js");export{p as Apply,a as default};
+var n=async(...[p,a])=>{const e=await i(t=>t.endsWith("/")?t:`${t}/`,await i(async t=>t instanceof URL?(await import("url")).fileURLToPath(t):t,p));if(e instanceof Map)for(const[t,s]of e)a.set(t,s);else typeof e=="string"&&a.set(e,e);return a};const{default:i}=await import("./Apply.js");export{i as Apply,n as default};

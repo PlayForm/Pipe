@@ -3,10 +3,10 @@
  *
  */
 export default class implements Type {
-    Pipe: (Action?: import("../Interface/Action.js").default | undefined) => Promise<Plan>;
-    Not: (File: boolean | import("../Interface/Exclude.js").Type | import("../Interface/Exclude.js").Type[] | Set<import("../Interface/Exclude.js").Type> | undefined) => Promise<this>;
-    By: (File: string | string[]) => Promise<this>;
     In: (Path: import("../Interface/Path.js").Type) => Promise<this>;
+    By: (File: string | string[]) => Promise<this>;
+    Not: (File: boolean | import("../Interface/Exclude.js").Type | import("../Interface/Exclude.js").Type[] | Set<import("../Interface/Exclude.js").Type> | undefined) => Promise<this>;
+    Pipe: (Action?: import("../Interface/Action.js").default | undefined) => Promise<Plan>;
     Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }

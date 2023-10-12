@@ -3,7 +3,7 @@
  *
  */
 export default (async (...[_Function, Test]: Parameters<Type>) => {
-	if (_Function instanceof Function) {
+	if (typeof _Function === "function") {
 		if (Test instanceof Map) {
 			const Tests = new Map();
 
