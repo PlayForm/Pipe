@@ -18,14 +18,13 @@ export default class implements Type {
 		return this;
 	};
 
-	By = async (...[Files]: Parameters<Type["By"]>) => {
-		this.Plan.Results = await (
+	By = async (...[Files]: Parameters<Type["By"]>) => (
+		(this.Plan.Results = await (
 			await import("../Function/By.js")
-		).default(Files, this.Plan.Paths, this.Plan.Results);
-
-		console.log("--- By ---");
-		return this;
-	};
+		).default(Files, this.Plan.Paths, this.Plan.Results)),
+		console.log("--- By ---"),
+		this
+	);
 
 	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
 		this.Plan.Results = await (
