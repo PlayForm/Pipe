@@ -64,7 +64,7 @@ import type Plan from "../Interface/Plan.js";
 
 export const {
 	default: { Cache, Logger, Action },
-} = await import("../Object/Option.js");
+} = await import("../Variable/Option.js");
 
 export const { default: Merge } = await import(
 	"typescript-esbuild/Target/Function/Merge.js"
