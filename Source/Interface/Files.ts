@@ -41,7 +41,7 @@ export default interface Type {
 	 * function, it will use the default execution strategy.
 	 * @returns Plan
 	 */
-	Pipe: (Action?: Action) => Promise<Plan>;
+	Pipe: (Action?: Action) => Promise<ThisType<Type>>;
 
 	Plan: Plan;
 }

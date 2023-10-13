@@ -4,49 +4,31 @@
  */
 export default class implements Type {
 	In = async (...[Path]: Parameters<Type["In"]>) => {
-		const Paths = await (
-			await import("../Function/In.js")
-		).default(Path, this.Plan.Paths);
+		const Paths = await In(Path, this.Plan.Paths);
 
-		if (Paths instanceof Map) {
-			for (const [Input, Output] of Paths) {
-				this.Plan.Paths.set(Input, Output);
-			}
+		for (const [Input, Output] of Paths) {
+			this.Plan.Paths.set(Input, Output);
 		}
 
-		console.log("--- In ---");
 		return this;
 	};
 
-	By = async (...[Files]: Parameters<Type["By"]>) => (
-		(this.Plan.Results = await (
-			await import("../Function/By.js")
-		).default(Files, this.Plan.Paths, this.Plan.Results)),
-		console.log("--- By ---"),
-		this
-	);
+	By = async (...[Files]: Parameters<Type["By"]>) => {
+		this.Plan.Results = await By(Files, this.Plan.Paths, this.Plan.Results);
+
+		return this;
+	};
 
 	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
-		this.Plan.Results = await (
-			await import("../Function/Not.js")
-		).default(Exclude, this.Plan.Results);
+		this.Plan.Results = await Not(Exclude, this.Plan.Results);
 
-		console.log("--- Not ---");
 		return this;
 	};
 
-	Pipe = async (...[Action]: Parameters<Type["Pipe"]>) => {
-		console.log("--- Pipe ---");
+	Pipe = async (...[_Action]: Parameters<Type["Pipe"]>) => {
+		this.Plan = await Pipe(this.Plan, Merge(Action, _Action ?? {}));
 
-		return await (
-			await import("../Function/Pipe.js")
-		).default(
-			this.Plan,
-			Merge(
-				(await import("../Object/Option.js")).default.Action,
-				Action ?? {}
-			)
-		);
+		return this;
 	};
 
 	Plan = {
@@ -73,8 +55,6 @@ export default class implements Type {
 
 		this.Plan.Logger =
 			typeof Logger === "number" ? Logger : this.Plan.Logger;
-
-		console.log("--- CONSTRUCTOR ---");
 	}
 }
 
@@ -83,9 +63,17 @@ import type Option from "../Interface/Option.js";
 import type Plan from "../Interface/Plan.js";
 
 export const {
-	default: { Cache, Logger },
+	default: { Cache, Logger, Action },
 } = await import("../Object/Option.js");
 
 export const { default: Merge } = await import(
 	"typescript-esbuild/Target/Function/Merge.js"
 );
+
+export const { default: In } = await import("../Function/In.js");
+
+export const { default: By } = await import("../Function/By.js");
+
+export const { default: Not } = await import("../Function/Not.js");
+
+export const { default: Pipe } = await import("../Function/Pipe.js");

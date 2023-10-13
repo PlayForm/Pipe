@@ -15,5 +15,5 @@ export default interface Type {
 	 *
 	 */
 	// rome-ignore lint/suspicious/noExplicitAny:
-	(_Function: (Test: any) => any, Test: any): Promise<any>;
+	(_Function: (Test: any) => any, anyest: any): Promise<any>;
 }

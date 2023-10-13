@@ -3,20 +3,17 @@
  *
  */
 export default (async (...[Path, Paths]: Parameters<Type>) => {
-	const _Path = await Apply(
-		(Path) => (Path.endsWith("/") ? Path : `${Path}/`),
+	_Path = await Apply(
+		async (Path) => (Path.endsWith("/") ? Path : `${Path}/`),
 		await Apply(
-			async (_URL) =>
-				_URL instanceof URL
-					? (await import("url")).fileURLToPath(_URL)
-					: _URL,
+			async (_URL) => (_URL instanceof URL ? fileURLToPath(_URL) : _URL),
 			Path
 		)
 	);
 
 	if (_Path instanceof Map) {
 		for (const [Input, Output] of _Path) {
-			Paths.set(Input, Output);
+			Paths.set(Input.toString(), Output.toString());
 		}
 	} else if (typeof _Path === "string") {
 		Paths.set(_Path, _Path);
@@ -26,5 +23,10 @@ export default (async (...[Path, Paths]: Parameters<Type>) => {
 }) satisfies Type as Type;
 
 import type Type from "../Interface/In.js";
+import type Path from "../Interface/Path.js";
 
 export const { default: Apply } = await import("./Apply.js");
+
+export let _Path: Path;
+
+export const { fileURLToPath } = await import("url");

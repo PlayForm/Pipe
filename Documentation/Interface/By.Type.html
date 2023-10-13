@@ -22,7 +22,7 @@
 <li><span class="target">Type</span></li></ul></section>
 <section class="tsd-panel">
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="Type"><span class="tsd-kind-call-signature">Type</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">File</span>, <span class="tsd-kind-parameter">Paths</span>, <span class="tsd-kind-parameter">Results</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" class="tsd-signature-type external" target="_blank">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><a href="#Type" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="Type"><span class="tsd-kind-call-signature">Type</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">Files</span>, <span class="tsd-kind-parameter">Paths</span>, <span class="tsd-kind-parameter">Results</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" class="tsd-signature-type external" target="_blank">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><a href="#Type" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>The function <code>By</code> takes in a file pattern or an array of file patterns, a set of input and output paths, and a map of results, and returns the updated map of results after matching the file patterns with the input paths.</p>
 </div>
@@ -30,13 +30,15 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">File</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-<div class="tsd-comment tsd-typography"><p>The <code>File</code> parameter is either a single file pattern or an array of file patterns. These patterns are used to match files in the input directory (<code>Input</code>) that will be processed.</p>
+<h5><span class="tsd-kind-parameter">Files</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+<div class="tsd-comment tsd-typography"><p>Files is either a single file pattern or an array of file patterns.
+These patterns are used to match files in the input directory (<code>Input</code>) that will be processed.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li>
 <li>
 <h5><span class="tsd-kind-parameter">Paths</span>: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" class="tsd-signature-type external" target="_blank">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-<div class="tsd-comment tsd-typography"><p>Paths is an array of tuples that represent the input and output paths. Each tuple contains two elements: the input path and the output path.</p>
+<div class="tsd-comment tsd-typography"><p>Paths is an array of tuples that represent the input and output paths.
+Each tuple contains two elements: the input path and the output path.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li>
 <li>
@@ -47,7 +49,7 @@
 <h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" class="tsd-signature-type external" target="_blank">Map</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/NikolaRHristov/FilesPipe/blob/main/Source/Interface/By.ts#L16">Application/NikolaRHristov/NPM/FilesPipe/Source/Interface/By.ts:16</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/NikolaRHristov/FilesPipe/blob/main/Source/Interface/By.ts#L18">Application/NikolaRHristov/NPM/FilesPipe/Source/Interface/By.ts:18</a></li></ul></aside></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
