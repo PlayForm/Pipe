@@ -14,6 +14,6 @@ export default interface Type {
 	 * @returns The function `Apply` returns the result of applying the function `_Function` to the input `Test`. The specific return value depends on the type of `Test`:
 	 *
 	 */
-	// rome-ignore lint/suspicious/noExplicitAny:
+	// biome-ignore lint/suspicious/noExplicitAny:
 	(_Function: (Test: any) => any, anyest: any): Promise<any>;
 }

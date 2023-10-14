@@ -28,7 +28,7 @@ export default interface Type {
 	/**
 	 * Additional information associated with the execution plan.
 	 */
-	// rome-ignore lint/suspicious/noExplicitAny:
+	// biome-ignore lint/suspicious/noExplicitAny:
 	Info: any;
 
 	/**
