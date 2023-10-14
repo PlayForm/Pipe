@@ -6,7 +6,7 @@ export default (async (...[Pattern, Results]: Parameters<Type>) => {
 	const Filters = new Set();
 
 	if (typeof Pattern !== "undefined") {
-		if (Pattern instanceof Array || Pattern instanceof Set) {
+		if (Array.isArray(Pattern) || Pattern instanceof Set) {
 			for (const Patterns of Pattern) {
 				Filters.add(Patterns);
 			}
@@ -19,7 +19,10 @@ export default (async (...[Pattern, Results]: Parameters<Type>) => {
 		for (const Result of Results) {
 			switch (true) {
 				case typeof Filter === "string": {
-					if (Result[0].match(Filter) || Result[1].match(Filter)) {
+					if (
+						Result[0].match(Filter as string) ||
+						Result[1].match(Filter as string)
+					) {
 						Results.delete(Result[0]);
 					}
 

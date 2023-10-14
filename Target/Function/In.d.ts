@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * @module In
  *
@@ -9,4 +8,3 @@ import type Type from "../Interface/In.js";
 import type Path from "../Interface/Path.js";
 export declare const Apply: import("../Interface/Apply.js").default;
 export declare let _Path: Path;
-export declare const fileURLToPath: typeof import("url").fileURLToPath;

@@ -24,7 +24,7 @@ export default (async (...[_Function, Test]: Parameters<Type>) => {
 			return Tests;
 		}
 
-		if (Test instanceof Array) {
+		if (Array.isArray(Test)) {
 			const Tests = new Array();
 
 			for (const Index of Test) {

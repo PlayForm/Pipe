@@ -6,7 +6,10 @@ export default (async (...[Path, Paths]: Parameters<Type>) => {
 	_Path = await Apply(
 		async (Path) => (Path.endsWith("/") ? Path : `${Path}/`),
 		await Apply(
-			async (_URL) => (_URL instanceof URL ? fileURLToPath(_URL) : _URL),
+			async (_URL) =>
+				_URL instanceof URL
+					? (await import("url")).fileURLToPath(_URL)
+					: _URL,
 			Path
 		)
 	);
@@ -28,5 +31,3 @@ import type Path from "../Interface/Path.js";
 export const { default: Apply } = await import("./Apply.js");
 
 export let _Path: Path;
-
-export const { fileURLToPath } = await import("url");

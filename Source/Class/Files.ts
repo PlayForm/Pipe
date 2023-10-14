@@ -4,7 +4,9 @@
  */
 export default class implements Type {
 	In = async (...[Path]: Parameters<Type["In"]>) => {
-		const Paths = await In(Path, this.Plan.Paths);
+		const Paths = await (
+			await import("../Function/In.js")
+		).default(Path, this.Plan.Paths);
 
 		for (const [Input, Output] of Paths) {
 			this.Plan.Paths.set(Input, Output);
@@ -14,19 +16,25 @@ export default class implements Type {
 	};
 
 	By = async (...[Files]: Parameters<Type["By"]>) => {
-		this.Plan.Results = await By(Files, this.Plan.Paths, this.Plan.Results);
+		this.Plan.Results = await (
+			await import("../Function/By.js")
+		).default(Files, this.Plan.Paths, this.Plan.Results);
 
 		return this;
 	};
 
 	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
-		this.Plan.Results = await Not(Exclude, this.Plan.Results);
+		this.Plan.Results = await (
+			await import("../Function/Not.js")
+		).default(Exclude, this.Plan.Results);
 
 		return this;
 	};
 
 	Pipe = async (...[_Action]: Parameters<Type["Pipe"]>) => {
-		this.Plan = await Pipe(this.Plan, Merge(Action, _Action ?? {}));
+		this.Plan = await (
+			await import("../Function/Pipe.js")
+		).default(this.Plan, Merge(Action, _Action ?? {}));
 
 		return this;
 	};
@@ -69,11 +77,3 @@ export const {
 export const { default: Merge } = await import(
 	"typescript-esbuild/Target/Function/Merge.js"
 );
-
-export const { default: In } = await import("../Function/In.js");
-
-export const { default: By } = await import("../Function/By.js");
-
-export const { default: Not } = await import("../Function/Not.js");
-
-export const { default: Pipe } = await import("../Function/Pipe.js");

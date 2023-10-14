@@ -26,7 +26,3 @@ export declare const Cache: {
     Changed: (Plan: Plan) => Promise<Plan>;
 };
 export declare const Merge: import("typescript-esbuild/Target/Interface/Merge.js").default<import("typescript-esbuild/Target/Interface/Merge.js").Generic>;
-export declare const In: import("../Interface/In.js").default;
-export declare const By: import("../Interface/By.js").default;
-export declare const Not: import("../Interface/Not.js").default;
-export declare const Pipe: import("../Interface/Pipe.js").default;
