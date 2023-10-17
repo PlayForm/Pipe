@@ -13,8 +13,6 @@ export default interface Type {
      * @param Paths - Paths is a variable of type Plan["Paths"]. It is likely an object or a map that
      * stores key-value pairs.
      *
-     * @returns The function `In` returns the `Paths` object.
-     *
      */
     (Path: Path, Paths: Plan["Paths"]): Promise<typeof Paths>;
 }

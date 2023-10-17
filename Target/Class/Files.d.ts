@@ -17,12 +17,12 @@ export declare const Cache: {
     Search: string;
     Folder: string;
 }, Logger: 2, Action: {
-    Read: (On: import("../Interface/File.js").default) => Promise<string>;
-    Wrote: (On: import("../Interface/File.js").default) => Promise<import("../Interface/Buffer.js").Type>;
-    Passed: (On: import("../Interface/File.js").default) => Promise<boolean>;
-    Failed: (On: import("../Interface/File.js").default) => Promise<string>;
-    Accomplished: (On: import("../Interface/File.js").default) => Promise<string>;
-    Fulfilled: (Plan: Plan) => Promise<string | false>;
+    Read: ({ Input }: import("../Interface/File.js").default) => Promise<string>;
+    Wrote: ({ Buffer }: import("../Interface/File.js").default) => Promise<import("../Interface/Buffer.js").Type>;
+    Passed: (On: import("../Interface/File.js").default) => Promise<true>;
+    Failed: ({ Input }: import("../Interface/File.js").default) => Promise<string>;
+    Accomplished: ({ Input, Output }: import("../Interface/File.js").default) => Promise<string>;
+    Fulfilled: ({ Files }: Plan) => Promise<string | false>;
     Changed: (Plan: Plan) => Promise<Plan>;
 };
 export declare const Merge: import("typescript-esbuild/Target/Interface/Merge.js").default<import("typescript-esbuild/Target/Interface/Merge.js").Generic>;
