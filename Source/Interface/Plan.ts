@@ -1,12 +1,7 @@
-import type Cache from "./Cache.js";
-import type Dir from "./Dir.js";
-import type File from "./File.js";
-import type Logger from "./Logger.js";
-
 /**
- * Represents the execution's plan. It contains information about the tasks to be executed and their corresponding inputs and outputs.
- *
  * @module Plan
+ *
+ * Represents the execution's plan. It contains information about the tasks to be executed and their corresponding inputs and outputs.
  *
  */
 export default interface Type {
@@ -49,3 +44,8 @@ export default interface Type {
 	 */
 	On: File;
 }
+
+import type Cache from "./Cache.js";
+import type Dir from "./Dir.js";
+import type File from "./File.js";
+import type Logger from "./Logger.js";

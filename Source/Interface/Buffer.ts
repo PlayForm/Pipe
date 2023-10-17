@@ -1,7 +1,7 @@
 /**
- * Represents various types that can be used as buffer data.
- *
  * @module Buffer
+ *
+ * Represents various types that can be used as buffer data.
  *
  */
 export type Type =

@@ -15,7 +15,6 @@ export default interface Type {
 	 * in the array should be an array itself, with two elements. The first element represents the file
 	 * name, and the second element represents the file content.
 	 *
-	 * @returns Results
 	 */
 	(
 		Pattern: Option["Exclude"],

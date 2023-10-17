@@ -38,8 +38,6 @@ export default interface Type {
 	 *
 	 * @param {Plan} Plan The execution plan to be changed.
 	 *
-	 * @returns A Promise that resolves to the modified execution plan.
-	 *
 	 */
 	Changed?: (Plan: Plan) => Promise<Plan>;
 
@@ -48,17 +46,13 @@ export default interface Type {
 	 *
 	 * @param On The file on which the action is being checked.
 	 *
-	 * @returns A Promise that resolves to a boolean value indicating if the file has passed the checks.
-	 *
 	 */
-	Passed?: (On: File) => Promise<Boolean>;
+	Passed?: (On: File) => Promise<boolean>;
 
 	/**
 	 * Attaches a callback for reading from a file.
 	 *
 	 * @param On The file to be read.
-	 *
-	 * @returns A Promise that resolves to the buffer read from the file.
 	 *
 	 */
 	Read?: (On: File) => Promise<Buffer>;
@@ -67,8 +61,6 @@ export default interface Type {
 	 * Attaches a callback for writing to a file.
 	 *
 	 * @param On The file to be written to.
-	 *
-	 * @returns A Promise that resolves to the buffer written to the file.
 	 *
 	 */
 	Wrote?: (On: File) => Promise<Buffer>;
