@@ -10,16 +10,18 @@ export default {
 	Path: "./Target",
 	Logger: 2,
 	Action: {
-		Read: async (On) =>
-			await (await import("fs/promises")).readFile(On.Input, "utf-8"),
-		Wrote: async (On) => On.Buffer,
+		Read: async ({ Input }) =>
+			await (await import("fs/promises")).readFile(Input, "utf-8"),
+		Wrote: async ({ Buffer }) => Buffer,
+		// biome-ignore lint/complexity/useSimplifiedLogicExpression:
 		Passed: async (On) => On && true,
-		Failed: async (On) => `Error: Cannot process file ${On.Input}!`,
-		Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,
-		Fulfilled: async (Plan) =>
-			Plan.Files > 0
-				? `Successfully processed a total of ${Plan.Files} ${
-						Plan.Files === 1 ? "file" : "files"
+		Failed: async ({ Input }) => `Error: Cannot process file ${Input}!`,
+		Accomplished: async ({ Input, Output }) =>
+			`Processed ${Input} in ${Output}.`,
+		Fulfilled: async ({ Files }) =>
+			Files > 0
+				? `Successfully processed a total of ${Files} ${
+						Files === 1 ? "file" : "files"
 				  }.`
 				: false,
 		Changed: async (Plan) => Plan,
