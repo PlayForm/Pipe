@@ -26,7 +26,7 @@ export default (async (...[Path, Paths]: Parameters<Type>) => {
 }) satisfies Type as Type;
 
 import type Type from "../Interface/In.js";
-import type Path from "../Interface/Path.js";
+import type Path from "../Type/Path.js";
 
 export const { default: Apply } = await import("./Apply.js");
 

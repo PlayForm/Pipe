@@ -14,7 +14,7 @@ export default interface Type {
      * stores key-value pairs.
      *
      */
-    (Path: Path, Paths: Plan["Paths"]): Promise<typeof Paths>;
+    (Path: Path, Paths: Plan["Paths"]): Promise<Plan["Paths"]>;
 }
-import type Path from "../Interface/Path.js";
+import type Path from "../Type/Path.js";
 import type Plan from "../Interface/Plan.js";

@@ -1,7 +1,7 @@
 /**
- * Represents a directory specification.
- *
  * @module Dir
+ *
+ * Represents a directory specification.
  *
  */
 export default interface Type {

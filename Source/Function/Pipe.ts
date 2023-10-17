@@ -25,14 +25,23 @@ export default (async (
 
 				if (Passed && (await Passed(_Plan.On))) {
 					try {
-						await access(dirname(_Plan.On.Output), W_OK);
+						await (
+							await import("fs/promises")
+						).access(
+							dirname(_Plan.On.Output),
+							(await import("fs/promises")).constants.W_OK
+						);
 					} catch (_Error) {
-						await mkdir(dirname(_Plan.On.Output), {
+						await (
+							await import("fs/promises")
+						).mkdir(dirname(_Plan.On.Output), {
 							recursive: true,
 						});
 					}
 
-					await writeFile(_Plan.On.Output, _Plan.On.Buffer, "utf-8");
+					await (
+						await import("fs/promises")
+					).writeFile(_Plan.On.Output, _Plan.On.Buffer, "utf-8");
 
 					_Plan.On.After = (await stat(_Plan.On.Output)).size;
 
@@ -54,10 +63,10 @@ export default (async (
 		} catch (_Error) {
 			_Plan.Results.delete(_Plan.On.Output);
 
-			if (typeof Failed === "function") {
-				console.log(await Failed(_Plan.On, _Error));
-			} else {
-				if (_Plan.Logger > 1) {
+			if (_Plan.Logger > 1) {
+				if (typeof Failed === "function") {
+					console.log(await Failed(_Plan.On, _Error));
+				} else {
 					console.log(_Error);
 				}
 			}
@@ -81,10 +90,4 @@ import type Type from "../Interface/Pipe.js";
 
 export const { dirname } = await import("path");
 
-export const {
-	constants: { W_OK },
-	access,
-	mkdir,
-	writeFile,
-	stat,
-} = await import("fs/promises");
+export const { stat } = await import("fs/promises");

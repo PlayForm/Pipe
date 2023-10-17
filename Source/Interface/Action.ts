@@ -1,7 +1,7 @@
 /**
- * Represents the execution configuration for specific actions on files.
- *
  * @module Action
+ *
+ * Represents the execution configuration for specific actions on files.
  *
  */
 export default interface Type {
@@ -66,6 +66,6 @@ export default interface Type {
 	Wrote?: (On: File) => Promise<Buffer>;
 }
 
-import type Buffer from "./Buffer.js";
+import type Buffer from "../Type/Buffer.js";
 import type File from "./File.js";
 import type Plan from "./Plan.js";

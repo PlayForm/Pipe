@@ -1,7 +1,7 @@
 /**
- * Represents a path specification.
- *
  * @module Path
+ *
+ * Represents a path specification.
  *
  */
 export type Type = string | URL | Map<string | URL, string | URL>;

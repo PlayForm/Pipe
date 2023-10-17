@@ -1,8 +1,8 @@
 /// <reference types="node" />
 /**
- * Represents the cache path configuration.
- *
  * @module Cache
+ *
+ * Represents the cache path configuration.
  *
  */
 export type Type = {

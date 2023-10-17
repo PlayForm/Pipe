@@ -50,7 +50,7 @@ export default interface Type {
 
 import type Action from "./Action.js";
 import type Option from "./Option.js";
-import type Path from "./Path.js";
+import type Path from "../Type/Path.js";
 import type Plan from "./Plan.js";
 
 import type { Pattern } from "fast-glob";

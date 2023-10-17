@@ -11,7 +11,7 @@ declare const _default: {
     Logger: 2;
     Action: {
         Read: ({ Input }: import("../Interface/File.js").default) => Promise<string>;
-        Wrote: ({ Buffer }: import("../Interface/File.js").default) => Promise<import("../Interface/Buffer.js").Type>;
+        Wrote: ({ Buffer }: import("../Interface/File.js").default) => Promise<Buffer>;
         Passed: (On: import("../Interface/File.js").default) => Promise<true>;
         Failed: ({ Input }: import("../Interface/File.js").default) => Promise<string>;
         Accomplished: ({ Input, Output }: import("../Interface/File.js").default) => Promise<string>;
