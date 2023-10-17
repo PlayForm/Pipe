@@ -8,16 +8,16 @@ export default interface Type {
     /**
      * Attaches a callback for the fulfillment of the Action.
      *
-     * @param {Plan} Plan
+     * @param Plan
      *
      */
     Fulfilled?: boolean | ((Plan: Plan) => Promise<false | string>);
     /**
      * Attaches a callback for handling failures in the Action.
      *
-     * @param {File} Input The input file being processed.
+     * @param Input The input file being processed.
      *
-     * @param {unknown} _Error The error encountered during execution.
+     * @param _Error The error encountered during execution.
      *
      */
     Failed?: boolean | ((Input: File, _Error: unknown) => Promise<false | string>);
@@ -31,7 +31,7 @@ export default interface Type {
     /**
      * Attaches a callback for actions that result in changes to the plan.
      *
-     * @param {Plan} Plan The execution plan to be changed.
+     * @param Plan The execution plan to be changed.
      *
      */
     Changed?: (Plan: Plan) => Promise<Plan>;

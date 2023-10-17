@@ -7,7 +7,7 @@ export default interface Type {
      * The function `In` takes a path and updates the `Plan.Paths` property with the input and output
      * paths.
      *
-     * @param {Path} Path parameter is a string that represents the path to a file or
+     * @param Path parameter is a string that represents the path to a file or
      * directory. It has a default value of "./", which means it will use the current directory if no path
      * is provided.
      *
@@ -17,7 +17,7 @@ export default interface Type {
      * The function `By` takes a file pattern or an array of file patterns and returns a promise that
      * resolves to the results of executing the patterns on the specified paths.
      *
-     * @param {Pattern | Pattern[]} File parameter is of type `Pattern` or
+     * @param File parameter is of type `Pattern` or
      * `Pattern[]`. It represents the file or files that you want to search for. The `Pattern` type is a
      * string pattern that can include wildcards to match multiple files.
      *
