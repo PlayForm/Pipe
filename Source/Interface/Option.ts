@@ -5,8 +5,7 @@
  *
  */
 export default interface Type {
-	// biome-ignore lint/suspicious/noExplicitAny:
-	[key: string]: any;
+	[key: string]: Value<Type>;
 
 	/**
 	 * Configuration for the target cache.
@@ -53,3 +52,4 @@ import type Logger from "../Type/Logger.js";
 import type Path from "../Type/Path.js";
 
 import type { Pattern } from "fast-glob";
+import type Value from "typescript-esbuild/Target/Type/Value.js";

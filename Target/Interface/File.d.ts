@@ -26,4 +26,4 @@ export default interface Type {
      */
     Buffer: Buffer;
 }
-import type Buffer from "./Buffer.js";
+import type Buffer from "../Type/Buffer.js";
