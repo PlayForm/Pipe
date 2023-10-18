@@ -64,9 +64,9 @@ export default class implements Type {
 	}
 }
 
-import type Type from "../Interface/Files.js";
-import type Option from "../Interface/Option.js";
-import type Plan from "../Interface/Plan.js";
+type Type = import("../Interface/Files.js").default;
+type Option = import("../Interface/Option.js").default;
+type Plan = import("../Interface/Plan.js").default;
 
 export const {
 	default: { Cache, Logger, Action },
