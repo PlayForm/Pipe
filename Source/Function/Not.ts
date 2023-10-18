@@ -3,8 +3,6 @@
  *
  */
 export default (async (...[Pattern, Results]: Parameters<Type>) => {
-	const Filters = new Set();
-
 	if (typeof Pattern !== "undefined") {
 		if (Array.isArray(Pattern) || Pattern instanceof Set) {
 			for (const Patterns of Pattern) {
@@ -42,3 +40,5 @@ export default (async (...[Pattern, Results]: Parameters<Type>) => {
 }) satisfies Type as Type;
 
 import type Type from "../Interface/Not.js";
+
+export const Filters = new Set();

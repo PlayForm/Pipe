@@ -43,5 +43,5 @@ import type Cache from "./Cache.js";
 import type Exclude from "../Type/Exclude.js";
 import type Logger from "../Type/Logger.js";
 import type Path from "../Type/Path.js";
-import type { Pattern } from "fast-glob";
 import type Value from "typescript-esbuild/Target/Type/Value.js";
+import type { Pattern } from "fast-glob";
