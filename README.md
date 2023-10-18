@@ -10,7 +10,7 @@ To get started with `FilesPipe`, follow these steps:
 
 Install the `FilesPipe` package using npm:
 
-```
+```sh
 npm install -D -E files-pipe
 ```
 
