@@ -21,17 +21,14 @@ export default interface Type {
     Path?: boolean | (Path | Path[] | Set<Path>);
     /**
      * Criteria for excluding files.
-     *
      */
     Exclude?: boolean | (Exclude | Exclude[] | Set<Exclude>);
     /**
      * File patterns to be matched.
-     *
      */
     Files?: boolean | (Pattern | Pattern[]);
     /**
      * Action pipe configuration.
-     *
      */
     Action?: boolean | Action;
     /**

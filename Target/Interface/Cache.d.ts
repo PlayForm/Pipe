@@ -5,8 +5,7 @@
  * Represents the cache path configuration.
  *
  */
-export type Type = {
+export default interface Type {
     Search: string | URL;
     Folder: string | URL;
-};
-export type { Type as default };
+}

@@ -4,11 +4,9 @@
  */
 export default class implements Type {
 	In = async (...[Path]: Parameters<Type["In"]>) => {
-		const Paths = await (
+		for (const [Input, Output] of await (
 			await import("../Function/In.js")
-		).default(Path, this.Plan.Paths);
-
-		for (const [Input, Output] of Paths) {
+		).default(Path, this.Plan.Paths)) {
 			this.Plan.Paths.set(Input, Output);
 		}
 

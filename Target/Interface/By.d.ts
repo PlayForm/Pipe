@@ -9,14 +9,16 @@ export default interface Type {
      * of results after matching the file patterns with the input paths.
      *
      * @param Files - Files is either a single file pattern or an array of file
-     * patterns.
-     * These patterns are used to match files in the input directory (`Input`) that
-     * will be processed.
+     * patterns. These patterns are used to match files in the input directory
+     * (`Input`) that will be processed.
      *
      * @param Paths - Paths is an array of tuples that represent the input and
      * output paths.
      * Each tuple contains two elements: the input path and the output path.
      *
+     * @param Results - Map object that stores the mapping between the output file
+     * paths and their corresponding input file paths. It is used to keep track of
+     * the files that have been processed and their respective destinations.
      *
      */
     (Files: Pattern | Pattern[], Paths: Plan["Paths"], Results: Plan["Results"]): Promise<typeof Results>;

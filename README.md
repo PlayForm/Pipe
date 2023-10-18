@@ -1,11 +1,12 @@
 # [FilesPipe] 🧪
 
-Allows you to process files in a pipe, simplifying the file operations in your
-project.
+`FilePipe` is a versatile tool designed to simplify file operations in your
+project. It allows you to process files in a pipeline fashion, making it easy to
+perform various actions on your files with minimal effort.
 
 ### Installation
 
-To get started with the `FilesPipe` component, follow these steps:
+To get started with `FilesPipe`, follow these steps:
 
 Install the `FilesPipe` package using npm:
 
@@ -25,9 +26,8 @@ await new Files().In("./Input");
 
 ### Getting started
 
-With `FilesPipe`, you gain access to the `Pipe` method, enabling you to perform
-various actions on files within the pipe. Here's an example of how to use it in
-your `Index.ts`:
+With `FilesPipe`, you can use the Pipe method to perform actions on files within
+the pipe. Here's an example of how to use it in your Index.ts:
 
 **`Index.ts`**
 
@@ -44,7 +44,8 @@ await (
 
 ### Default Callbacks
 
-Here are the default callbacks provided by `FilesPipe` for file processing:
+`FilesPipe` provides default callbacks for file processing. These callbacks can
+be customized to suit your specific needs. Here are the default callbacks:
 
 ```ts
 import Files from "files-pipe";
@@ -91,7 +92,8 @@ await new Files().In(["./Input", "./Input2"]);
 
 ### Input-Output Mapping
 
-Provide a map of paths for different input and output directories:
+`FilesPipe` allows you to provide a map of paths for different input and output
+directories, making it easy to control where files are read from and written to:
 
 **`Index.ts`**
 
@@ -103,9 +105,9 @@ await new Files().In(new Map([["./Input", "./Output"]]));
 
 ### File Filtering
 
-You can filter files to exclude specific ones from your pipe. A filter can be an
-array of regular expressions or a single match. You can also use functions to
-match on file names:
+You can filter files to exclude specific ones from your `FilesPipe`. Filters can
+be an array of regular expressions or a single match. You can also use functions
+to match on file names:
 
 **`Index.ts`**
 
@@ -116,19 +118,6 @@ await new Files().Not([
 	"File.txt",
 	(File: string) => File === "./Input/File.txt",
 ]);
-```
-
-### Customizing Cache Path
-
-Set the Cache to a different path if your cache path is different from the
-default (./Cache). Here's an example:
-
-**`Index.ts`**
-
-```ts
-import Files from "files-pipe";
-
-new Files(0);
 ```
 
 ### Controlling Logging
