@@ -7,11 +7,12 @@ export default class implements Type {
     By: (File: string | string[]) => Promise<this>;
     Not: (File: boolean | import("../Type/Exclude.js").Type | import("../Type/Exclude.js").Type[] | Set<import("../Type/Exclude.js").Type> | undefined) => Promise<this>;
     Pipe: (Action?: import("../Interface/Action.js").default | undefined) => Promise<this>;
-    Plan: import("../Interface/Plan.js").default;
+    Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
-type Type = import("../Interface/Files.js").default;
-type Option = import("../Interface/Option.js").default;
+import type Type from "../Interface/Files.js";
+import type Option from "../Interface/Option.js";
+import type Plan from "../Interface/Plan.js";
 export declare const Cache: {
     Search: string;
     Folder: string;
@@ -21,8 +22,7 @@ export declare const Cache: {
     Passed: (On: import("../Interface/File.js").default) => Promise<true>;
     Failed: ({ Input }: import("../Interface/File.js").default) => Promise<string>;
     Accomplished: ({ Input, Output }: import("../Interface/File.js").default) => Promise<string>;
-    Fulfilled: ({ Files }: import("../Interface/Plan.js").default) => Promise<string | false>;
-    Changed: (Plan: import("../Interface/Plan.js").default) => Promise<import("../Interface/Plan.js").default>;
+    Fulfilled: ({ Files }: Plan) => Promise<string | false>;
+    Changed: (Plan: Plan) => Promise<Plan>;
 };
 export declare const Merge: import("typescript-esbuild/Target/Interface/Merge.js").default<import("typescript-esbuild/Target/Interface/Merge.js").Generic>;
-export {};
