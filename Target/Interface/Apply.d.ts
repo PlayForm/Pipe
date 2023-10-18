@@ -12,5 +12,5 @@ export default interface Type {
      * @param Test - The `Test` parameter can be any value that you want to apply the function `_Function` to. It can be a single value, an array of values, a set of values, or a map of key-value pairs.
      *
      */
-    (_Function: (Test: any) => any, Test: any): Promise<any>;
+    (_Function: (Test: unknown) => unknown, Test: unknown): Promise<unknown>;
 }
