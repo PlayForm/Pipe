@@ -30,12 +30,12 @@
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "20.8.6",
+		"@types/node": "20.8.7",
 		"deepmerge-ts": "5.1.0",
 		"fast-glob": "3.3.1"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.2.18"
+		"typescript-esbuild": "0.2.19"
 	},
 	"publishConfig": {
 		"access": "public"
