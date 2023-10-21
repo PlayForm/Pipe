@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.0.22",
+	"version": "2.1.0",
 	"private": false,
 	"description": "🧪 Files processing with JavaScript.",
 	"keywords": [
