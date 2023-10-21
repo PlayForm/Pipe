@@ -3,8 +3,10 @@
  *
  */
 export default (async (
-	Plan,
-	{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote }
+	...[
+		Plan,
+		{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote },
+	]: Parameters<Type>
 ) => {
 	let _Plan = Plan;
 
