@@ -1,8 +1,7 @@
 # [FilesPipe] 🧪
 
-`FilePipe` is a versatile tool designed to simplify file operations in your
-project. It allows you to process files in a pipeline fashion, making it easy to
-perform various actions on your files with minimal effort.
+`FilesPipe` allows you to process files in a pipeline, making it easy to
+perform various actions on them.
 
 ### Installation
 
