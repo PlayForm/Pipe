@@ -4,6 +4,8 @@
  */
 export default (async (...[Files, Paths, Results]: Parameters<Type>) => {
 	for (const [Input, Output] of Paths) {
+		console.log(Input);
+
 		for (const Result of await FastGlob(Files, {
 			cwd: Input ?? cwd(),
 			onlyFiles: true,
