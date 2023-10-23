@@ -3,51 +3,39 @@
  *
  */
 export default class implements Type {
-	In = async (...[Path]: Parameters<Type["In"]>) => (
-		(
-			await (
-				await import("../Function/In.js")
-			).default(Path, this.Plan.Paths)
-		).forEach(
-			([Input, Output]) =>
-				Input && Output && this.Plan.Paths.set(Input, Output)
-			// biome-ignore lint/style/noCommaOperator:
-		),
-		this
-	);
+	In = async (...[Path]: Parameters<Type["In"]>) => {
+		for (const [Input, Output] of await (
+			await import("../Function/In.js")
+		).default(Path, this.Plan.Paths)) {
+			this.Plan.Paths.set(Input, Output);
+		}
 
-	By = async (...[Files]: Parameters<Type["By"]>) =>
-		(
-			// biome-ignore lint/suspicious/noAssignInExpressions:
-			(this.Plan.Results = await (
-				await import("../Function/By.js")
-			)
-				// biome-ignore lint/style/noCommaOperator:
-				.default(Files, this.Plan.Paths, this.Plan.Results)),
-			this
-		);
+		return this;
+	};
 
-	Not = async (...[Exclude]: Parameters<Type["Not"]>) =>
-		(
-			// biome-ignore lint/suspicious/noAssignInExpressions:
-			(this.Plan.Results = await (
-				await import("../Function/Not.js")
-			)
-				// biome-ignore lint/style/noCommaOperator:
-				.default(Exclude, this.Plan.Results)),
-			this
-		);
+	By = async (...[Files]: Parameters<Type["By"]>) => {
+		this.Plan.Results = await (
+			await import("../Function/By.js")
+		).default(Files, this.Plan.Paths, this.Plan.Results);
 
-	Pipe = async (...[_Action]: Parameters<Type["Pipe"]>) =>
-		(
-			// biome-ignore lint/suspicious/noAssignInExpressions:
-			(this.Plan = await (
-				await import("../Function/Pipe.js")
-			)
-				// biome-ignore lint/style/noCommaOperator:
-				.default(this.Plan, Merge(Action, _Action ?? {}))),
-			this
-		);
+		return this;
+	};
+
+	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
+		this.Plan.Results = await (
+			await import("../Function/Not.js")
+		).default(Exclude, this.Plan.Results);
+
+		return this;
+	};
+
+	Pipe = async (...[_Action]: Parameters<Type["Pipe"]>) => {
+		this.Plan = await (
+			await import("../Function/Pipe.js")
+		).default(this.Plan, Merge(Action, _Action ?? {}));
+
+		return this;
+	};
 
 	Plan = {
 		Cache,
