@@ -4,9 +4,7 @@
  */
 export default (async (...[Files, Paths, Results]: Parameters<Type>) => {
 	for (const [Input, Output] of Paths) {
-		for (const Result of await (
-			await import("fast-glob")
-		).glob(Files, {
+		for (const Result of await FastGlob(Files, {
 			cwd: Input ?? cwd(),
 			onlyFiles: true,
 		})) {
@@ -20,3 +18,5 @@ export default (async (...[Files, Paths, Results]: Parameters<Type>) => {
 import type Type from "../Interface/By.js";
 
 export const { cwd } = await import("process");
+
+export const { default: FastGlob } = await import("fast-glob");
