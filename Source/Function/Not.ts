@@ -28,7 +28,12 @@ export default (async (...[Pattern, Results]: Parameters<Type>) => {
 				}
 
 				case typeof Filter === "function": {
-					if (Filter(Result[0]) || Filter(Result[1])) {
+					if (
+						// biome-ignore lint/complexity/noBannedTypes:
+						(Filter as Function)(Result[0]) ||
+						// biome-ignore lint/complexity/noBannedTypes:
+						(Filter as Function)(Result[1])
+					) {
 						Results.delete(Result[0]);
 					}
 				}
