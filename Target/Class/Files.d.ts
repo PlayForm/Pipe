@@ -5,7 +5,7 @@
 export default class implements Type {
     In: (Path: import("../Type/Path.js").Type) => Promise<this>;
     By: (File: string | string[]) => Promise<this>;
-    Not: (File: boolean | import("../Type/Exclude.js").Type | import("../Type/Exclude.js").Type[] | Set<import("../Type/Exclude.js").Type> | undefined) => Promise<this>;
+    Not: (File: boolean | import("../Type/Exclude.js").Type | Set<import("../Type/Exclude.js").Type> | import("../Type/Exclude.js").Type[] | undefined) => Promise<this>;
     Pipe: (Action?: import("../Interface/Action.js").default | undefined) => Promise<this>;
     Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
