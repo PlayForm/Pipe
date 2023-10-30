@@ -1,5 +1,5 @@
 /**
- * @module Files
+ * @module Dir
  *
  * Represents a directory specification.
  *

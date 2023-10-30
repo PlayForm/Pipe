@@ -1,5 +1,5 @@
 /**
- * @module Files
+ * @module Pipe
  *
  * Represents the execution configuration for specific actions on files.
  *

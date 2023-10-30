@@ -1,5 +1,5 @@
 /**
- * @module Files
+ * @module Option
  *
  * Represents options for configuring the behavior of the program.
  *

@@ -1,5 +1,5 @@
 /**
- * @module Files
+ * @module File
  *
  * Represents a file specification.
  *

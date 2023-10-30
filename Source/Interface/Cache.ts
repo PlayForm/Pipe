@@ -1,5 +1,5 @@
 /**
- * @module Files
+ * @module Plan
  *
  * Represents the cache path configuration.
  *
