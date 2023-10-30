@@ -1,6 +1,6 @@
 /// <reference types="node" />
 /**
- * @module Cache
+ * @module Files
  *
  * Represents the cache path configuration.
  *

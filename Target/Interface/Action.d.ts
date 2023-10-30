@@ -1,5 +1,5 @@
 /**
- * @module Action
+ * @module Files
  *
  * Represents the execution configuration for specific actions on files.
  *

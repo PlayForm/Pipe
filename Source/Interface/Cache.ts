@@ -1,5 +1,5 @@
 /**
- * @module Cache
+ * @module Files
  *
  * Represents the cache path configuration.
  *
