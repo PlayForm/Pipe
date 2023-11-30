@@ -10,12 +10,8 @@ export default {
 	Path: "./Target",
 	Logger: 2,
 	Action: {
-		Read: async ({ Input }) => {
-			// Start timer here
-			// ignore if timer started
-							
-			return await (await import("fs/promises")).readFile(Input, "utf-8")
-		},
+		Read: async ({ Input }) =>
+			await (await import("fs/promises")).readFile(Input, "utf-8"),
 		Wrote: async ({ Buffer }) => Buffer,
 		// biome-ignore lint/complexity/useSimplifiedLogicExpression:
 		Passed: async (On) => On && true,
