@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.1.3",
+	"version": "2.1.4",
 	"private": false,
 	"description": "🧪 Files processing with JavaScript.",
 	"keywords": [
@@ -35,7 +35,7 @@
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.3.2"
+		"typescript-esbuild": "0.3.3"
 	},
 	"publishConfig": {
 		"access": "public"

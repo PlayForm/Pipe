@@ -22,7 +22,7 @@ export default {
 			Files > 0
 				? `Successfully processed a total of ${Files} ${
 						Files === 1 ? "file" : "files"
-				  }.`
+					}.`
 				: false,
 		Changed: async (Plan) => Plan,
 	},
