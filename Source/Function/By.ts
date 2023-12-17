@@ -2,11 +2,9 @@
  * @module By
  *
  */
-export default (async (...[Files, Paths, Results]: Parameters<Type>) => {
+export default ((async (...[Files, Paths, Results]: Parameters<Type>) => {
 	for (const [Input, Output] of Paths) {
-		for (const Result of await (
-			await import("fast-glob")
-		).default(Files, {
+		for (const Result of await (await import("fast-glob")).default(Files, {
 			cwd: Input ?? (await import("process")).cwd(),
 			onlyFiles: true,
 		})) {
@@ -15,6 +13,6 @@ export default (async (...[Files, Paths, Results]: Parameters<Type>) => {
 	}
 
 	return Results;
-}) satisfies Type as Type;
+}) satisfies Type as Type);
 
 import type Type from "../Interface/By.js";

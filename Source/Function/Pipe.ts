@@ -2,7 +2,7 @@
  * @module Pipe
  *
  */
-export default (async (
+export default ((async (
 	...[
 		Plan,
 		{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote },
@@ -27,23 +27,24 @@ export default (async (
 
 				if (Passed && (await Passed(_Plan.On))) {
 					try {
-						await (
-							await import("fs/promises")
-						).access(
+						await (await import("fs/promises")).access(
 							dirname(_Plan.On.Output),
-							(await import("fs/promises")).constants.W_OK
+							(await import("fs/promises")).constants.W_OK,
 						);
 					} catch (_Error) {
-						await (
-							await import("fs/promises")
-						).mkdir(dirname(_Plan.On.Output), {
-							recursive: true,
-						});
+						await (await import("fs/promises")).mkdir(
+							dirname(_Plan.On.Output),
+							{
+								recursive: true,
+							},
+						);
 					}
 
-					await (
-						await import("fs/promises")
-					).writeFile(_Plan.On.Output, _Plan.On.Buffer, "utf-8");
+					await (await import("fs/promises")).writeFile(
+						_Plan.On.Output,
+						_Plan.On.Buffer,
+						"utf-8",
+					);
 
 					_Plan.On.After = (await stat(_Plan.On.Output)).size;
 
@@ -86,7 +87,7 @@ export default (async (
 	}
 
 	return _Plan;
-}) satisfies Type as Type;
+}) satisfies Type as Type);
 
 import type Type from "../Interface/Pipe.js";
 
