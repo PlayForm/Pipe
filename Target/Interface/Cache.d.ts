@@ -6,6 +6,6 @@
  *
  */
 export default interface Type {
-	Search: string | URL;
-	Folder: string | URL;
+    Search: string | URL;
+    Folder: string | URL;
 }
