@@ -72,6 +72,4 @@ export const {
 	default: { Cache, Logger, Action },
 } = await import("../Variable/Option.js");
 
-export const { default: Merge } = await import(
-	"typescript-esbuild/Target/Function/Merge.js"
-);
+export const { default: Merge } = await import("../Function/Merge.js");
