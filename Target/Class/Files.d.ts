@@ -25,4 +25,4 @@ export declare const Cache: {
     Fulfilled: ({ Files }: Plan) => Promise<string | false>;
     Changed: (Plan: Plan) => Promise<Plan>;
 };
-export declare const Merge: import("typescript-esbuild/Target/Interface/Merge.js").default<import("typescript-esbuild/Target/Interface/Merge.js").Generic>;
+export declare const Merge: import("../Interface/Merge.js").default<import("../Interface/Merge.js").Generic>;
