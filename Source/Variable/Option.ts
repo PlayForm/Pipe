@@ -2,7 +2,7 @@
  * @module Option
  *
  */
-export default {
+export default ({
 	Cache: {
 		Search: "./",
 		Folder: "./Cache",
@@ -22,12 +22,12 @@ export default {
 			Files > 0
 				? `Successfully processed a total of ${Files} ${
 						Files === 1 ? "file" : "files"
-					}.`
+				  }.`
 				: false,
 		Changed: async (Plan) => Plan,
 	},
 	Files: "**/*",
 	Exclude: false,
-} satisfies Type;
+} satisfies Type);
 
 import type Type from "../Interface/Option.js";

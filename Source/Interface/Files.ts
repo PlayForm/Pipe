@@ -48,9 +48,9 @@ export default interface Type {
 	Plan: Plan;
 }
 
+import type Path from "../Type/Path.js";
 import type Action from "./Action.js";
 import type Option from "./Option.js";
-import type Path from "../Type/Path.js";
 import type Plan from "./Plan.js";
 
 import type { Pattern } from "fast-glob";

@@ -14,25 +14,29 @@ export default class implements Type {
 	};
 
 	By = async (...[Files]: Parameters<Type["By"]>) => {
-		this.Plan.Results = await (
-			await import("../Function/By.js")
-		).default(Files, this.Plan.Paths, this.Plan.Results);
+		this.Plan.Results = await (await import("../Function/By.js")).default(
+			Files,
+			this.Plan.Paths,
+			this.Plan.Results,
+		);
 
 		return this;
 	};
 
 	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
-		this.Plan.Results = await (
-			await import("../Function/Not.js")
-		).default(Exclude, this.Plan.Results);
+		this.Plan.Results = await (await import("../Function/Not.js")).default(
+			Exclude,
+			this.Plan.Results,
+		);
 
 		return this;
 	};
 
 	Pipe = async (...[_Action]: Parameters<Type["Pipe"]>) => {
-		this.Plan = await (
-			await import("../Function/Pipe.js")
-		).default(this.Plan, Merge(Action, _Action ?? {}));
+		this.Plan = await (await import("../Function/Pipe.js")).default(
+			this.Plan,
+			Merge(Action, _Action ?? {}),
+		);
 
 		return this;
 	};

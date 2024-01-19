@@ -45,7 +45,7 @@ export default interface Type {
 	On: File;
 }
 
+import type Logger from "../Type/Logger.js";
 import type Cache from "./Cache.js";
 import type Dir from "./Dir.js";
 import type File from "./File.js";
-import type Logger from "../Type/Logger.js";
