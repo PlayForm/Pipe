@@ -2,7 +2,7 @@
  * @module Option
  *
  */
-export default ({
+export default {
 	Cache: {
 		Search: "./",
 		Folder: "./Cache",
@@ -11,7 +11,7 @@ export default ({
 	Logger: 2,
 	Action: {
 		Read: async ({ Input }) =>
-			await (await import("fs/promises")).readFile(Input, "utf-8"),
+			await (await import("node:fs/promises")).readFile(Input, "utf-8"),
 		Wrote: async ({ Buffer }) => Buffer,
 		// biome-ignore lint/complexity/useSimplifiedLogicExpression:
 		Passed: async (On) => On && true,
@@ -28,6 +28,6 @@ export default ({
 	},
 	Files: "**/*",
 	Exclude: false,
-} satisfies Type);
+} satisfies Type;
 
 import type Type from "../Interface/Option.js";

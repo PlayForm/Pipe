@@ -13,4 +13,4 @@ export type Type =
 
 export type { Type as default };
 
-import type { Stream } from "stream";
+import type { Stream } from "node:stream";

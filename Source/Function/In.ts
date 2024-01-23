@@ -2,13 +2,13 @@
  * @module In
  *
  */
-export default ((async (...[Path, Paths]: Parameters<Type>) => {
+export default (async (...[Path, Paths]: Parameters<Type>) => {
 	_Path = await Apply(
 		async (Path) => (Path.endsWith("/") ? Path : `${Path}/`),
 		await Apply(
 			async (_URL) =>
 				_URL instanceof URL
-					? (await import("url")).fileURLToPath(_URL)
+					? (await import("node:url")).fileURLToPath(_URL)
 					: _URL,
 			Path,
 		),
@@ -23,7 +23,7 @@ export default ((async (...[Path, Paths]: Parameters<Type>) => {
 	}
 
 	return Paths;
-}) satisfies Type as Type);
+}) satisfies Type as Type;
 
 import type Type from "../Interface/In.js";
 import type Path from "../Type/Path.js";
