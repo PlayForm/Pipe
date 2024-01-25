@@ -8,7 +8,7 @@ export default (async (...[Path, Paths]: Parameters<Type>) => {
 		await Apply(
 			async (_URL) =>
 				_URL instanceof URL
-					? (await import("node:url")).fileURLToPath(_URL)
+					? (await import("url")).fileURLToPath(_URL)
 					: _URL,
 			Path,
 		),

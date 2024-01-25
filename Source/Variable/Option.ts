@@ -11,7 +11,7 @@ export default {
 	Logger: 2,
 	Action: {
 		Read: async ({ Input }) =>
-			await (await import("node:fs/promises")).readFile(Input, "utf-8"),
+			await (await import("fs/promises")).readFile(Input, "utf-8"),
 		Wrote: async ({ Buffer }) => Buffer,
 		// biome-ignore lint/complexity/useSimplifiedLogicExpression:
 		Passed: async (On) => On && true,

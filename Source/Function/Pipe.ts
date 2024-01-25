@@ -27,12 +27,12 @@ export default (async (
 
 				if (Passed && (await Passed(_Plan.On))) {
 					try {
-						await (await import("node:fs/promises")).access(
+						await (await import("fs/promises")).access(
 							dirname(_Plan.On.Output),
-							(await import("node:fs/promises")).constants.W_OK,
+							(await import("fs/promises")).constants.W_OK,
 						);
 					} catch (_Error) {
-						await (await import("node:fs/promises")).mkdir(
+						await (await import("fs/promises")).mkdir(
 							dirname(_Plan.On.Output),
 							{
 								recursive: true,
@@ -40,7 +40,7 @@ export default (async (
 						);
 					}
 
-					await (await import("node:fs/promises")).writeFile(
+					await (await import("fs/promises")).writeFile(
 						_Plan.On.Output,
 						_Plan.On.Buffer,
 						"utf-8",
@@ -91,6 +91,6 @@ export default (async (
 
 import type Type from "../Interface/Pipe.js";
 
-export const { dirname } = await import("node:path");
+export const { dirname } = await import("path");
 
-export const { stat } = await import("node:fs/promises");
+export const { stat } = await import("fs/promises");
