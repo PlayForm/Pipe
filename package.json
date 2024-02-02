@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.1.6",
+	"version": "2.1.7",
 	"private": false,
 	"description": "🧪 Files processing with JavaScript.",
 	"keywords": [
@@ -30,12 +30,12 @@
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "20.11.15",
+		"@types/node": "20.11.16",
 		"deepmerge-ts": "5.1.0",
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.3.6"
+		"typescript-esbuild": "0.3.7"
 	},
 	"publishConfig": {
 		"access": "public"
