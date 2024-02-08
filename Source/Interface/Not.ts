@@ -19,7 +19,7 @@ export default interface Type {
 	(
 		Pattern: Option["Exclude"],
 		Results: Plan["Results"],
-	): Promise<Plan["Results"]>;
+	): Plan["Results"];
 }
 
 import type Option from "./Option.js";
