@@ -2,7 +2,7 @@
  * @module Not
  *
  */
-export default (async (...[Pattern, Results]: Parameters<Type>) => {
+export default ((...[Pattern, Results]: Parameters<Type>) => {
 	if (typeof Pattern !== "undefined") {
 		if (Array.isArray(Pattern) || Pattern instanceof Set) {
 			for (const Patterns of Pattern) {

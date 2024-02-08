@@ -24,7 +24,7 @@ export default class implements Type {
 	};
 
 	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
-		this.Plan.Results = await (await import("../Function/Not.js")).default(
+		this.Plan.Results = (await import("../Function/Not.js")).default(
 			Exclude,
 			this.Plan.Results,
 		);
