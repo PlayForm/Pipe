@@ -16,7 +16,7 @@ export default interface Type {
      * name, and the second element represents the file content.
      *
      */
-    (Pattern: Option["Exclude"], Results: Plan["Results"]): Promise<Plan["Results"]>;
+    (Pattern: Option["Exclude"], Results: Plan["Results"]): Plan["Results"];
 }
 import type Option from "./Option.js";
 import type Plan from "./Plan.js";
