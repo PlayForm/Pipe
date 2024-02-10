@@ -1,8 +1,8 @@
 {
 	"name": "files-pipe",
-	"version": "2.1.7",
+	"version": "2.1.8",
 	"private": false,
-	"description": "🧪 Files processing with JavaScript.",
+	"description": "Files processing with JavaScript. 🧪",
 	"keywords": [
 		"pipeline",
 		"files",
@@ -35,7 +35,7 @@
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.3.8"
+		"typescript-esbuild": "0.3.9"
 	},
 	"publishConfig": {
 		"access": "public"
