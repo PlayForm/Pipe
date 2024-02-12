@@ -18,9 +18,7 @@ Create a new pipe instance using the following code in your Index.ts file:
 **`Index.ts`**
 
 ```ts
-import Files from "files-pipe";
-
-await new Files().In("./Input");
+await new (await import("files-pipe")).default().In("./Input");
 ```
 
 ### Getting started
@@ -31,10 +29,10 @@ the pipe. Here's an example of how to use it in your Index.ts:
 **`Index.ts`**
 
 ```ts
-import Files from "files-pipe";
-
-await (
-	await (await new Files().In("./Input")).By("**/*.md")
+await(
+	await(await new (await import("files-pipe")).default().In("./Input")).By(
+		"**/*.md"
+	)
 ).Pipe({
 	// Append some content to all of the text files
 	Wrote: (On) => (On.Buffer += "LICENSE [MIT]"),
@@ -47,9 +45,7 @@ await (
 be customized to suit your specific needs. Here are the default callbacks:
 
 ```ts
-import Files from "files-pipe";
-
-await new Files().Pipe({
+await new (await import("files-pipe")).default().Pipe({
 	// Reads the file into a buffer
 	Read: async (On) => await fs.promises.readFile(On.Input, "utf-8"),
 
@@ -84,9 +80,7 @@ variable:
 **`Index.ts`**
 
 ```ts
-import Files from "files-pipe";
-
-await new Files().In(["./Input", "./Input2"]);
+await new (await import("files-pipe")).default().In(["./Input", "./Input2"]);
 ```
 
 ### Input-Output Mapping
@@ -97,9 +91,9 @@ directories, making it easy to control where files are read from and written to:
 **`Index.ts`**
 
 ```ts
-import Files from "files-pipe";
-
-await new Files().In(new Map([["./Input", "./Output"]]));
+await new (await import("files-pipe")).default().In(
+	new Map([["./Input", "./Output"]])
+);
 ```
 
 ### File Filtering
@@ -111,9 +105,7 @@ to match on file names:
 **`Index.ts`**
 
 ```ts
-import Files from "files-pipe";
-
-await new Files().Not([
+await new (await import("files-pipe")).default().Not([
 	"File.txt",
 	(File: string) => File === "./Input/File.txt",
 ]);
@@ -127,9 +119,7 @@ value is `2`, but you can set it to `0` if you don't want to see debug messages:
 **`Index.ts`**
 
 ```ts
-import Files from "files-pipe";
-
-new Files(0);
+new (await import("files-pipe")).default(0);
 ```
 
 [FilesPipe]: https://npmjs.org/files-pipe
