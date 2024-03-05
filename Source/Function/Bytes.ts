@@ -2,7 +2,7 @@
  * @module Bytes
  *
  */
-export default (async (...[Bytes, Decimals = 2.0]: Parameters<Type>) => {
+export default ((...[Bytes, Decimals = 2.0]: Parameters<Type>) => {
 	if (Bytes === 0) {
 		return "0 Bytes";
 	}
