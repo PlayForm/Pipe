@@ -14,5 +14,5 @@ export default interface Type {
      * of decimal places to round the result to. If not provided, it defaults to 2.
      *
      */
-    (Bytes: number, Decimals?: number): Promise<string>;
+    (Bytes: number, Decimals?: number): string;
 }
