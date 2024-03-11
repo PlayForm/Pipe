@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.1.12",
+	"version": "2.1.13",
 	"private": false,
 	"description": "🧪 Files processing with JavaScript.",
 	"keywords": [
@@ -9,13 +9,13 @@
 		"processing",
 		"javascript"
 	],
-	"homepage": "https://github.com/NikolaRHristov/FilesPipe#readme",
+	"homepage": "https://github.com/Playform/FilesPipe#readme",
 	"bugs": {
-		"url": "https://github.com/NikolaRHristov/FilesPipe/issues"
+		"url": "https://github.com/Playform/FilesPipe/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/NikolaRHristov/FilesPipe.git"
+		"url": "git+https://github.com/Playform/FilesPipe.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
