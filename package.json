@@ -9,13 +9,13 @@
 		"processing",
 		"javascript"
 	],
-	"homepage": "https://github.com/Playform/FilesPipe#readme",
+	"homepage": "https://github.com/Playform/FilePipe#readme",
 	"bugs": {
-		"url": "https://github.com/Playform/FilesPipe/issues"
+		"url": "https://github.com/Playform/FilePipe/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Playform/FilesPipe.git"
+		"url": "git+https://github.com/Playform/FilePipe.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
