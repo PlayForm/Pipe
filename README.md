@@ -1,13 +1,13 @@
-# 🧪 [FilesPipe]
+# 🧪 [FilePipe]
 
-`FilesPipe` allows you to process files in a pipeline, making it easy to perform
+`FilePipe` allows you to process files in a pipeline, making it easy to perform
 various actions on them.
 
 ### Installation
 
-To get started with `FilesPipe`, follow these steps:
+To get started with `FilePipe`, follow these steps:
 
-Install the `FilesPipe` package using npm:
+Install the `FilePipe` package using npm:
 
 ```sh
 npm install -D -E files-pipe
@@ -23,7 +23,7 @@ await new (await import("files-pipe")).default().In("./Input");
 
 ### Getting started
 
-With `FilesPipe`, you can use the Pipe method to perform actions on files within
+With `FilePipe`, you can use the Pipe method to perform actions on files within
 the pipe. Here's an example of how to use it in your Index.ts:
 
 **`Index.ts`**
@@ -41,7 +41,7 @@ await(
 
 ### Default Callbacks
 
-`FilesPipe` provides default callbacks for file processing. These callbacks can
+`FilePipe` provides default callbacks for file processing. These callbacks can
 be customized to suit your specific needs. Here are the default callbacks:
 
 ```ts
@@ -85,7 +85,7 @@ await new (await import("files-pipe")).default().In(["./Input", "./Input2"]);
 
 ### Input-Output Mapping
 
-`FilesPipe` allows you to provide a map of paths for different input and output
+`FilePipe` allows you to provide a map of paths for different input and output
 directories, making it easy to control where files are read from and written to:
 
 **`Index.ts`**
@@ -98,7 +98,7 @@ await new (await import("files-pipe")).default().In(
 
 ### File Filtering
 
-You can filter files to exclude specific ones from your `FilesPipe`. Filters can
+You can filter files to exclude specific ones from your `FilePipe`. Filters can
 be an array of regular expressions or a single match. You can also use functions
 to match on file names:
 
@@ -122,7 +122,7 @@ value is `2`, but you can set it to `0` if you don't want to see debug messages:
 new (await import("files-pipe")).default(0);
 ```
 
-[FilesPipe]: https://npmjs.org/files-pipe
+[FilePipe]: https://npmjs.org/files-pipe
 
 ## Changelog
 
