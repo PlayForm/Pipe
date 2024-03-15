@@ -3,12 +3,7 @@
 	"version": "2.1.13",
 	"private": false,
 	"description": "🧪 Files processing with JavaScript.",
-	"keywords": [
-		"pipeline",
-		"files",
-		"processing",
-		"javascript"
-	],
+	"keywords": ["pipeline", "files", "processing", "javascript"],
 	"homepage": "https://github.com/Playform/FilePipe#readme",
 	"bugs": {
 		"url": "https://github.com/Playform/FilePipe/issues"
@@ -20,7 +15,7 @@
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
 		"name": "Nikola R. Hristov",
-		"email": "nikola@nikolahristov.tech",
+		"email": "Nikola@Playform.Cloud",
 		"url": "https://nikolahristov.tech"
 	},
 	"type": "module",
