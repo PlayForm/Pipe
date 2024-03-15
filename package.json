@@ -1,9 +1,14 @@
 {
 	"name": "files-pipe",
-	"version": "2.1.13",
+	"version": "2.1.14",
 	"private": false,
 	"description": "🧪 Files processing with JavaScript.",
-	"keywords": ["pipeline", "files", "processing", "javascript"],
+	"keywords": [
+		"pipeline",
+		"files",
+		"processing",
+		"javascript"
+	],
 	"homepage": "https://github.com/Playform/FilePipe#readme",
 	"bugs": {
 		"url": "https://github.com/Playform/FilePipe/issues"
@@ -25,12 +30,12 @@
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "20.11.27",
+		"@types/node": "20.11.28",
 		"deepmerge-ts": "5.1.0",
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.4.0"
+		"typescript-esbuild": "0.4.1"
 	},
 	"publishConfig": {
 		"access": "public"
