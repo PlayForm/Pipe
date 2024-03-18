@@ -72,7 +72,7 @@ await new (await import("files-pipe")).default().Pipe({
 });
 ```
 
-### Adding Multiple Paths
+### Add Multiple Paths
 
 You can add multiple paths to your pipe by specifying an array as the `Path`
 variable:
