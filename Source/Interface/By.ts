@@ -8,7 +8,7 @@ export default interface Type {
 	 * of input and output paths, and a map of results, and returns the updated map
 	 * of results after matching the file patterns with the input paths.
 	 *
-	 * @param Files - Files is either a single file pattern or an array of file
+	 * @param File - File is either a single file pattern or an array of file
 	 * patterns. These patterns are used to match files in the input directory
 	 * (`Input`) that will be processed.
 	 *
@@ -22,7 +22,7 @@ export default interface Type {
 	 *
 	 */
 	(
-		Files: Pattern | Pattern[],
+		File: Pattern | Pattern[],
 		Paths: Plan["Paths"],
 		Results: Plan["Results"],
 	): Promise<typeof Results>;

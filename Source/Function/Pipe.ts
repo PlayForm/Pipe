@@ -49,7 +49,7 @@ export default (async (
 					_Plan.On.After = (await stat(_Plan.On.Output)).size;
 
 					if (_Plan.Logger > 0) {
-						_Plan.Files++;
+						_Plan.File++;
 
 						if (Changed) {
 							_Plan = await Changed(_Plan);

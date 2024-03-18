@@ -2,9 +2,9 @@
  * @module By
  *
  */
-export default (async (...[Files, Paths, Results]: Parameters<Type>) => {
+export default (async (...[File, Paths, Results]: Parameters<Type>) => {
 	for (const [Input, Output] of Paths) {
-		for (const Result of await (await import("fast-glob")).default(Files, {
+		for (const Result of await (await import("fast-glob")).default(File, {
 			cwd: Input ?? (await import("process")).cwd(),
 			onlyFiles: true,
 		})) {

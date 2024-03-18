@@ -28,7 +28,7 @@ export default interface Type {
 	/**
 	 * File patterns to be matched.
 	 */
-	Files?: boolean | (Pattern | Pattern[]);
+	File?: boolean | (Pattern | Pattern[]);
 
 	/**
 	 * Action pipe configuration.

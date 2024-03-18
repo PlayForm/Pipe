@@ -5,7 +5,7 @@
 export default interface Type {
 	/**
 	 *
-	 * The function `Not` filters out files from the `Files` array based on the provided `Pattern`
+	 * The function `Not` filters out files from the `File` array based on the provided `Pattern`
 	 * parameter.
 	 *
 	 * @param Pattern - The `Pattern` parameter is of type `Option["Exclude"]`. It represents the patterns
