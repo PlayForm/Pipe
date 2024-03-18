@@ -46,28 +46,28 @@ be customized to suit your specific needs. Here are the default callbacks:
 
 ```ts
 await new (await import("files-pipe")).default().Pipe({
-	// Reads the file into a buffer
-	Read: async (On) => await fs.promises.readFile(On.Input, "utf-8"),
+	// Read the file into a buffer
+	Read: async ({ Input }) => await fs.promises.readFile(Input, "utf-8"),
 
-	// Writes the buffer into a file
-	Wrote: async (On) => On.Buffer,
+	// Write the buffer into a file
+	Wrote: async ({ Buffer }) => Buffer,
 
-	// Checks if the file has passed any checks
+	// Check if the file has passed any checks
 	Passed: async (On) => On && true,
 
-	// When the file cannot be processed
+	// Call when the file cannot be processed
 	Failed: async (Input) => `Error: Cannot process file ${Input}!`,
 
-	// When the file is processed
+	// Call when the file is processed
 	Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,
 
-	// When the whole plan is fulfilled
+	// Call when the whole plan is fulfilled
 	Fulfilled: async (Plan) =>
-		`Successfully processed a total of ${Plan.Files} ${
-			Plan.Files === 1 ? "file" : "files"
+		`Successfully processed a total of ${Plan.File} ${
+			Plan.File === 1 ? "file" : "files"
 		}.`,
 
-	// When the plan has changed
+	// Call when the plan has changed
 	Changed: async (Plan) => Plan,
 });
 ```

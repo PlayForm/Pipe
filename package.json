@@ -19,8 +19,8 @@
 		"url": "https://playform.cloud"
 	},
 	"type": "module",
-	"main": "./Target/Class/Files.js",
-	"types": "./Target/Class/Files.d.ts",
+	"main": "./Target/Class/File.js",
+	"types": "./Target/Class/File.d.ts",
 	"scripts": {
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},

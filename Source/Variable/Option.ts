@@ -18,15 +18,15 @@ export default {
 		Failed: async ({ Input }) => `Error: Cannot process file ${Input}!`,
 		Accomplished: async ({ Input, Output }) =>
 			`Processed ${Input} in ${Output}.`,
-		Fulfilled: async ({ Files }) =>
-			Files > 0
-				? `Successfully processed a total of ${Files} ${
-						Files === 1 ? "file" : "files"
+		Fulfilled: async ({ File }) =>
+			File > 0
+				? `Successfully processed a total of ${File} ${
+						File === 1 ? "file" : "files"
 				  }.`
 				: false,
 		Changed: async (Plan) => Plan,
 	},
-	Files: "**/*",
+	File: "**/*",
 	Exclude: false,
 } satisfies Type;
 
