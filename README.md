@@ -56,15 +56,15 @@ await new (await import("files-pipe")).default().Pipe({
 	Passed: async (On) => On && true,
 
 	// Call when the file cannot be processed
-	Failed: async (Input) => `Error: Cannot process file ${Input}!`,
+	Failed: async ({ Input }) => `Error: Cannot process file ${Input}!`,
 
 	// Call when the file is processed
-	Accomplished: async (On) => `Processed ${On.Input} in ${On.Output}.`,
+	Accomplished: async ({ Input, Output }) => `Processed ${Input} in ${Output}.`,
 
 	// Call when the whole plan is fulfilled
-	Fulfilled: async (Plan) =>
-		`Successfully processed a total of ${Plan.File} ${
-			Plan.File === 1 ? "file" : "files"
+	Fulfilled: async ({ File }) =>
+		`Successfully processed a total of ${File} ${
+			File === 1 ? "file" : "files"
 		}.`,
 
 	// Call when the plan has changed
@@ -85,8 +85,7 @@ await new (await import("files-pipe")).default().In(["./Input", "./Input2"]);
 
 ### Input-Output Mapping
 
-`FilePipe` allows you to provide a map of paths for different input and output
-directories, making it easy to control where files are read from and written to:
+`FilePipe` will allow you to provide a map of paths for different input and output directories, making it easy to control where files are read from and written to:
 
 **`Index.ts`**
 
