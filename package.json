@@ -30,7 +30,7 @@
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.4.1"
+		"typescript-esbuild": "0.4.3"
 	},
 	"publishConfig": {
 		"access": "public"
