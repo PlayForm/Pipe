@@ -25,7 +25,7 @@
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "20.11.28",
+		"@types/node": "20.11.30",
 		"deepmerge-ts": "5.1.0",
 		"fast-glob": "3.3.2"
 	},
