@@ -16,7 +16,7 @@ export default interface Type {
     /**
      * The number of files in the execution plan.
      */
-    Files: number;
+    File: number;
     /**
      * Additional information associated with the execution plan.
      */

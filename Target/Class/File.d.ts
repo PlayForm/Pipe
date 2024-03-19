@@ -22,7 +22,7 @@ export declare const Cache: {
     Passed: (On: import("@Interface/File.js").default) => Promise<true>;
     Failed: ({ Input }: import("@Interface/File.js").default) => Promise<string>;
     Accomplished: ({ Input, Output }: import("@Interface/File.js").default) => Promise<string>;
-    Fulfilled: ({ Files }: Plan) => Promise<string | false>;
+    Fulfilled: ({ File }: Plan) => Promise<string | false>;
     Changed: (Plan: Plan) => Promise<Plan>;
 };
 export declare const Merge: import("@Interface/Merge.js").default<import("@Interface/Merge.js").Generic>;

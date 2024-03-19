@@ -15,10 +15,10 @@ declare const _default: {
         Passed: (On: import("@Interface/File.js").default) => Promise<true>;
         Failed: ({ Input }: import("@Interface/File.js").default) => Promise<string>;
         Accomplished: ({ Input, Output }: import("@Interface/File.js").default) => Promise<string>;
-        Fulfilled: ({ Files }: import("@Interface/Plan.js").default) => Promise<string | false>;
+        Fulfilled: ({ File }: import("@Interface/Plan.js").default) => Promise<string | false>;
         Changed: (Plan: import("@Interface/Plan.js").default) => Promise<import("@Interface/Plan.js").default>;
     };
-    Files: string;
+    File: string;
     Exclude: false;
 };
 export default _default;
