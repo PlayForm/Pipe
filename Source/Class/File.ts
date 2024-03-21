@@ -1,5 +1,5 @@
 /**
- * @module Files
+ * @module File
  *
  */
 export default class implements Type {
@@ -13,9 +13,9 @@ export default class implements Type {
 		return this;
 	};
 
-	By = async (...[Files]: Parameters<Type["By"]>) => {
+	By = async (...[File]: Parameters<Type["By"]>) => {
 		this.Plan.Results = await (await import("../Function/By.js")).default(
-			Files,
+			File,
 			this.Plan.Paths,
 			this.Plan.Results,
 		);
@@ -42,8 +42,10 @@ export default class implements Type {
 	};
 
 	Plan = {
+		// biome-ignore lint/correctness/noInvalidUseBeforeDeclaration:
 		Cache,
-		Files: 0,
+		File: 0,
+		// biome-ignore lint/correctness/noInvalidUseBeforeDeclaration:
 		Logger,
 		Info: {},
 		Paths: new Map(),
@@ -68,7 +70,7 @@ export default class implements Type {
 	}
 }
 
-import type Type from "../Interface/Files.js";
+import type Type from "../Interface/Class.js";
 import type Option from "../Interface/Option.js";
 import type Plan from "../Interface/Plan.js";
 

@@ -1,5 +1,5 @@
 /**
- * @module Files
+ * @module File
  *
  */
 export default class implements Type {
@@ -10,7 +10,7 @@ export default class implements Type {
     Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
-import type Type from "../Interface/Files.js";
+import type Type from "../Interface/Class.js";
 import type Option from "../Interface/Option.js";
 import type Plan from "../Interface/Plan.js";
 export declare const Cache: {
