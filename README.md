@@ -121,7 +121,7 @@ value is `2`, but you can set it to `0` if you don't want to see debug messages:
 new (await import("files-pipe")).default(0);
 ```
 
-[FilePipe]: https://npmjs.org/files-pipe
+[FilePipe]: HTTPS://NPMJS.Org/files-pipe
 
 ## Changelog
 
