@@ -10,12 +10,16 @@ export default (async (
 ) => {
 	let _Plan = Plan;
 
+	const Pipe = new Set<[string, Buffer]>();
+
 	for (const [_Output, _Input] of _Plan.Results) {
 		_Plan.On.Input = _Input;
 		_Plan.On.Output = _Output;
 
 		try {
-			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
+			_Plan.On.Before = (
+				await (await import("fs/promises")).stat(_Plan.On.Input)
+			).size;
 
 			if (Read && Wrote) {
 				_Plan.On.Buffer = await Read(_Plan.On);
@@ -40,13 +44,12 @@ export default (async (
 						);
 					}
 
-					await (await import("fs/promises")).writeFile(
-						_Plan.On.Output,
-						_Plan.On.Buffer,
-						"utf-8",
-					);
+					Pipe.add([_Plan.On.Output, _Plan.On.Buffer]);
 
-					_Plan.On.After = (await stat(_Plan.On.Output)).size;
+					_Plan.On.After = Buffer.from(
+						_Plan.On.Buffer.toString(),
+						"utf-8",
+					).byteLength;
 
 					if (_Plan.Logger > 0) {
 						_Plan.File++;
@@ -76,6 +79,17 @@ export default (async (
 		}
 	}
 
+	if (Pipe.size > 0) {
+		Pipe.forEach(
+			async ([Output, Buffer]) =>
+				await (await import("fs/promises")).writeFile(
+					Output,
+					Buffer,
+					"utf-8",
+				),
+		);
+	}
+
 	if (_Plan.Logger > 0 && _Plan.Results.size > 0) {
 		if (typeof Fulfilled === "function") {
 			const Message = await Fulfilled(_Plan);
@@ -90,7 +104,6 @@ export default (async (
 }) satisfies Type as Type;
 
 import type Type from "../Interface/Pipe.js";
+import type Buffer from "../Type/Buffer.js";
 
 export const { dirname } = await import("path");
-
-export const { stat } = await import("fs/promises");

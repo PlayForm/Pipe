@@ -34,8 +34,8 @@ export default interface Type {
 	Not: (File: Option["Exclude"]) => Promise<ThisType<Type>>;
 
 	/**
-	 * The function `Pipe` is a TypeScript async function that takes an optional {@link "Action"}
-	 * parameter and returns the result of calling {@link "Pipe"} with `this.Plan` and {@link "Action"}.
+	 * The function `Pipe` is a TypeScript async function that takes an optional Action
+	 * parameter and returns the result of calling Pipe with `this.Plan` and Action.
 	 *
 	 * @param Action - The Action parameter is an optional parameter that
 	 * specifies the execution strategy to be used in the Pipe function. It has a default value of

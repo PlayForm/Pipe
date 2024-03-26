@@ -49,25 +49,26 @@ await new (await import("files-pipe")).default().Pipe({
 	// Read the file into a buffer
 	Read: async ({ Input }) => await fs.promises.readFile(Input, "utf-8"),
 
-	// Write the buffer into a file
+	// Wrote the buffer into a file
 	Wrote: async ({ Buffer }) => Buffer,
 
-	// Check if the file has passed any checks
+	// Passed the file through a check
 	Passed: async (On) => On && true,
 
-	// Call when the file cannot be processed
+	// Failed processing the file
 	Failed: async ({ Input }) => `Error: Cannot process file ${Input}!`,
 
-	// Call when the file is processed
-	Accomplished: async ({ Input, Output }) => `Processed ${Input} in ${Output}.`,
+	// Accomplished processing the file
+	Accomplished: async ({ Input, Output }) =>
+		`Processed ${Input} in ${Output}.`,
 
-	// Call when the whole plan is fulfilled
+	// Fulfilled the whole plan
 	Fulfilled: async ({ File }) =>
 		`Successfully processed a total of ${File} ${
 			File === 1 ? "file" : "files"
 		}.`,
 
-	// Call when the plan has changed
+	// Changed the plan
 	Changed: async (Plan) => Plan,
 });
 ```
@@ -85,7 +86,9 @@ await new (await import("files-pipe")).default().In(["./Input", "./Input2"]);
 
 ### Input-Output Mapping
 
-`FilePipe` will allow you to provide a map of paths for different input and output directories, making it easy to control where files are read from and written to:
+`FilePipe` will allow you to provide a map of paths for different input and
+output directories, making it easy to control where files are read from and
+written to:
 
 **`Index.ts`**
 

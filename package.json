@@ -1,6 +1,6 @@
 {
 	"name": "files-pipe",
-	"version": "2.1.15",
+	"version": "2.1.16",
 	"private": false,
 	"description": "🧪 File Pipe.",
 	"keywords": [
@@ -36,8 +36,8 @@
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"typescript-document": "0.0.5",
-		"typescript-esbuild": "0.4.5"
+		"typescript-document": "0.0.6",
+		"typescript-esbuild": "0.4.6"
 	},
 	"publishConfig": {
 		"access": "public"
