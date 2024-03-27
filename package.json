@@ -2,7 +2,7 @@
 	"name": "files-pipe",
 	"version": "2.1.16",
 	"private": false,
-	"description": "🧪 File Pipe.",
+	"description": "🧪  File Pipe.",
 	"keywords": ["pipe", "file", "processing", "javascript"],
 	"homepage": "https://github.com/Playform/FilePipe#readme",
 	"bugs": {
