@@ -1,6 +1,6 @@
 {
-	"name": "files-pipe",
-	"version": "2.1.16",
+	"name": "@playform/file-pipe",
+	"version": "0.0.1",
 	"private": false,
 	"description": "🧪 File Pipe.",
 	"keywords": ["pipe", "file", "processing", "javascript"],
