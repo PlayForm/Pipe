@@ -33,7 +33,7 @@
 	"devDependencies": {
 		"typescript-esbuild": "0.4.10"
 	},
-	"peerDependencies": {
+	"optionalDependencies": {
 		"typescript-document": "0.0.8"
 	},
 	"publishConfig": {
