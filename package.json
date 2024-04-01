@@ -1,6 +1,6 @@
 {
 	"name": "@playform/file-pipe",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": false,
 	"description": "🧪 File Pipe.",
 	"keywords": ["pipe", "file", "processing", "javascript"],
@@ -31,10 +31,10 @@
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.4.10"
+		"@playform/build": "0.0.1"
 	},
 	"optionalDependencies": {
-		"typescript-document": "0.0.8"
+		"@playform/document": "0.0.2"
 	},
 	"publishConfig": {
 		"access": "public"
