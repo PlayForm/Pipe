@@ -8,68 +8,64 @@ export default (async (
 		{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote },
 	]: Parameters<Type>
 ) => {
-	let _Plan = Plan;
-
-	for (const [_Output, _Input] of _Plan.Results) {
-		_Plan.On.Input = _Input;
-		_Plan.On.Output = _Output;
+	for (const [_Output, _Input] of Plan.Results) {
+		Plan.On.Input = _Input;
+		Plan.On.Output = _Output;
 
 		try {
-			_Plan.On.Before = (await stat(_Plan.On.Input)).size;
+			Plan.On.Before = (await stat(Plan.On.Input)).size;
 
 			if (Read && Wrote) {
-				_Plan.On.Buffer = await Read(_Plan.On);
-				_Plan.On.Buffer = await Wrote(_Plan.On);
+				Plan.On.Buffer = await Read(Plan.On);
+				Plan.On.Buffer = await Wrote(Plan.On);
 
-				if (!_Plan.On.Buffer) {
+				if (!Plan.On.Buffer) {
 					continue;
 				}
 
-				if (Passed && (await Passed(_Plan.On))) {
+				if (Passed && (await Passed(Plan.On))) {
 					try {
 						await (
 							await import("fs/promises")
 						).access(
-							dirname(_Plan.On.Output),
+							dirname(Plan.On.Output),
 							(await import("fs/promises")).constants.W_OK
 						);
 					} catch (_Error) {
 						await (
 							await import("fs/promises")
-						).mkdir(dirname(_Plan.On.Output), {
+						).mkdir(dirname(Plan.On.Output), {
 							recursive: true,
 						});
 					}
 
-					await (await import("fs/promises")).writeFile(
-						_Plan.On.Output,
-						_Plan.On.Buffer,
-						"utf-8",
-					);
+					await (
+						await import("fs/promises")
+					).writeFile(Plan.On.Output, Plan.On.Buffer, "utf-8");
 
-					_Plan.On.After = (await stat(_Plan.On.Output)).size;
+					Plan.On.After = (await stat(Plan.On.Output)).size;
 
-					if (_Plan.Logger > 0) {
-						_Plan.File++;
+					if (Plan.Logger > 0) {
+						Plan.File++;
 
 						if (Changed) {
-							_Plan = await Changed(_Plan);
+							Plan = await Changed(Plan);
 						}
 					}
 
-					if (_Plan.Logger > 1) {
+					if (Plan.Logger > 1) {
 						if (typeof Accomplished === "function") {
-							console.log(await Accomplished(_Plan.On));
+							console.log(await Accomplished(Plan.On));
 						}
 					}
 				}
 			}
 		} catch (_Error) {
-			_Plan.Results.delete(_Plan.On.Output);
+			Plan.Results.delete(Plan.On.Output);
 
-			if (_Plan.Logger > 1) {
+			if (Plan.Logger > 1) {
 				if (typeof Failed === "function") {
-					console.log(await Failed(_Plan.On, _Error));
+					console.log(await Failed(Plan.On, _Error));
 				} else {
 					console.log(_Error);
 				}
@@ -77,9 +73,9 @@ export default (async (
 		}
 	}
 
-	if (_Plan.Logger > 0 && _Plan.Results.size > 0) {
+	if (Plan.Logger > 0 && Plan.Results.size > 0) {
 		if (typeof Fulfilled === "function") {
-			const Message = await Fulfilled(_Plan);
+			const Message = await Fulfilled(Plan);
 
 			if (Message && Message.length > 0) {
 				console.log(Message);
@@ -87,7 +83,7 @@ export default (async (
 		}
 	}
 
-	return _Plan;
+	return Plan;
 }) satisfies Type as Type;
 
 import type Type from "../Interface/Pipe.js";
