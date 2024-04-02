@@ -1,7 +1,7 @@
 # 🧪 [Pipe]
 
 `Pipe` allows you to process files in a pipeline, making it easy to perform
-various actions on them.
+various operations on them.
 
 ### Installation
 
@@ -23,7 +23,7 @@ await new (await import("@playform/file-pipe")).default().In("./Input");
 
 ### Getting started
 
-With `Pipe`, you can use the Pipe method to perform actions on files within
+With `Pipe`, you can use the Pipe method to perform operations on files within
 the pipe. Here's an example of how to use it in your Index.ts:
 
 **`Index.ts`**
