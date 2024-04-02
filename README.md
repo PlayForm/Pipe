@@ -10,7 +10,7 @@ To get started with `Pipe`, follow these steps:
 Install the `Pipe` package using npm:
 
 ```sh
-npm install -D -E @playform/file-pipe
+npm install -D -E @playform/pipe
 ```
 
 Create a new pipe instance using the following code in your Index.ts file:
@@ -18,7 +18,7 @@ Create a new pipe instance using the following code in your Index.ts file:
 **`Index.ts`**
 
 ```ts
-await new (await import("@playform/file-pipe")).default().In("./Input");
+await new (await import("@playform/pipe")).default().In("./Input");
 ```
 
 ### Getting started
@@ -30,7 +30,7 @@ the pipe. Here's an example of how to use it in your Index.ts:
 
 ```ts
 await(
-	await(await new (await import("@playform/file-pipe")).default().In("./Input")).By(
+	await(await new (await import("@playform/pipe")).default().In("./Input")).By(
 		"**/*.md"
 	)
 ).Pipe({
@@ -45,7 +45,7 @@ await(
 be customized to suit your specific needs. Here are the default callbacks:
 
 ```ts
-await new (await import("@playform/file-pipe")).default().Pipe({
+await new (await import("@playform/pipe")).default().Pipe({
 	// Read the file into a buffer
 	Read: async ({ Input }) => await fs.promises.readFile(Input, "utf-8"),
 
@@ -81,7 +81,7 @@ variable:
 **`Index.ts`**
 
 ```ts
-await new (await import("@playform/file-pipe")).default().In(["./Input", "./Input2"]);
+await new (await import("@playform/pipe")).default().In(["./Input", "./Input2"]);
 ```
 
 ### Input-Output Mapping
@@ -93,7 +93,7 @@ written to:
 **`Index.ts`**
 
 ```ts
-await new (await import("@playform/file-pipe")).default().In(
+await new (await import("@playform/pipe")).default().In(
 	new Map([["./Input", "./Output"]])
 );
 ```
@@ -107,7 +107,7 @@ to match on file names:
 **`Index.ts`**
 
 ```ts
-await new (await import("@playform/file-pipe")).default().Not([
+await new (await import("@playform/pipe")).default().Not([
 	"File.txt",
 	(File: string) => File === "./Input/File.txt",
 ]);
@@ -121,10 +121,10 @@ value is `2`, but you can set it to `0` if you don't want to see debug messages:
 **`Index.ts`**
 
 ```ts
-new (await import("@playform/file-pipe")).default(0);
+new (await import("@playform/pipe")).default(0);
 ```
 
-[Pipe]: https://npmjs.org/@playform/file-pipe
+[Pipe]: https://npmjs.org/@playform/pipe
 
 ## Changelog
 
