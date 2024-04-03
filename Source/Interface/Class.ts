@@ -2,7 +2,7 @@
  * @module File
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * The function `In` takes a path and updates the `Plan.Paths` property with the input and output
 	 * paths.

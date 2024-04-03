@@ -4,7 +4,7 @@
  * Represents the execution configuration for specific actions on files.
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * Attaches a callback for the fulfillment of the Action.
 	 *

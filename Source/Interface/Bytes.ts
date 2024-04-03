@@ -2,7 +2,7 @@
  * @module Bytes
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * The function converts a given number of bytes into a human-readable format with appropriate units
 	 * (e.g., KB, MB, GB).

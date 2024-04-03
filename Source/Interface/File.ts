@@ -4,7 +4,7 @@
  * Represents a file specification.
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * The input file.
 	 */

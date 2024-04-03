@@ -4,7 +4,7 @@
  * Represents the execution's plan. It contains information about the tasks to be executed and their corresponding inputs and outputs.
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * Represents the cache configuration.
 	 */

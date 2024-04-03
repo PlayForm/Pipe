@@ -4,7 +4,7 @@
  * Represents a directory specification.
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * The input directory.
 	 */

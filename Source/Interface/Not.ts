@@ -2,7 +2,7 @@
  * @module Not
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 *
 	 * The function `Not` filters out files from the `File` array based on the provided `Pattern`

@@ -2,7 +2,7 @@
  * @module By
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * The function `By` takes in a file pattern or an array of file patterns, a set
 	 * of input and output paths, and a map of results, and returns the updated map

@@ -2,7 +2,7 @@
  * @module Apply
  *
  */
-export default interface Type {
+export default interface Interface {
 	/**
 	 * The function `Apply` takes a function `_Function` and a test value `Test`, and applies `_Function` to `Test` based
 	 * on its type (Map, Set, Array, or other) and returns the result.
