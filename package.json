@@ -28,7 +28,7 @@
 	"types": "./Target/Class/File.d.ts",
 	"scripts": {
 		"Document": "Document 'Source/**/*.ts'",
-		"prepublishOnly": "Build 'Source/**/*.ts'"
+		"Build": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
 		"@types/node": "20.12.2",
