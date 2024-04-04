@@ -30,9 +30,9 @@ the pipe. Here's an example of how to use it in your Index.ts:
 
 ```ts
 await(
-	await(await new (await import("@playform/pipe")).default().In("./Input")).By(
-		"**/*.md"
-	)
+	await(
+		await new (await import("@playform/pipe")).default().In("./Input")
+	).By("**/*.md")
 ).Pipe({
 	// Append some content to all of the text files
 	Wrote: (On) => (On.Buffer += "LICENSE [MIT]"),
@@ -41,8 +41,8 @@ await(
 
 ### Default Callbacks
 
-`Pipe` provides default callbacks for file processing. These callbacks can
-be customized to suit your specific needs. Here are the default callbacks:
+`Pipe` provides default callbacks for file processing. These callbacks can be
+customized to suit your specific needs. Here are the default callbacks:
 
 ```ts
 await new (await import("@playform/pipe")).default().Pipe({
@@ -81,14 +81,16 @@ variable:
 **`Index.ts`**
 
 ```ts
-await new (await import("@playform/pipe")).default().In(["./Input", "./Input2"]);
+await new (await import("@playform/pipe")).default().In([
+	"./Input",
+	"./Input2",
+]);
 ```
 
 ### Input-Output Mapping
 
-`Pipe` will allow you to provide a map of paths for different input and
-output directories, making it easy to control where files are read from and
-written to:
+`Pipe` will allow you to provide a map of paths for different input and output
+directories, making it easy to control where files are read from and written to:
 
 **`Index.ts`**
 
@@ -100,9 +102,9 @@ await new (await import("@playform/pipe")).default().In(
 
 ### File Filtering
 
-You can filter files to exclude specific ones from your `Pipe`. Filters can
-be an array of regular expressions or a single match. You can also use functions
-to match on file names:
+You can filter files to exclude specific ones from your `Pipe`. Filters can be
+an array of regular expressions or a single match. You can also use functions to
+match on file names:
 
 **`Index.ts`**
 

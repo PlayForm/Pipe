@@ -10,8 +10,8 @@ export default (async (...[Path, Paths]: Parameters<Type>) => {
 				_URL instanceof URL
 					? (await import("url")).fileURLToPath(_URL)
 					: _URL,
-			Path,
-		),
+			Path
+		)
 	);
 
 	if (_Path instanceof Map) {
