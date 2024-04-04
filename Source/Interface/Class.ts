@@ -12,7 +12,7 @@ export default interface Interface {
 	 * is provided.
 	 *
 	 */
-	In: (Path: Path) => Promise<ThisType<Type>>;
+	In: (Path: Path) => Promise<ThisType<Interface>>;
 
 	/**
 	 * The function `By` takes a file pattern or an array of file patterns and returns a promise that
@@ -23,7 +23,7 @@ export default interface Interface {
 	 * string pattern that can include wildcards to match multiple files.
 	 *
 	 */
-	By: (File: Pattern | Pattern[]) => Promise<ThisType<Type>>;
+	By: (File: Pattern | Pattern[]) => Promise<ThisType<Interface>>;
 
 	/**
 	 * The function `Not` takes a `File` parameter and excludes it from the `Plan.Results` array.
@@ -31,7 +31,7 @@ export default interface Interface {
 	 * @param File - The parameter "File" is of type "Option['Exclude']".
 	 *
 	 */
-	Not: (File: Option["Exclude"]) => Promise<ThisType<Type>>;
+	Not: (File: Option["Exclude"]) => Promise<ThisType<Interface>>;
 
 	/**
 	 * The function `Pipe` is a TypeScript async function that takes an optional Action
@@ -43,7 +43,7 @@ export default interface Interface {
 	 * function, it will use the default execution strategy.
 	 *
 	 */
-	Pipe: (Action?: Action) => Promise<ThisType<Type>>;
+	Pipe: (Action?: Action) => Promise<ThisType<Interface>>;
 
 	Plan: Plan;
 }
