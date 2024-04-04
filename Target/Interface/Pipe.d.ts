@@ -2,7 +2,7 @@
  * @module Pipe
  *
  */
-export default interface Type {
+export default interface Interface {
     /**
      *
      * The function Pipe takes a Plan and an Action object as input, and performs a series of

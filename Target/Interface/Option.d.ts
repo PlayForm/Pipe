@@ -4,7 +4,7 @@
  * Represents options for configuring the behavior of the program.
  *
  */
-export default interface Type {
+export default interface Interface {
     /**
      * Configuration for the target cache.
      *

@@ -2,7 +2,7 @@
  * @module In
  *
  */
-export default interface Type {
+export default interface Interface {
     /**
      * The function `In` takes a `Path` and a `Paths` object, and adds the `Path` to the `Paths` object.
      *
