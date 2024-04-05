@@ -10,13 +10,13 @@ declare const _default: {
     Path: string;
     Logger: 2;
     Action: {
-        Read: ({ Input }: import("../Interface/File.js").default) => Promise<string>;
-        Wrote: ({ Buffer }: import("../Interface/File.js").default) => Promise<import("../Type/Buffer.js").Type>;
-        Passed: (On: import("../Interface/File.js").default) => Promise<true>;
-        Failed: ({ Input }: import("../Interface/File.js").default) => Promise<string>;
-        Accomplished: ({ Input, Output }: import("../Interface/File.js").default) => Promise<string>;
-        Fulfilled: ({ File }: import("../Interface/Plan.js").default) => Promise<string | false>;
-        Changed: (Plan: import("../Interface/Plan.js").default) => Promise<import("../Interface/Plan.js").default>;
+        Read: ({ Input }: import("../Interface/File").default) => Promise<string>;
+        Wrote: ({ Buffer }: import("../Interface/File").default) => Promise<import("../Type/Buffer").Type>;
+        Passed: (On: import("../Interface/File").default) => Promise<true>;
+        Failed: ({ Input }: import("../Interface/File").default) => Promise<string>;
+        Accomplished: ({ Input, Output }: import("../Interface/File").default) => Promise<string>;
+        Fulfilled: ({ File }: import("../Interface/Plan").default) => Promise<string | false>;
+        Changed: (Plan: import("../Interface/Plan").default) => Promise<import("../Interface/Plan").default>;
     };
     File: string;
     Exclude: false;

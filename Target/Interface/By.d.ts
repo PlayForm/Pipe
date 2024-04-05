@@ -23,5 +23,5 @@ export default interface Interface {
      */
     (File: Pattern | Pattern[], Paths: Plan["Paths"], Results: Plan["Results"]): Promise<typeof Results>;
 }
-import type Plan from "../Interface/Plan.js";
+import type Plan from "@Interface/Plan.js";
 import type { Pattern } from "fast-glob";

@@ -18,5 +18,5 @@ export default interface Interface {
      */
     (Pattern: Option["Exclude"], Results: Plan["Results"]): Plan["Results"];
 }
-import type Option from "./Option.js";
-import type Plan from "./Plan.js";
+import type Option from "@Interface/Option.js";
+import type Plan from "@Interface/Plan.js";
