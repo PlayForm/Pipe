@@ -5,7 +5,7 @@
 export default class implements Type {
 	In = async (...[Path]: Parameters<Type["In"]>) => {
 		for (const [Input, Output] of await (
-			await import("../Function/In.js")
+			await import("@Function/In.js")
 		).default(Path, this.Plan.Paths)) {
 			this.Plan.Paths.set(Input, Output);
 		}
@@ -15,14 +15,14 @@ export default class implements Type {
 
 	By = async (...[File]: Parameters<Type["By"]>) => {
 		this.Plan.Results = await (
-			await import("../Function/By.js")
+			await import("@Function/By.js")
 		).default(File, this.Plan.Paths, this.Plan.Results);
 
 		return this;
 	};
 
 	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
-		this.Plan.Results = (await import("../Function/Not.js")).default(
+		this.Plan.Results = (await import("@Function/Not.js")).default(
 			Exclude,
 			this.Plan.Results
 		);
@@ -32,7 +32,7 @@ export default class implements Type {
 
 	Pipe = async (...[_Action]: Parameters<Type["Pipe"]>) => {
 		this.Plan = await (
-			await import("../Function/Pipe.js")
+			await import("@Function/Pipe.js")
 		).default(this.Plan, Merge(Action, _Action ?? {}));
 
 		return this;
@@ -75,4 +75,4 @@ export const {
 	default: { Cache, Logger, Action },
 } = await import("@Variable/Option.js");
 
-export const { default: Merge } = await import("../Function/Merge.js");
+export const { default: Merge } = await import("@Function/Merge.js");

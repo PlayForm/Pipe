@@ -28,6 +28,6 @@ export default (async (...[Path, Paths]: Parameters<Type>) => {
 import type Type from "@Interface/In.js";
 import type Path from "@Type/Path.js";
 
-export const { default: Apply } = await import("./Apply.js");
+export const { default: Apply } = await import("@Function/Apply.js");
 
 export let _Path: Path;
