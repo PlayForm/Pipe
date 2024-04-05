@@ -40,4 +40,4 @@ export default (async (...[_Function, Test]: Parameters<Type>) => {
 	return Test;
 }) satisfies Type as Type;
 
-import type Type from "../Interface/Apply.js";
+import type Type from "@Interface/Apply.js";

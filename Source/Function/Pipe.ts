@@ -86,7 +86,7 @@ export default (async (
 	return Plan;
 }) satisfies Type as Type;
 
-import type Type from "../Interface/Pipe.js";
+import type Type from "@Interface/Pipe.js";
 
 export const { dirname } = await import("path");
 

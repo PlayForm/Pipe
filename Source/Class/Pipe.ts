@@ -67,12 +67,12 @@ export default class implements Type {
 	}
 }
 
-import type Type from "../Interface/Class.js";
-import type Option from "../Interface/Option.js";
-import type Plan from "../Interface/Plan.js";
+import type Type from "@Interface/Class.js";
+import type Option from "@Interface/Option.js";
+import type Plan from "@Interface/Plan.js";
 
 export const {
 	default: { Cache, Logger, Action },
-} = await import("../Variable/Option.js");
+} = await import("@Variable/Option.js");
 
 export const { default: Merge } = await import("../Function/Merge.js");

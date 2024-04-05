@@ -17,4 +17,4 @@ export default (async (...[File, Paths, Results]: Parameters<Type>) => {
 	return Results;
 }) satisfies Type as Type;
 
-import type Type from "../Interface/By.js";
+import type Type from "@Interface/By.js";

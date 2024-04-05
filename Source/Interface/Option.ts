@@ -43,10 +43,10 @@ export default interface Interface {
 	Logger?: boolean | Logger;
 }
 
-import type Exclude from "../Type/Exclude.js";
-import type Logger from "../Type/Logger.js";
-import type Path from "../Type/Path.js";
-import type Action from "./Action.js";
-import type Cache from "./Cache.js";
+import type Exclude from "@Type/Exclude.js";
+import type Logger from "@Type/Logger.js";
+import type Path from "@Type/Path.js";
+import type Action from "@Interface/Action.js";
+import type Cache from "@Interface/Cache.js";
 
 import type { Pattern } from "fast-glob";

@@ -44,6 +44,6 @@ export default ((...[Pattern, Results]: Parameters<Type>) => {
 	return Results;
 }) satisfies Type as Type;
 
-import type Type from "../Interface/Not.js";
+import type Type from "@Interface/Not.js";
 
 export const Filters = new Set();

@@ -30,4 +30,4 @@ export default {
 	Exclude: false,
 } satisfies Type;
 
-import type Type from "../Interface/Option.js";
+import type Type from "@Interface/Option.js";

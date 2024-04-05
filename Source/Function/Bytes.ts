@@ -14,6 +14,6 @@ export default ((...[Bytes, Decimals = 2.0]: Parameters<Type>) => {
 	)} ${["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][I]}`;
 }) satisfies Type as Type;
 
-import type Type from "../Interface/Bytes.js";
+import type Type from "@Interface/Bytes.js";
 
 export const Kilobyte = 1024;
