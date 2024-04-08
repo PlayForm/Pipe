@@ -7,7 +7,7 @@ various operations on them.
 
 To get started with `Pipe`, follow these steps:
 
-Install the `Pipe` package using npm:
+Install the `Pipe` package using `npm`:
 
 ```sh
 npm install -D -E @playform/pipe
