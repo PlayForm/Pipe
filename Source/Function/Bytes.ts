@@ -2,7 +2,7 @@
  * @module Bytes
  *
  */
-export default ((...[Bytes, Decimals = 2.0]: Parameters<Type>) => {
+export default ((...[Bytes, Decimals = 2.0]: Parameters<Interface>) => {
 	if (Bytes === 0) {
 		return "0 Bytes";
 	}
@@ -12,8 +12,8 @@ export default ((...[Bytes, Decimals = 2.0]: Parameters<Type>) => {
 	return `${Number.parseFloat(
 		(Bytes / Kilobyte ** I).toFixed(Decimals < 0 ? 0 : Decimals)
 	)} ${["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][I]}`;
-}) satisfies Type as Type;
+}) satisfies Interface as Interface;
 
-import type Type from "@Interface/Bytes.js";
+import type Interface from "@Interface/Bytes.js";
 
 export const Kilobyte = 1024;

@@ -2,7 +2,7 @@
  * @module Pipe
  *
  */
-export default class implements Type {
+export default class implements Interface {
     In: (Path: import("../Type/Path").Type) => Promise<this>;
     By: (File: string | string[]) => Promise<this>;
     Not: (File: boolean | import("../Type/Exclude").Type | Set<import("../Type/Exclude").Type> | import("../Type/Exclude").Type[] | undefined) => Promise<this>;
@@ -10,7 +10,7 @@ export default class implements Type {
     Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
-import type Type from "@Interface/Class.js";
+import type Interface from "@Interface/Class.js";
 import type Option from "@Interface/Option.js";
 import type Plan from "@Interface/Plan.js";
 export declare const Cache: {

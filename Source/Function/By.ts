@@ -2,7 +2,7 @@
  * @module By
  *
  */
-export default (async (...[File, Paths, Results]: Parameters<Type>) => {
+export default (async (...[File, Paths, Results]: Parameters<Interface>) => {
 	for (const [Input, Output] of Paths) {
 		for (const Result of await (
 			await import("fast-glob")
@@ -15,6 +15,6 @@ export default (async (...[File, Paths, Results]: Parameters<Type>) => {
 	}
 
 	return Results;
-}) satisfies Type as Type;
+}) satisfies Interface as Interface;
 
-import type Type from "@Interface/By.js";
+import type Interface from "@Interface/By.js";

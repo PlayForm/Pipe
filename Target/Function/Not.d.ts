@@ -2,7 +2,7 @@
  * @module Not
  *
  */
-declare const _default: Type;
+declare const _default: Interface;
 export default _default;
-import type Type from "@Interface/Not.js";
+import type Interface from "@Interface/Not.js";
 export declare const Filters: Set<unknown>;

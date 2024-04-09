@@ -6,7 +6,7 @@ export default (async (
 	...[
 		Plan,
 		{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote },
-	]: Parameters<Type>
+	]: Parameters<Interface>
 ) => {
 	for (const [_Output, _Input] of Plan.Results) {
 		Plan.On.Input = _Input;
@@ -84,9 +84,9 @@ export default (async (
 	}
 
 	return Plan;
-}) satisfies Type as Type;
+}) satisfies Interface as Interface;
 
-import type Type from "@Interface/Pipe.js";
+import type Interface from "@Interface/Pipe.js";
 
 export const { dirname } = await import("path");
 

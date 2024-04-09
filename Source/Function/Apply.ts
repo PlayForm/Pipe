@@ -2,7 +2,7 @@
  * @module Apply
  *
  */
-export default (async (...[_Function, Test]: Parameters<Type>) => {
+export default (async (...[_Function, Test]: Parameters<Interface>) => {
 	if (typeof _Function === "function") {
 		if (Test instanceof Map) {
 			const Tests = new Map();
@@ -38,6 +38,6 @@ export default (async (...[_Function, Test]: Parameters<Type>) => {
 	}
 
 	return Test;
-}) satisfies Type as Type;
+}) satisfies Interface as Interface;
 
-import type Type from "@Interface/Apply.js";
+import type Interface from "@Interface/Apply.js";

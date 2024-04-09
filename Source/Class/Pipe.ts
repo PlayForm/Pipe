@@ -2,8 +2,8 @@
  * @module Pipe
  *
  */
-export default class implements Type {
-	In = async (...[Path]: Parameters<Type["In"]>) => {
+export default class implements Interface {
+	In = async (...[Path]: Parameters<Interface["In"]>) => {
 		for (const [Input, Output] of await (
 			await import("@Function/In.js")
 		).default(Path, this.Plan.Paths)) {
@@ -13,7 +13,7 @@ export default class implements Type {
 		return this;
 	};
 
-	By = async (...[File]: Parameters<Type["By"]>) => {
+	By = async (...[File]: Parameters<Interface["By"]>) => {
 		this.Plan.Results = await (
 			await import("@Function/By.js")
 		).default(File, this.Plan.Paths, this.Plan.Results);
@@ -21,7 +21,7 @@ export default class implements Type {
 		return this;
 	};
 
-	Not = async (...[Exclude]: Parameters<Type["Not"]>) => {
+	Not = async (...[Exclude]: Parameters<Interface["Not"]>) => {
 		this.Plan.Results = (await import("@Function/Not.js")).default(
 			Exclude,
 			this.Plan.Results
@@ -30,7 +30,7 @@ export default class implements Type {
 		return this;
 	};
 
-	Pipe = async (...[_Action]: Parameters<Type["Pipe"]>) => {
+	Pipe = async (...[_Action]: Parameters<Interface["Pipe"]>) => {
 		this.Plan = await (
 			await import("@Function/Pipe.js")
 		).default(this.Plan, Merge(Action, _Action ?? {}));
@@ -67,7 +67,7 @@ export default class implements Type {
 	}
 }
 
-import type Type from "@Interface/Class.js";
+import type Interface from "@Interface/Class.js";
 import type Option from "@Interface/Option.js";
 import type Plan from "@Interface/Plan.js";
 

@@ -28,6 +28,6 @@ export default {
 	},
 	File: "**/*",
 	Exclude: false,
-} satisfies Type;
+} satisfies Interface;
 
-import type Type from "@Interface/Option.js";
+import type Interface from "@Interface/Option.js";

@@ -2,7 +2,7 @@
  * @module Not
  *
  */
-export default ((...[Pattern, Results]: Parameters<Type>) => {
+export default ((...[Pattern, Results]: Parameters<Interface>) => {
 	if (typeof Pattern !== "undefined") {
 		if (Array.isArray(Pattern) || Pattern instanceof Set) {
 			for (const Patterns of Pattern) {
@@ -42,8 +42,8 @@ export default ((...[Pattern, Results]: Parameters<Type>) => {
 	}
 
 	return Results;
-}) satisfies Type as Type;
+}) satisfies Interface as Interface;
 
-import type Type from "@Interface/Not.js";
+import type Interface from "@Interface/Not.js";
 
 export const Filters = new Set();

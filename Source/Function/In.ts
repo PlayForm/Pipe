@@ -2,7 +2,7 @@
  * @module In
  *
  */
-export default (async (...[Path, Paths]: Parameters<Type>) => {
+export default (async (...[Path, Paths]: Parameters<Interface>) => {
 	_Path = await Apply(
 		async (Path) => (Path.endsWith("/") ? Path : `${Path}/`),
 		await Apply(
@@ -23,9 +23,9 @@ export default (async (...[Path, Paths]: Parameters<Type>) => {
 	}
 
 	return Paths;
-}) satisfies Type as Type;
+}) satisfies Interface as Interface;
 
-import type Type from "@Interface/In.js";
+import type Interface from "@Interface/In.js";
 import type Path from "@Type/Path.js";
 
 export const { default: Apply } = await import("@Function/Apply.js");

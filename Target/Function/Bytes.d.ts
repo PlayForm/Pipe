@@ -2,7 +2,7 @@
  * @module Bytes
  *
  */
-declare const _default: Type;
+declare const _default: Interface;
 export default _default;
-import type Type from "@Interface/Bytes.js";
+import type Interface from "@Interface/Bytes.js";
 export declare const Kilobyte = 1024;
