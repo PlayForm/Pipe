@@ -1,0 +1,24 @@
+
+> @playform/pipe@0.0.2 Document D:\Developer\Application\Playform\NPM\Pipe
+> Document 'Source/**/*.ts'
+
+[96m[info][0m Loaded plugin typedoc-plugin-remove-references
+
+[96m[info][0m Loaded plugin typedoc-plugin-rename-defaults
+
+[96m[info][0m Loaded plugin typedoc-plugin-mdn-links
+
+[96m[info][0m Loaded plugin typedoc-plugin-zod
+
+[96m[info][0m Loaded plugin typedoc-plugin-merge-modules
+
+[96m[info][0m Loaded plugin typedoc-plugin-keywords
+
+[93m[warning][0m The signature Interface/Merge.Type has an @param with name "...Objects", which was not used.
+
+[93m[warning][0m The signature Merge.merge has an @param with name "...Objects", which was not used.
+
+[93m[warning][0m The signature Pipe.Merge has an @param with name "...Objects", which was not used.
+
+[96m[info][0m Documentation generated at ./Documentation
+

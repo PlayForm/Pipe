@@ -1,0 +1,77 @@
+
+> @playform/pipe@0.0.2 prepublishOnly D:\Developer\Application\Playform\NPM\Pipe
+> Build 'Source/**/*.ts'
+
+
+
+  Target/Function/Pipe.js ────── 1.0kb ─ 100.0%
+   └ Source/Function/Pipe.ts ─── 998b ─── 95.7%
+
+  Target/Class/Pipe.js ───────── 950b ── 100.0%
+   └ Source/Class/Pipe.ts ────── 882b ─── 92.8%
+  Target\Function\Pipe.js    1.0kb
+  Target\Class\Pipe.js       950b 
+  Target\Variable\Option.js  496b 
+
+  Target/Variable/Option.js ──── 496b ── 100.0%
+   └ Source/Variable/Option.ts ─ 474b ─── 95.6%
+
+  Target/Function/In.js ──────── 368b ── 100.0%
+  Target\Function\In.js      368b 
+  Target\Function\Apply.js   358b 
+   └ Source/Function/In.ts ───── 324b ─── 88.0%
+
+  ...and 22 more output files...
+  Target/Function/Apply.js ───── 358b ── 100.0%
+
+   └ Source/Function/Apply.ts ── 336b ─── 93.9%
+⚡ Done in 88ms
+
+  Target/Function/Not.js ─────── 358b ── 100.0%
+   └ Source/Function/Not.ts ──── 323b ─── 90.2%
+
+  Target/Function/Bytes.js ───── 252b ── 100.0%
+   └ Source/Function/Bytes.ts ── 216b ─── 85.7%
+
+  Target/Function/By.js ──────── 219b ── 100.0%
+   └ Source/Function/By.ts ───── 197b ─── 90.0%
+
+  Target/Function/Merge.js ────── 93b ── 100.0%
+   └ Source/Function/Merge.ts ─── 71b ─── 76.3%
+
+  Target/Interface/Action.js ───── 0b ── 100.0%
+
+  Target/Interface/Apply.js ────── 0b ── 100.0%
+
+  Target/Interface/By.js ───────── 0b ── 100.0%
+
+  Target/Interface/Bytes.js ────── 0b ── 100.0%
+
+  Target/Interface/Cache.js ────── 0b ── 100.0%
+
+  Target/Interface/Class.js ────── 0b ── 100.0%
+
+  Target/Interface/Dir.js ──────── 0b ── 100.0%
+
+  Target/Interface/File.js ─────── 0b ── 100.0%
+
+  Target/Interface/In.js ───────── 0b ── 100.0%
+
+  Target/Interface/Merge.js ────── 0b ── 100.0%
+
+  Target/Interface/Not.js ──────── 0b ── 100.0%
+
+  Target/Interface/Option.js ───── 0b ── 100.0%
+
+  Target/Interface/Pipe.js ─────── 0b ── 100.0%
+
+  Target/Interface/Plan.js ─────── 0b ── 100.0%
+
+  Target/Type/Buffer.js ────────── 0b ── 100.0%
+
+  Target/Type/Exclude.js ───────── 0b ── 100.0%
+
+  Target/Type/Logger.js ────────── 0b ── 100.0%
+
+  Target/Type/Path.js ──────────── 0b ── 100.0%
+
