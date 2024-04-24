@@ -10,19 +10,19 @@
 		"javascript",
 		"playform"
 	],
-	"homepage": "HTTPS://GitHub.Com/Playform/Pipe#readme",
+	"homepage": "HTTPS://GitHub.Com/PlayForm/Pipe#readme",
 	"bugs": {
-		"url": "HTTPS://GitHub.Com/Playform/Pipe/issues"
+		"url": "HTTPS://GitHub.Com/PlayForm/Pipe/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+HTTPS://github.com/Playform/Pipe.git"
+		"url": "git+HTTPS://github.com/PlayForm/Pipe.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
 		"name": "⛲ Source ⁄ 🚪 Open —",
-		"email": "Source/Open@Playform.Cloud",
-		"url": "HTTPS://Playform.Cloud"
+		"email": "Source/Open@PlayForm.Cloud",
+		"url": "HTTPS://PlayForm.Cloud"
 	},
 	"type": "module",
 	"main": "./Target/Class/Pipe.js",
