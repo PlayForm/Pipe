@@ -2,7 +2,7 @@
 	"name": "@playform/pipe",
 	"version": "0.0.2",
 	"private": false,
-	"description": "🧪 — Pipe —",
+	"description": "🧪 Pipe —",
 	"keywords": [
 		"pipe",
 		"file",
@@ -20,7 +20,7 @@
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
-		"name": "⛲ Source ⁄ 🚪 — Open —",
+		"name": "⛲ Source ⁄ 🚪 Open —",
 		"email": "Source/Open@PlayForm.Cloud",
 		"url": "HTTPS://PlayForm.Cloud"
 	},
