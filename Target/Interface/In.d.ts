@@ -16,5 +16,5 @@ export default interface Interface {
      */
     (Path: Path, Paths: Plan["Paths"]): Promise<Plan["Paths"]>;
 }
-import type Plan from "@Interface/Plan.js";
-import type Path from "@Type/Path.js";
+import type Plan from "../Interface/Plan.js";
+import type Path from "../Type/Path.js";

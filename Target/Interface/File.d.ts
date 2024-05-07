@@ -31,4 +31,4 @@ export default interface Interface {
      */
     Buffer: Buffer;
 }
-import type Buffer from "@Type/Buffer.js";
+import type Buffer from "../Type/Buffer.js";
