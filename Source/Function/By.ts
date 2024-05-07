@@ -17,4 +17,4 @@ export default (async (...[File, Paths, Results]: Parameters<Interface>) => {
 	return Results;
 }) satisfies Interface as Interface;
 
-import type Interface from "@Interface/By.js";
+import type Interface from "../Interface/By.js";

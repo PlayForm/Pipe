@@ -28,6 +28,6 @@ export default interface Interface {
 	): Promise<typeof Results>;
 }
 
-import type Plan from "@Interface/Plan.js";
+import type Plan from "../Interface/Plan.js";
 
 import type { Pattern } from "fast-glob";

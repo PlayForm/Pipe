@@ -44,6 +44,6 @@ export default ((...[Pattern, Results]: Parameters<Interface>) => {
 	return Results;
 }) satisfies Interface as Interface;
 
-import type Interface from "@Interface/Not.js";
+import type Interface from "../Interface/Not.js";
 
 export const Filters = new Set();

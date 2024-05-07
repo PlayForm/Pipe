@@ -40,4 +40,4 @@ export default (async (...[_Function, Test]: Parameters<Interface>) => {
 	return Test;
 }) satisfies Interface as Interface;
 
-import type Interface from "@Interface/Apply.js";
+import type Interface from "../Interface/Apply.js";
