@@ -20,7 +20,7 @@
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
-		"name": "⛲ Source ⁄ 🚪 Open —",
+		"name": "🖋️ Source — 👐🏻 Open —",
 		"email": "Source/Open@PlayForm.Cloud",
 		"url": "HTTPS://PlayForm.Cloud"
 	},
@@ -32,12 +32,12 @@
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "20.12.10",
+		"@types/node": "20.12.11",
 		"deepmerge-ts": "5.1.0",
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"@playform/build": "0.0.7",
+		"@playform/build": "0.0.8",
 		"@playform/document": "0.0.6"
 	},
 	"publishConfig": {
