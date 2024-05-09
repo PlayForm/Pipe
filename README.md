@@ -126,7 +126,7 @@ value is `2`, but you can set it to `0` if you don't want to see debug messages:
 new (await import("@playform/pipe")).default(0);
 ```
 
-[Pipe]: HTTPS://npmjs.org/@playform/pipe
+[Pipe]: HTTPS://NPMJS.Org/@playform/pipe
 
 ## Changelog
 
