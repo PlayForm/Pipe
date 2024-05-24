@@ -28,6 +28,6 @@ export default {
 	},
 	File: "**/*",
 	Exclude: false,
-} satisfies Interface as Interface;
+} satisfies Interface;
 
 import type Interface from "../Interface/Option.js";

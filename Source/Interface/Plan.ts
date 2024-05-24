@@ -7,32 +7,38 @@
 export default interface Interface {
 	/**
 	 * Represents the cache configuration.
+	 *
 	 */
 	Cache: Cache;
 
 	/**
 	 * The debugging level for the execution plan.
+	 *
 	 */
 	Logger: Logger;
 
 	/**
 	 * The number of files in the execution plan.
+	 *
 	 */
 	File: number;
 
 	/**
 	 * Additional information associated with the execution plan.
+	 *
 	 */
 	// biome-ignore lint/suspicious/noExplicitAny:
 	Info: any;
 
 	/**
 	 * Mapping of input paths to output paths.
+	 *
 	 */
 	Paths: Map<Dir["Input"], Dir["Output"]>;
 
 	/**
 	 * Mapping of result paths to corresponding input paths.
+	 *
 	 */
 	Results: Map<
 		`${Dir["Output"]}${File["Output"]}`,
@@ -41,6 +47,7 @@ export default interface Interface {
 
 	/**
 	 * The file currently being operated on.
+	 *
 	 */
 	On: File;
 }
