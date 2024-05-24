@@ -14,4 +14,14 @@ import type Interface from "../Interface/Class.js";
 import type Option from "../Interface/Option.js";
 import type Plan from "../Interface/Plan.js";
 export declare const Cache: boolean | import("../Interface/Cache.js").default | undefined, Logger: boolean | import("../Type/Logger.js").Type | undefined, Action: boolean | import("../Interface/Action.js").default | undefined;
-export declare const Merge: import("../Interface/Merge.js").default<import("../Interface/Merge.js").Generic>;
+export declare const Merge: <Ts extends readonly unknown[]>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, Readonly<{
+    DeepMergeRecordsURI: "DeepMergeRecordsDefaultURI";
+    DeepMergeArraysURI: "DeepMergeArraysDefaultURI";
+    DeepMergeSetsURI: "DeepMergeSetsDefaultURI";
+    DeepMergeMapsURI: "DeepMergeMapsDefaultURI";
+    DeepMergeOthersURI: "DeepMergeLeafURI";
+    DeepMergeFilterValuesURI: "DeepMergeFilterValuesDefaultURI";
+}>, Readonly<{
+    key: PropertyKey;
+    parents: readonly Readonly<Record<PropertyKey, unknown>>[];
+}>>;
