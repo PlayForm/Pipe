@@ -31,8 +31,8 @@ the pipe. Here's an example of how to use it in your Index.ts:
 ```ts
 await(
 	await(
-		await new (await import("@playform/pipe")).default().In("./Input")
-	).By("**/*.md")
+		await new (await import("@playform/pipe")).default().In("./Input"),
+	).By("**/*.md"),
 ).Pipe({
 	// Append some content to all of the text files
 	Wrote: (On) => (On.Buffer += "LICENSE [MIT]"),
@@ -96,7 +96,7 @@ directories, making it easy to control where files are read from and written to:
 
 ```ts
 await new (await import("@playform/pipe")).default().In(
-	new Map([["./Input", "./Output"]])
+	new Map([["./Input", "./Output"]]),
 );
 ```
 

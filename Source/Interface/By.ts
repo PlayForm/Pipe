@@ -24,7 +24,7 @@ export default interface Interface {
 	(
 		File: Pattern | Pattern[],
 		Paths: Plan["Paths"],
-		Results: Plan["Results"]
+		Results: Plan["Results"],
 	): Promise<typeof Results>;
 }
 

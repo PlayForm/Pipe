@@ -10,7 +10,7 @@ export default ((...[Bytes, Decimals = 2.0]: Parameters<Interface>) => {
 	const I = Math.floor(Math.log(Bytes) / Math.log(Kilobyte));
 
 	return `${Number.parseFloat(
-		(Bytes / Kilobyte ** I).toFixed(Decimals < 0 ? 0 : Decimals)
+		(Bytes / Kilobyte ** I).toFixed(Decimals < 0 ? 0 : Decimals),
 	)} ${["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][I]}`;
 }) satisfies Interface as Interface;
 
