@@ -28,7 +28,6 @@
 	"main": "./Target/Class/Pipe.js",
 	"types": "./Target/Class/Pipe.d.ts",
 	"scripts": {
-		"Document": "Document 'Source/**/*.ts'",
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
@@ -36,17 +35,8 @@
 		"deepmerge-ts": "7.0.1",
 		"fast-glob": "3.3.2"
 	},
-	"peerDependencies": {
-		"@playform/build": "0.0.9",
-		"@playform/document": "0.0.7"
-	},
-	"peerDependenciesMeta": {
-		"@playform/build": {
-			"optional": true
-		},
-		"@playform/document": {
-			"optional": true
-		}
+	"devDependencies": {
+		"@playform/build": "0.0.9"
 	},
 	"publishConfig": {
 		"access": "public"
