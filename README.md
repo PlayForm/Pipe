@@ -24,7 +24,7 @@ await new (await import("@playform/pipe")).default().In("./Input");
 ### Getting started
 
 With `Pipe`, you can use the Pipe method to perform operations on files within
-the pipe. Here's an example of how to do it in your `Main.ts`:
+the pipe. Here's an example of how to do it with some file writes:
 
 **`Main.ts`**
 
