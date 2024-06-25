@@ -25,4 +25,18 @@ export declare const Cache: {
     Fulfilled: ({ File }: Plan) => Promise<string | false>;
     Changed: (Plan: Plan) => Promise<Plan>;
 };
+<<<<<<< HEAD
 export declare const Merge: <Ts extends readonly unknown[]>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, import("deepmerge-ts").GetDeepMergeFunctionsURIs<{}>, import("deepmerge-ts").DeepMergeBuiltInMetaData>;
+=======
+export declare const Merge: <Ts extends readonly unknown[]>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, Readonly<{
+    DeepMergeRecordsURI: "DeepMergeRecordsDefaultURI";
+    DeepMergeArraysURI: "DeepMergeArraysDefaultURI";
+    DeepMergeSetsURI: "DeepMergeSetsDefaultURI";
+    DeepMergeMapsURI: "DeepMergeMapsDefaultURI";
+    DeepMergeOthersURI: "DeepMergeLeafURI";
+    DeepMergeFilterValuesURI: "DeepMergeFilterValuesDefaultURI";
+}>, Readonly<{
+    key: PropertyKey;
+    parents: readonly Readonly<Record<PropertyKey, unknown>>[];
+}>>;
+>>>>>>> 17847992916f4336ac0bcf48dfc7b8597c47fd6f
