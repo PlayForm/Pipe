@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-/// <reference types="node" />
-/// <reference types="node" />
->>>>>>> 17847992916f4336ac0bcf48dfc7b8597c47fd6f
 /**
  * @module Buffer
  *
