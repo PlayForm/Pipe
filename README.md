@@ -13,7 +13,7 @@ Install the `Pipe` package using `npm`:
 npm install -D -E @playform/pipe
 ```
 
-Create a new pipe instance using the following code in your `Main.ts` file:
+Create a new `Pipe` instance:
 
 **`Main.ts`**
 
@@ -23,7 +23,7 @@ await new (await import("@playform/pipe")).default().In("./Input");
 
 ### Getting started
 
-With `Pipe`, you can use the Pipe method to perform operations on files within
+With `Pipe`, you can use the `Pipe` method to perform operations on files within
 the pipe. Here's an example of how to do it with some file writes:
 
 **`Main.ts`**
