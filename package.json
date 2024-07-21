@@ -33,7 +33,7 @@
 	},
 	"dependencies": {
 		"@types/node": "20.14.11",
-		"deepmerge-ts": "7.0.3",
+		"deepmerge-ts": "7.1.0",
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
