@@ -1,6 +1,6 @@
 {
 	"name": "@playform/pipe",
-	"version": "0.0.6",
+	"version": "0.1.0",
 	"private": false,
 	"description": "🧪 Pipe —",
 	"keywords": [
@@ -37,7 +37,7 @@
 		"fast-glob": "3.3.2"
 	},
 	"devDependencies": {
-		"@playform/build": "0.1.1"
+		"@playform/build": "0.1.2"
 	},
 	"publishConfig": {
 		"provenance": true,
