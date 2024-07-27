@@ -40,7 +40,7 @@
 		"@playform/build": "0.1.2"
 	},
 	"publishConfig": {
-		"provenance": true,
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	}
 }
