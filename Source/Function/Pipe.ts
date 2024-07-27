@@ -25,24 +25,23 @@ export default (async (
 
 				if (Passed && (await Passed(Plan.On))) {
 					try {
-						await (await import("fs/promises")).access(
+						await (
+							await import("fs/promises")
+						).access(
 							dirname(Plan.On.Output),
 							(await import("fs/promises")).constants.W_OK,
 						);
 					} catch (_Error) {
-						await (await import("fs/promises")).mkdir(
-							dirname(Plan.On.Output),
-							{
-								recursive: true,
-							},
-						);
+						await (
+							await import("fs/promises")
+						).mkdir(dirname(Plan.On.Output), {
+							recursive: true,
+						});
 					}
 
-					await (await import("fs/promises")).writeFile(
-						Plan.On.Output,
-						Plan.On.Buffer,
-						"utf-8",
-					);
+					await (
+						await import("fs/promises")
+					).writeFile(Plan.On.Output, Plan.On.Buffer, "utf-8");
 
 					Plan.On.After = (await stat(Plan.On.Output)).size;
 
