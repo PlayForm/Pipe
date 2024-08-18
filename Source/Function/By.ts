@@ -4,9 +4,7 @@
  */
 export default (async (...[File, Paths, Results]: Parameters<Interface>) => {
 	for (const [Input, Output] of Paths) {
-		for (const Result of await (
-			await import("fast-glob")
-		).default(File, {
+		for (const Result of await (await import("fast-glob")).default(File, {
 			cwd: Input ?? (await import("process")).cwd(),
 			onlyFiles: true,
 		})) {
