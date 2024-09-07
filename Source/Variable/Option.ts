@@ -1,3 +1,5 @@
+import type Interface from "../Interface/Option.js";
+
 /**
  * @module Option
  *
@@ -11,7 +13,11 @@ export default {
 	Logger: 2,
 	Action: {
 		Read: async ({ Input }) =>
-			await (await import("fs/promises")).readFile(Input, "utf-8"),
+			await (
+				await import("fs/promises")
+			).readFile(Input, {
+				encoding: "utf-8",
+			}),
 		Wrote: async ({ Buffer }) => Buffer,
 		// biome-ignore lint/complexity/useSimplifiedLogicExpression:
 		Passed: async (On) => On && true,
@@ -29,5 +35,3 @@ export default {
 	File: "**/*",
 	Exclude: false,
 } satisfies Interface;
-
-import type Interface from "../Interface/Option.js";
