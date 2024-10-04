@@ -1,3 +1,5 @@
+import type Interface from "../Interface/Apply.js";
+
 /**
  * @module Apply
  *
@@ -39,5 +41,3 @@ export default (async (...[_Function, Test]: Parameters<Interface>) => {
 
 	return Test;
 }) satisfies Interface as Interface;
-
-import type Interface from "../Interface/Apply.js";

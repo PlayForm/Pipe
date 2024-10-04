@@ -1,3 +1,7 @@
+import type Interface from "../Interface/Class.js";
+import type Option from "../Interface/Option.js";
+import type Plan from "../Interface/Plan.js";
+
 /**
  * @module Pipe
  *
@@ -14,11 +18,9 @@ export default class implements Interface {
 	};
 
 	By = async (...[File]: Parameters<Interface["By"]>) => {
-		this.Plan.Results = await (await import("@Function/By.js")).default(
-			File,
-			this.Plan.Paths,
-			this.Plan.Results,
-		);
+		this.Plan.Results = await (
+			await import("@Function/By.js")
+		).default(File, this.Plan.Paths, this.Plan.Results);
 
 		return this;
 	};
@@ -33,10 +35,9 @@ export default class implements Interface {
 	};
 
 	Pipe = async (...[_Action]: Parameters<Interface["Pipe"]>) => {
-		this.Plan = await (await import("@Function/Pipe.js")).default(
-			this.Plan,
-			Merge(Action, _Action ?? {}),
-		);
+		this.Plan = await (
+			await import("@Function/Pipe.js")
+		).default(this.Plan, Merge(Action, _Action ?? {}));
 
 		return this;
 	};
@@ -69,10 +70,6 @@ export default class implements Interface {
 			typeof Logger === "number" ? Logger : this.Plan.Logger;
 	}
 }
-
-import type Interface from "../Interface/Class.js";
-import type Option from "../Interface/Option.js";
-import type Plan from "../Interface/Plan.js";
 
 export const {
 	default: { Cache, Logger, Action },

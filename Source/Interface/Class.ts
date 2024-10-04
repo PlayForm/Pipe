@@ -1,3 +1,10 @@
+import type { Pattern } from "fast-glob";
+
+import type Action from "../Interface/Action.js";
+import type Option from "../Interface/Option.js";
+import type Plan from "../Interface/Plan.js";
+import type Path from "../Type/Path.js";
+
 /**
  * @module File
  *
@@ -47,10 +54,3 @@ export default interface Interface {
 
 	Plan: Plan;
 }
-
-import type Action from "../Interface/Action.js";
-import type Option from "../Interface/Option.js";
-import type Plan from "../Interface/Plan.js";
-import type Path from "../Type/Path.js";
-
-import type { Pattern } from "fast-glob";
