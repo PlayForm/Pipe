@@ -1,3 +1,6 @@
+import type Interface from "../Interface/Class.js";
+import type Option from "../Interface/Option.js";
+import type Plan from "../Interface/Plan.js";
 /**
  * @module Pipe
  *
@@ -10,9 +13,6 @@ export default class implements Interface {
     Plan: Plan;
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
-import type Interface from "../Interface/Class.js";
-import type Option from "../Interface/Option.js";
-import type Plan from "../Interface/Plan.js";
 export declare const Cache: {
     Search: string;
     Folder: string;

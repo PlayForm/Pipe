@@ -1,3 +1,5 @@
+import type { Pattern } from "fast-glob";
+import type Plan from "../Interface/Plan.js";
 /**
  * @module By
  *
@@ -23,5 +25,3 @@ export default interface Interface {
      */
     (File: Pattern | Pattern[], Paths: Plan["Paths"], Results: Plan["Results"]): Promise<typeof Results>;
 }
-import type Plan from "../Interface/Plan.js";
-import type { Pattern } from "fast-glob";

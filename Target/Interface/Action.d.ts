@@ -1,3 +1,6 @@
+import type File from "../Interface/File.js";
+import type Plan from "../Interface/Plan.js";
+import type Buffer from "../Type/Buffer.js";
 /**
  * @module Pipe
  *
@@ -57,6 +60,3 @@ export default interface Interface {
      */
     Wrote?: (On: File) => Promise<Buffer>;
 }
-import type File from "../Interface/File.js";
-import type Plan from "../Interface/Plan.js";
-import type Buffer from "../Type/Buffer.js";
