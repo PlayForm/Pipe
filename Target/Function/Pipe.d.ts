@@ -1,4 +1,5 @@
 import type Interface from "../Interface/Pipe.js";
+
 /**
  * @module Pipe
  *

@@ -1,5 +1,6 @@
 import type Interface from "../Interface/In.js";
 import type Path from "../Type/Path.js";
+
 /**
  * @module In
  *

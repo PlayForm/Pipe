@@ -5,12 +5,12 @@
  *
  */
 export default interface Interface {
-    /**
-     * The input directory.
-     */
-    Input: string;
-    /**
-     * The output directory.
-     */
-    Output: string;
+	/**
+	 * The input directory.
+	 */
+	Input: string;
+	/**
+	 * The output directory.
+	 */
+	Output: string;
 }

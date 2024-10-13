@@ -1,4 +1,5 @@
 import type Interface from "../Interface/Apply.js";
+
 /**
  * @module Apply
  *
