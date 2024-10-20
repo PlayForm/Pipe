@@ -8,7 +8,7 @@ export default (async (
 	...[
 		Plan,
 		{ Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote },
-	]: Parameters<Interface>
+	]
 ) => {
 	for (const [_Output, _Input] of Plan.Results) {
 		Plan.On.Input = _Input;

@@ -5,7 +5,7 @@ import type Path from "../Type/Path.js";
  * @module In
  *
  */
-export default (async (...[Path, Paths]: Parameters<Interface>) => {
+export default (async (...[Path, Paths]) => {
 	_Path = await Apply(
 		async (Path) => (Path.endsWith("/") ? Path : `${Path}/`),
 		await Apply(

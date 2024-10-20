@@ -4,7 +4,7 @@ import type Interface from "../Interface/Not.js";
  * @module Not
  *
  */
-export default ((...[Pattern, Results]: Parameters<Interface>) => {
+export default ((...[Pattern, Results]) => {
 	if (typeof Pattern !== "undefined") {
 		if (Array.isArray(Pattern) || Pattern instanceof Set) {
 			for (const Patterns of Pattern) {

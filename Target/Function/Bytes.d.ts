@@ -1,5 +1,4 @@
 import type Interface from "../Interface/Bytes.js";
-
 /**
  * @module Bytes
  *

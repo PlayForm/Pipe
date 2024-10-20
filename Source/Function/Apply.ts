@@ -4,7 +4,7 @@ import type Interface from "../Interface/Apply.js";
  * @module Apply
  *
  */
-export default (async (...[_Function, Test]: Parameters<Interface>) => {
+export default (async (...[_Function, Test]) => {
 	if (typeof _Function === "function") {
 		if (Test instanceof Map) {
 			const Tests = new Map();

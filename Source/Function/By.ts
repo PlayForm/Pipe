@@ -4,7 +4,7 @@ import type Interface from "../Interface/By.js";
  * @module By
  *
  */
-export default (async (...[File, Paths, Results]: Parameters<Interface>) => {
+export default (async (...[File, Paths, Results]) => {
 	for (const [Input, Output] of Paths) {
 		for (const Result of await (
 			await import("fast-glob")

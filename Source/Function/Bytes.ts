@@ -4,7 +4,7 @@ import type Interface from "../Interface/Bytes.js";
  * @module Bytes
  *
  */
-export default ((...[Bytes, Decimals = 2.0]: Parameters<Interface>) => {
+export default ((...[Bytes, Decimals = 2.0]) => {
 	if (Bytes === 0) {
 		return "0 Bytes";
 	}
