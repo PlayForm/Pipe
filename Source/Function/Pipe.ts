@@ -1,92 +1,102 @@
+import { mkdir, stat, writeFile } from "node:fs/promises";
+import { dirname } from "node:path";
+
+import type File from "../Interface/File.js";
 import type Interface from "../Interface/Pipe.js";
+import type Plan from "../Interface/Plan.js";
 
 /**
  * @module Pipe
  *
  */
 export default (async (
-	...[Plan, { Accomplished, Changed, Failed, Fulfilled, Passed, Read, Wrote }]
+	...[Plan, { Changed, Read, Wrote, Passed, Accomplished, Failed, Fulfilled }]
 ) => {
-	for (const [_Output, _Input] of Plan.Results) {
-		Plan.On.Input = _Input;
+	let Current = Promise.resolve(Plan);
 
-		Plan.On.Output = _Output;
+	const Update = async (On: File): Promise<Plan> => {
+		Current = Current.then(async (Latest) => {
+			if (Changed) {
+				return await Changed({ ...Latest, On });
+			}
 
-		try {
-			Plan.On.Before = (await stat(Plan.On.Input)).size;
+			return Latest;
+		});
 
-			if (Read && Wrote) {
-				Plan.On.Buffer = await Read(Plan.On);
+		return Current;
+	};
 
-				Plan.On.Buffer = await Wrote(Plan.On);
+	const _Promise = Array.from(Plan.Results.entries()).map(
+		async ([Output, Input]) => {
+			const On: File = {
+				Input,
+				Output,
+				After: 0,
+				Before: 0,
+				Buffer: "",
+			};
 
-				if (!Plan.On.Buffer) {
-					continue;
+			try {
+				On.Before = (await stat(On.Input)).size;
+
+				if (Read && Wrote) {
+					On.Buffer = await Read(On);
+
+					On.Buffer = await Wrote(On);
+
+					if (!On.Buffer) {
+						return;
+					}
+
+					if (Passed && !(await Passed(On))) {
+						return;
+					}
+
+					await mkdir(dirname(On.Output), { recursive: true });
+
+					await writeFile(On.Output, On.Buffer, "utf-8");
+
+					On.After = (await stat(On.Output)).size;
+
+					Plan.File++;
+
+					Plan = await Update(On);
+
+					if (Plan.Logger > 1 && typeof Accomplished === "function") {
+						const Message = await Accomplished(On);
+
+						if (Message) {
+							console.log(Message);
+						}
+					}
 				}
+			} catch (_Error) {
+				Plan.Results.delete(Output);
 
-				if (Passed && (await Passed(Plan.On))) {
-					try {
-						await (
-							await import("node:fs/promises")
-						).access(
-							dirname(Plan.On.Output),
-							(await import("node:fs/promises")).constants.W_OK,
-						);
-					} catch (_Error) {
-						await (
-							await import("node:fs/promises")
-						).mkdir(dirname(Plan.On.Output), {
-							recursive: true,
-						});
-					}
+				if (Plan.Logger > 1 && Failed && typeof Failed === "function") {
+					const Message = await Failed(On, _Error);
 
-					await (
-						await import("node:fs/promises")
-					).writeFile(Plan.On.Output, Plan.On.Buffer, "utf-8");
-
-					Plan.On.After = (await stat(Plan.On.Output)).size;
-
-					if (Plan.Logger > 0) {
-						Plan.File++;
-
-						if (Changed) {
-							Plan = await Changed(Plan);
-						}
-					}
-
-					if (Plan.Logger > 1) {
-						if (typeof Accomplished === "function") {
-							console.log(await Accomplished(Plan.On));
-						}
+					if (Message) {
+						console.log(Message);
 					}
 				}
 			}
-		} catch (_Error) {
-			Plan.Results.delete(Plan.On.Output);
+		},
+	);
 
-			if (Plan.Logger > 1) {
-				if (typeof Failed === "function") {
-					console.log(await Failed(Plan.On, _Error));
-				} else {
-					console.log(_Error);
-				}
-			}
+	await Promise.all(_Promise);
+
+	if (
+		Plan.Logger > 0 &&
+		Plan.Results.size > 0 &&
+		typeof Fulfilled === "function"
+	) {
+		const Message = await Fulfilled(Plan);
+
+		if (Message) {
+			console.log(Message);
 		}
 	}
 
-	if (Plan.Logger > 0 && Plan.Results.size > 0) {
-		if (typeof Fulfilled === "function") {
-			const Message = await Fulfilled(Plan);
-
-			if (Message && Message.length > 0) {
-				console.log(Message);
-			}
-		}
-	}
-
-	return Plan;
+	return await Current;
 }) satisfies Interface as Interface;
-
-export const { dirname } = await import("node:path");
-
-export const { stat } = await import("node:fs/promises");
