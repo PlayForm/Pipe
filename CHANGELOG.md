@@ -1,5 +1,25 @@
 ## 0.1.3
 
+### Change
+
+- Updated `@types/node` from 22.10.5 to 22.13.14
+- Updated `deepmerge-ts` from 7.1.3 to 7.1.5
+- Refactored core module imports to use Node.js protocol syntax (`node:url`,
+  `node:fs/promises`)
+- Improved asynchronous pipeline handling with Promise chaining
+- Optimized file system operations:
+    - Direct use of `mkdir`, `stat` and `writeFile` from `node:fs/promises`
+    - Simplified recursive directory creation logic
+- Enhanced error handling and logging consistency
+- Reordered interface imports and destructuring patterns
+- Updated package.json metadata formatting (emoji position adjustments)
+
+### Add
+
+- New file update tracking system with `Current` promise chain
+- Explicit directory creation before file writes
+- Improved logging conditional checks for failed/accomplished operations
+
 ## 0.1.2
 
 ### Change
