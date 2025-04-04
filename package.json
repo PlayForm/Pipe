@@ -37,7 +37,7 @@
 		"fast-glob": "3.3.3"
 	},
 	"devDependencies": {
-		"@playform/build": "0.2.1"
+		"@playform/build": "0.2.2"
 	},
 	"publishConfig": {
 		"access": "public",
