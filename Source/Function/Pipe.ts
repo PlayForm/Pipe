@@ -84,7 +84,7 @@ export default (async (
 		},
 	);
 
-	await Promise.all(_Promise);
+	await Promise.allSettled(_Promise);
 
 	if (
 		Plan.Logger > 0 &&
