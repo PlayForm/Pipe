@@ -21,8 +21,8 @@
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
 		"name": "Source ✍🏻 Open 👐🏻",
-		"email": "Source/Open@PlayForm.LTD",
-		"url": "HTTPS://PlayForm.LTD"
+		"email": "Source/Open@PlayForm.Cloud",
+		"url": "HTTPS://PlayForm.Cloud"
 	},
 	"type": "module",
 	"main": "./Target/Class/Pipe.js",
@@ -32,7 +32,7 @@
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "22.15.2",
+		"@types/node": "22.15.3",
 		"deepmerge-ts": "7.1.5",
 		"fast-glob": "3.3.3"
 	},

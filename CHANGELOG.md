@@ -40,8 +40,8 @@
   for change history.
 - Updated `package.json` author information:
     - Changed author email from `Source/Open@PlayForm.Cloud` to
-      `Source/Open@PlayForm.LTD`
-    - Changed author URL from `HTTPS://PlayForm.Cloud` to `HTTPS://PlayForm.LTD`
+      `Source/Open@PlayForm.Cloud`
+    - Changed author URL from `HTTPS://PlayForm.Cloud` to `HTTPS://PlayForm.Cloud`
 
 ### Removed
 
