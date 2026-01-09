@@ -1,3 +1,16 @@
+## 0.1.4
+
+### Change
+
+- Updated `@types/node` from 22.13.14 to 25.0.3
+- Updated `@playform/build` from 0.2.1 to 0.2.6
+- Changed package author email from `Source/Open@PlayForm.LTD` to
+  `Source/Open@PlayForm.Cloud`
+- Changed package author URL from `HTTPS://PlayForm.LTD` to
+  `HTTPS://PlayForm.Cloud`
+- Replaced `Promise.all()` with `Promise.allSettled()` in pipeline execution for
+  better error resilience
+
 ## 0.1.3
 
 ### Change
@@ -41,7 +54,8 @@
 - Updated `package.json` author information:
     - Changed author email from `Source/Open@PlayForm.Cloud` to
       `Source/Open@PlayForm.Cloud`
-    - Changed author URL from `HTTPS://PlayForm.Cloud` to `HTTPS://PlayForm.Cloud`
+    - Changed author URL from `HTTPS://PlayForm.Cloud` to
+      `HTTPS://PlayForm.Cloud`
 
 ### Removed
 

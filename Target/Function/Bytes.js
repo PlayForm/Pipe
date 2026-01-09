@@ -1,1 +1,1 @@
-var a=(...[t,e=2])=>{if(t===0)return"0 Bytes";const r=Math.floor(Math.log(t)/Math.log(o));return`${Number.parseFloat((t/o**r).toFixed(e<0?0:e))} ${["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"][r]}`};const o=1024;export{o as Kilobyte,a as default};
+var a=((...[t,e=2])=>{if(t===0)return"0 Bytes";const r=Math.floor(Math.log(t)/Math.log(o));return`${Number.parseFloat((t/o**r).toFixed(e<0?0:e))} ${["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"][r]}`});const o=1024;export{o as Kilobyte,a as default};
