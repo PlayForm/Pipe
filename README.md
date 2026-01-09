@@ -1,4 +1,4 @@
-# 🧪 [Pipe]
+# [Pipe] 🧪
 
 `Pipe` allows you to process files in a pipeline, making it easy to perform
 various operations on them.
