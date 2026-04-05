@@ -32,14 +32,12 @@
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
+		"@types/node": "*",
 		"deepmerge-ts": "7.1.5",
 		"fast-glob": "3.3.3"
 	},
 	"devDependencies": {
 		"@playform/build": "0.3.0"
-	},
-	"peerDependencies": {
-    "@types/node": "25.5.0"
 	},
 	"publishConfig": {
 		"access": "public",
