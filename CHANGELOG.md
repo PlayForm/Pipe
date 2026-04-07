@@ -1,5 +1,14 @@
 ## 0.1.5
 
+### Change
+
+- Updated `@types/node` from 25.0.3 to `*`
+- Updated `@playform/build` from 0.2.6 to 0.3.1
+- Updated homepage URL
+- Added `rootDir` to `tsconfig.json`
+- Updated `.npmignore` to exclude `Configuration/`, `DEPENDENTS.md`, and
+  `Documentation/`
+
 ## 0.1.4
 
 ### Change
