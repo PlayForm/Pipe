@@ -7,11 +7,11 @@
 - Updated `@types/node` from 22.13.14 to 25.0.3
 - Updated `@playform/build` from 0.2.1 to 0.2.6
 - Changed package author email from `Source/Open@PlayForm.LTD` to
-`Source/Open@PlayForm.Cloud`
+  `Source/Open@PlayForm.Cloud`
 - Changed package author URL from `HTTPS://PlayForm.LTD` to
-`HTTPS://PlayForm.Cloud`
+  `HTTPS://PlayForm.Cloud`
 - Replaced `Promise.all()` with `Promise.allSettled()` in pipeline execution for
-better error resilience
+  better error resilience
 
 ## 0.1.3
 
@@ -20,11 +20,11 @@ better error resilience
 - Updated `@types/node` from 22.10.5 to 22.13.14
 - Updated `deepmerge-ts` from 7.1.3 to 7.1.5
 - Refactored core module imports to use Node.js protocol syntax (`node:url`,
-`node:fs/promises`)
+  `node:fs/promises`)
 - Improved asynchronous pipeline handling with Promise chaining
 - Optimized file system operations:
-	- Direct use of `mkdir`, `stat` and `writeFile` from `node:fs/promises`
-	- Simplified recursive directory creation logic
+    - Direct use of `mkdir`, `stat` and `writeFile` from `node:fs/promises`
+    - Simplified recursive directory creation logic
 - Enhanced error handling and logging consistency
 - Reordered interface imports and destructuring patterns
 - Updated package.json metadata formatting (emoji position adjustments)
@@ -52,12 +52,12 @@ better error resilience
 - Updated `.npmignore` to exclude `docs/` directory.
 - Added badges for dependents to `DEPENDENTS.md`.
 - Updated `README.md` to remove the summary section and point to `CHANGELOG.md`
-for change history.
+  for change history.
 - Updated `package.json` author information:
-	- Changed author email from `Source/Open@PlayForm.Cloud` to
-	`Source/Open@PlayForm.Cloud`
-	- Changed author URL from `HTTPS://PlayForm.Cloud` to
-	`HTTPS://PlayForm.Cloud`
+    - Changed author email from `Source/Open@PlayForm.Cloud` to
+      `Source/Open@PlayForm.Cloud`
+    - Changed author URL from `HTTPS://PlayForm.Cloud` to
+      `HTTPS://PlayForm.Cloud`
 
 ### Removed
 
@@ -75,7 +75,7 @@ for change history.
 ### Add
 
 - Added `.npmignore` file to exclude unnecessary files from the published
-package.
+  package.
 
 ## 0.1.0
 
@@ -83,7 +83,7 @@ package.
 
 - Updated version to 0.1.0
 - Updated dependencies, including `@types/node`, `deepmerge-ts`, and
-`@playform/build`
+  `@playform/build`
 - Updated README.md with simplified language and improved formatting.
 - Refactored code for better readability and consistency.
 
@@ -97,8 +97,8 @@ package.
 
 - Updated version to 0.0.6
 - Updated dependencies:
-	- `@types/node` to 20.14.2
-	- `deepmerge-ts` to 7.0.3
+    - `@types/node` to 20.14.2
+    - `deepmerge-ts` to 7.0.3
 - Moved `@playform/build` from `devDependencies` to `peerDependencies`.
 
 ### Add
@@ -111,10 +111,10 @@ package.
 
 - Updated version to 0.0.5
 - Updated dependencies:
-	- `@playform/build` to 0.0.9
-	- `@playform/document` to 0.0.7
+    - `@playform/build` to 0.0.9
+    - `@playform/document` to 0.0.7
 - Added optional peer dependencies for `@playform/build` and
-`@playform/document`.
+  `@playform/document`.
 - Improved code documentation and comments.
 
 ## 0.0.4
@@ -123,10 +123,10 @@ package.
 
 - Updated version to 0.0.4
 - Updated dependencies:
-	- `@types/node` to 20.12.12
-	- `deepmerge-ts` to 7.0.1
+    - `@types/node` to 20.12.12
+    - `deepmerge-ts` to 7.0.1
 - Moved `@playform/build` from `devDependencies` to `peerDependencies` and
-marked it as optional.
+  marked it as optional.
 
 ### Add
 
@@ -138,8 +138,8 @@ marked it as optional.
 
 - Updated version to 0.0.3
 - Updated dependencies:
-	- `@types/node` to 20.12.11
-	- `@playform/build` to 0.0.8
+    - `@types/node` to 20.12.11
+    - `@playform/build` to 0.0.8
 - Updated package description to use an em dash instead of a period.
 - Updated repository URLs in `package.json` to use HTTPS.
 - Updated `package.json` with new author information.
