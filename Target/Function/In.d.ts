@@ -6,5 +6,5 @@ import type Path from "../Type/Path.js";
  */
 declare const _default: Interface;
 export default _default;
-export declare const Apply: import("../Interface/Apply.js").default;
+export declare const Apply: any;
 export declare let _Path: Path;
