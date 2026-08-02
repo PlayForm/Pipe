@@ -14,4 +14,4 @@ export default class implements Interface {
     constructor(Cache?: Option["Cache"], Logger?: Option["Logger"]);
 }
 export declare const Cache: any, Logger: any, Action: any;
-export declare const Merge: any;
+export declare const Merge: <Target extends object, Ts extends ReadonlyArray<unknown>>(target: Target, ...objects: Ts) => void;
