@@ -25,7 +25,7 @@ export declare const Cache: {
     Fulfilled: ({ File }: Plan) => Promise<string | false>;
     Changed: (Plan: Plan) => Promise<Plan>;
 };
-export declare const Merge: <Ts extends readonly unknown[]>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, Readonly<{
+export declare const Merge: <Ts extends ReadonlyArray<unknown>>(...objects: Ts) => import("deepmerge-ts").DeepMergeHKT<Ts, Readonly<{
     DeepMergeRecordsURI: "DeepMergeRecordsDefaultURI";
     DeepMergeArraysURI: "DeepMergeArraysDefaultURI";
     DeepMergeSetsURI: "DeepMergeSetsDefaultURI";
