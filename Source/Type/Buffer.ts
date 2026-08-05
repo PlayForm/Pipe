@@ -1,5 +1,3 @@
-import type { Stream } from "stream";
-
 /**
  * @module Buffer
  *
@@ -10,7 +8,6 @@ export type Type =
 	| string
 	| NodeJS.ArrayBufferView
 	| Iterable<string | NodeJS.ArrayBufferView>
-	| AsyncIterable<string | NodeJS.ArrayBufferView>
-	| Stream;
+	| AsyncIterable<string | NodeJS.ArrayBufferView>;
 
 export type { Type as default };
