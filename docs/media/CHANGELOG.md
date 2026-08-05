@@ -1,3 +1,25 @@
+## 0.1.6
+
+### Change
+
+- Added module path aliases (`@Function/*`, `@Interface/*`, `@Type/*`,
+  `@Variable/*`) to `tsconfig.json` so imports resolve within the package
+  instead of the `@playform/build` source tree.
+- Removed `Stream` from the `Buffer` type union in `Source/Type/Buffer.ts` to
+  match the data types accepted by `writeFile`.
+- Bumped package version from 0.1.5 to 0.1.6.
+
+## 0.1.5
+
+### Change
+
+- Updated `@types/node` from 25.0.3 to `*`
+- Updated `@playform/build` from 0.2.6 to 0.3.1
+- Updated homepage URL
+- Added `rootDir` to `tsconfig.json`
+- Updated `.npmignore` to exclude `Configuration/`, `DEPENDENTS.md`, and
+  `Documentation/`
+
 ## 0.1.4
 
 ### Change
