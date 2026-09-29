@@ -32,8 +32,8 @@
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"@types/node": "26.1.2",
-		"deepmerge-ts": "7.1.5",
+		"@types/node": "26.4.1",
+		"deepmerge-ts": "8.0.2",
 		"fast-glob": "3.3.3"
 	},
 	"devDependencies": {
